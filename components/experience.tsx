@@ -4,30 +4,13 @@ import { useRef, useState } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import Modal from "./modal"
 
-type Experience = {
-  title: string
-  company: string
-  period: string
-  description: string[]
-  color: string
-  skills: string[]
-}
-
-type ExperienceProps = {
-  onHover: (skills: string[], color: string) => void
-  onHoverEnd: () => void
-  onClick: (skills: string[], color: string) => void
-  onModalClose: () => void
-  filteredSkills: string[]
-}
-
-export default function Experience({ onHover, onHoverEnd, onClick, onModalClose, filteredSkills }: ExperienceProps) {
+export default function Experience({ onHover, onHoverEnd, onClick, onModalClose, filteredSkills }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [selectedExperience, setSelectedExperience] = useState(null)
   const [activeExperience, setActiveExperience] = useState(null)
 
-  const experiences: Experience[] = [
+  const experiences = [
     {
       title: "SENIOR PRINCIPAL SOFTWARE ENGINEER",
       company: "WEST MONROE",
