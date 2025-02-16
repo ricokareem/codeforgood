@@ -11,14 +11,14 @@ export default function Projects() {
   const projects = [
     {
       title: "Fender : Fender Play",
-      description: "A revolutionary app that does amazing things.",
+      description: "Forget 'Mary Had A Little Lamb'. Pick any guitar, and learn how to play your favorite song.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fender-play-2-5ij4cFMYlbyfhxTs370U7yNkmwQ57I.gif",
       link: "https://www.fender.com/play",
       color: "#FF647C",
     },
     {
       title: "Slingshot Aerospace : Slingshot Laboratory",
-      description: "An innovative solution for complex problems.",
+      description: "Learn the fundamentals of astrodynamics and experiment.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/slingshot-laboratory-a3MSO5bP5mYS6qWby0toQCdgC4xuEE.gif",
       link: "https://www.slingshot.space/solutions/applications#laboratory",
@@ -26,7 +26,7 @@ export default function Projects() {
     },
     {
       title: "Team Coco : Conan Classic",
-      description: "Cutting-edge technology meets user-friendly design.",
+      description: "The best clips from over 25 years of cutting-edge television.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/conan-classic-3-U8w9fl0h7o70wQh7v0Y64ZEnv8cV1s.gif",
       link: "https://conanclassic.com",
