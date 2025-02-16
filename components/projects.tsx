@@ -15,6 +15,7 @@ export default function Projects() {
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fender-play-2-5ij4cFMYlbyfhxTs370U7yNkmwQ57I.gif",
       link: "https://www.fender.com/play",
       color: "#FF647C",
+      unoptimized: true,
     },
     {
       title: "Slingshot Aerospace : Slingshot Laboratory",
@@ -23,6 +24,7 @@ export default function Projects() {
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/slingshot-laboratory-a3MSO5bP5mYS6qWby0toQCdgC4xuEE.gif",
       link: "https://www.slingshot.space/solutions/applications#laboratory",
       color: "#00B2FF",
+      unoptimized: true,
     },
     {
       title: "Team Coco : Conan Classic",
@@ -31,6 +33,7 @@ export default function Projects() {
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/conan-classic-3-U8w9fl0h7o70wQh7v0Y64ZEnv8cV1s.gif",
       link: "https://conanclassic.com",
       color: "#FFB800",
+      unoptimized: true,
     },
   ]
 
