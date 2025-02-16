@@ -15,6 +15,8 @@ export default function Projects() {
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fender-play-2-5ij4cFMYlbyfhxTs370U7yNkmwQ57I.gif",
       link: "https://www.fender.com/play",
       color: "#FF647C",
+      buttonColor: "#D14D63",
+      altText: "Animated demonstration of Fender Play app interface, showing guitar lessons and interactive features",
     },
     {
       title: "Slingshot Aerospace : Slingshot Laboratory",
@@ -23,6 +25,9 @@ export default function Projects() {
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/slingshot-laboratory-a3MSO5bP5mYS6qWby0toQCdgC4xuEE.gif",
       link: "https://www.slingshot.space/solutions/applications#laboratory",
       color: "#00B2FF",
+      buttonColor: "#0090CC",
+      altText:
+        "Animated visualization of Slingshot Laboratory's 3D space environment, displaying orbital mechanics and satellite trajectories",
     },
     {
       title: "Team Coco : Conan Classic",
@@ -31,6 +36,8 @@ export default function Projects() {
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/conan-classic-3-U8w9fl0h7o70wQh7v0Y64ZEnv8cV1s.gif",
       link: "https://conanclassic.com",
       color: "#FFB800",
+      buttonColor: "#CC9300",
+      altText: "Animated showcase of Conan Classic website, featuring clips and highlights from Conan O'Brien's shows",
     },
   ]
 
@@ -55,7 +62,7 @@ export default function Projects() {
                 <div className="relative h-48">
                   <Image
                     src={project.image || "/placeholder.svg"}
-                    alt={project.title}
+                    alt={project.altText}
                     fill
                     unoptimized
                     className="object-cover"
@@ -71,7 +78,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-6 py-3 rounded-xl text-white transition-transform duration-300 hover:scale-105 hover:-translate-y-1"
-                    style={{ backgroundColor: project.color }}
+                    style={{ backgroundColor: project.buttonColor }}
                   >
                     View Project
                   </a>

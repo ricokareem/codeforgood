@@ -10,10 +10,15 @@ export default function Footer() {
           </div>
           <div className="flex space-x-6">
             {[
-              { Icon: Github, href: "https://github.com/ricokareem", color: "#FF647C" },
-              { Icon: Linkedin, href: "https://www.linkedin.com/in/ricocollins/", color: "#00B2FF" },
-              { Icon: Twitter, href: "https://x.com/ricokareem", color: "#4ADE80" },
-            ].map(({ Icon, href, color }) => (
+              { Icon: Github, href: "https://github.com/ricokareem", color: "#FF647C", label: "GitHub Profile" },
+              {
+                Icon: Linkedin,
+                href: "https://www.linkedin.com/in/ricocollins/",
+                color: "#00B2FF",
+                label: "LinkedIn Profile",
+              },
+              { Icon: Twitter, href: "https://x.com/ricokareem", color: "#4ADE80", label: "Twitter Profile" },
+            ].map(({ Icon, href, color, label }) => (
               <a
                 key={href}
                 href={href}
@@ -21,8 +26,10 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="transform transition-all duration-300 hover:scale-125 hover:-translate-y-1"
                 style={{ color }}
+                aria-label={label}
               >
                 <Icon className="w-8 h-8" />
+                <span className="sr-only">{label}</span>
               </a>
             ))}
           </div>
