@@ -15,7 +15,6 @@ export default function Projects() {
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fender-play-2-5ij4cFMYlbyfhxTs370U7yNkmwQ57I.gif",
       link: "https://www.fender.com/play",
       color: "#FF647C",
-      unoptimized: true,
     },
     {
       title: "Slingshot Aerospace : Slingshot Laboratory",
@@ -24,7 +23,6 @@ export default function Projects() {
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/slingshot-laboratory-a3MSO5bP5mYS6qWby0toQCdgC4xuEE.gif",
       link: "https://www.slingshot.space/solutions/applications#laboratory",
       color: "#00B2FF",
-      unoptimized: true,
     },
     {
       title: "Team Coco : Conan Classic",
@@ -33,7 +31,6 @@ export default function Projects() {
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/conan-classic-3-U8w9fl0h7o70wQh7v0Y64ZEnv8cV1s.gif",
       link: "https://conanclassic.com",
       color: "#FFB800",
-      unoptimized: true,
     },
   ]
 
@@ -56,7 +53,7 @@ export default function Projects() {
               />
               <div className="relative bg-[#1C2333]/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10">
                 <div className="relative h-48">
-                  <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+                  <Image src={project.image || "/placeholder.svg"} alt={project.title} fill unoptimized className="object-cover"/>
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2" style={{ color: project.color }}>
