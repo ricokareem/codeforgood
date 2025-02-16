@@ -76,7 +76,7 @@ export default function Skills({ highlightedSkills, highlightColor, onSkillToggl
             onClick={() => onSkillToggle(skill.name)}
           >
             <div
-              className="absolute inset-0 rounded-lg transform scale-105 transition-all duration-300 group-hover:rotate-6 group-hover:scale-110"
+              className="absolute inset-0 rounded-lg transform scale-105 transition-all duration-300 group-hover:rotate-6 group-hover:scale-110 overflow-hidden"
               style={{
                 backgroundColor: filteredSkills.includes(skill.name)
                   ? "#00B2FF"
@@ -84,9 +84,15 @@ export default function Skills({ highlightedSkills, highlightColor, onSkillToggl
                     ? highlightColor
                     : "#4A5568",
                 opacity: filteredSkills.includes(skill.name) || highlightedSkills.includes(skill.name) ? 1 : 0.7,
+                borderRadius: "0.5rem",
               }}
             />
-            <div className="relative bg-[#1C2333]/90 backdrop-blur-sm p-3 rounded-lg border border-white/10 transform transition-transform duration-300 hover:-translate-y-1">
+            <div
+              className="relative bg-[#1C2333]/90 backdrop-blur-sm p-3 rounded-lg border border-white/10 transform transition-transform duration-300 hover:-translate-y-1 overflow-hidden"
+              style={{
+                borderRadius: "0.5rem",
+              }}
+            >
               <span className="text-sm font-medium text-white whitespace-nowrap overflow-hidden text-ellipsis">
                 {skill.name}
               </span>

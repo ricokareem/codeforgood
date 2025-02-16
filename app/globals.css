@@ -22,3 +22,8 @@ body {
   mix-blend-mode: difference;
 }
 
+/* Ensure consistent border-radius */
+.rounded-lg {
+  border-radius: 0.5rem !important;
+}
+
