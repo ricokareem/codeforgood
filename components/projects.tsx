@@ -53,7 +53,13 @@ export default function Projects() {
               />
               <div className="relative bg-[#1C2333]/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10">
                 <div className="relative h-48">
-                  <Image src={project.image || "/placeholder.svg"} alt={project.title} fill unoptimized className="object-cover" />
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    fill
+                    unoptimized
+                    className="object-cover"
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2" style={{ color: project.color }}>

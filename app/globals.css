@@ -19,7 +19,6 @@ body {
 }
 
 .custom-cursor {
-  mix-blend-mode: difference;
   pointer-events: none;
 }
 
