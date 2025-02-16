@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+}
+
+::selection {
+  background: #00b2ff;
+  color: white;
+}
+
+.custom-cursor {
+  mix-blend-mode: difference;
+}
+
