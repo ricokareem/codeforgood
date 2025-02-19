@@ -14,7 +14,23 @@
     "skills": "Skills",
     "projects": "Projects",
     "education": "Education",
-    "selectLanguage": "Select language"
+    "selectLanguage": "Select language",
+    "community": "Community"
+  },
+  "community": {
+    "title": "Community",
+    "item1": {
+      "title": "Conference Speaker at Pride@GitHub",
+      "description": "Shared insights on inclusive tech practices and LGBTQ+ representation in the industry."
+    },
+    "item2": {
+      "title": "Organizer of Gay Geeks Tech Meetup",
+      "description": "Santa Monica (on hiatus, back for Pride 2025). Fostering a supportive community for LGBTQ+ tech professionals."
+    },
+    "item3": {
+      "title": "Member of The First Santa Monica Pride Founding Committee",
+      "description": "Contributed to the establishment and organization of SaMo Pride, promoting visibility and inclusion."
+    }
   },
   "experience1": {
     "title": "SENIOR PRINCIPAL SOFTWARE ENGINEER",

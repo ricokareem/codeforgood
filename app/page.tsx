@@ -7,6 +7,7 @@ import Experience from "@/components/experience"
 import Skills from "@/components/skills"
 import Projects from "@/components/projects"
 import Education from "@/components/education"
+import Community from "@/components/community"
 import Footer from "@/components/footer"
 import CustomCursor from "@/components/custom-cursor"
 import FloatingShapes from "@/components/floating-shapes"
@@ -87,6 +88,7 @@ export default function Home() {
         </div>
         <Projects />
         <Education />
+        <Community />
       </main>
       <Footer />
     </div>

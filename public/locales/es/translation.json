@@ -6,6 +6,21 @@
   "skills": "HABILIDADES",
   "projects": "PROYECTOS ANTERIORES",
   "education": "EDUCACIÓN",
+  "community": {
+    "title": "Comunidad",
+    "item1": {
+      "title": "Ponente en la Conferencia Pride@GitHub",
+      "description": "Compartió ideas sobre prácticas tecnológicas inclusivas y representación LGBTQ+ en la industria."
+    },
+    "item2": {
+      "title": "Organizador del Meetup Gay Geeks Tech",
+      "description": "Santa Mónica (en pausa, de vuelta para el Orgullo 2025). Fomenta una comunidad de apoyo para profesionales LGBTQ+ en tecnología."
+    },
+    "item3": {
+      "title": "Miembro del Comité Fundador del Primer Orgullo de Santa Mónica",
+      "description": "Contribuyó al establecimiento y organización de SaMo Pride, promoviendo la visibilidad y la inclusión."
+    }
+  },
   "viewProject": "Ver Proyecto",
   "more": "más",
   "menu": {
@@ -14,7 +29,7 @@
     "skills": "Habilidades",
     "projects": "Proyectos",
     "education": "Educación",
-    "selectLanguage": "Seleccionar idioma"
+    "community": "Comunidad"
   },
   "experience1": {
     "title": "INGENIERO DE SOFTWARE PRINCIPAL SENIOR",

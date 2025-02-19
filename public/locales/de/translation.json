@@ -6,6 +6,21 @@
   "skills": "FÄHIGKEITEN",
   "projects": "VERGANGENE PROJEKTE",
   "education": "AUSBILDUNG",
+  "community": {
+    "title": "Gemeinschaft",
+    "item1": {
+      "title": "Konferenzsprecher bei Pride@GitHub",
+      "description": "Teilte Einblicke in inklusive Technologiepraktiken und LGBTQ+-Repräsentation in der Branche."
+    },
+    "item2": {
+      "title": "Organisator des Gay Geeks Tech Meetup",
+      "description": "Santa Monica (pausiert, zurück für Pride 2025). Förderung einer unterstützenden Gemeinschaft für LGBTQ+-Technikfachleute."
+    },
+    "item3": {
+      "title": "Mitglied des Gründungskomitees des ersten Santa Monica Pride",
+      "description": "Trug zur Gründung und Organisation von SaMo Pride bei und förderte Sichtbarkeit und Inklusion."
+    }
+  },
   "viewProject": "Projekt ansehen",
   "more": "mehr",
   "menu": {
@@ -14,7 +29,8 @@
     "skills": "Fähigkeiten",
     "projects": "Projekte",
     "education": "Ausbildung",
-    "selectLanguage": "Sprache auswählen"
+    "selectLanguage": "Sprache auswählen",
+    "community": "Gemeinschaft"
   },
   "experience1": {
     "title": "LEITENDER PRINCIPAL SOFTWARE ENGINEER",

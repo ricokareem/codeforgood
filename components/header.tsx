@@ -27,6 +27,7 @@ export default function Header() {
     { key: "skills", label: t("menu.skills") },
     { key: "projects", label: t("menu.projects") },
     { key: "education", label: t("menu.education") },
+    { key: "community", label: t("menu.community") },
   ]
 
   return (
