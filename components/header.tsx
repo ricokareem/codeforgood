@@ -2,9 +2,23 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { useTranslation } from "react-i18next"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { t, i18n } = useTranslation("common")
+
+  const changeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang)
+  }
+
+  const menuItems = [
+    { key: "about", label: t("menu.about") },
+    { key: "experience", label: t("menu.experience") },
+    { key: "skills", label: t("menu.skills") },
+    { key: "projects", label: t("menu.projects") },
+    { key: "education", label: t("menu.education") },
+  ]
 
   return (
     <header className="fixed w-full bg-background/80 backdrop-blur-sm z-50">
@@ -13,6 +27,24 @@ export default function Header() {
           CFG
         </Link>
         <div className="flex items-center space-x-4">
+          <div className="relative">
+            <select
+              onChange={(e) => changeLanguage(e.target.value)}
+              value={i18n.language}
+              className="appearance-none bg-white/10 text-white py-2 pl-3 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00B2FF]"
+              style={{ width: "140px", height: "40px" }}
+              aria-label={t("menu.selectLanguage")}
+            >
+              <option value="en">ENGLISH 🇬🇧</option>
+              <option value="de">DEUTSCH 🇩🇪</option>
+              <option value="es">ESPAÑOL 🇪🇸</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </div>
+          </div>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white">
             <svg
               className="w-6 h-6"
@@ -27,23 +59,23 @@ export default function Header() {
             </svg>
           </button>
           <ul className={`md:flex space-x-4 ${isMenuOpen ? "block" : "hidden"}`}>
-            {["About", "Experience", "Skills", "Projects", "Education"].map((item) => (
-              <li key={item}>
+            {menuItems.map((item) => (
+              <li key={item.key}>
                 <a
-                  href={`#${item.toLowerCase()}`}
+                  href={`#${item.key}`}
                   className="text-gray-200 hover:text-white transition-colors"
                   onClick={(e) => {
                     e.preventDefault()
-                    const element = document.getElementById(item.toLowerCase())
+                    const element = document.getElementById(item.key)
                     if (element) {
-                      const yOffset = -100 // Adjust this value to account for the fixed header
+                      const yOffset = -100
                       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
                       window.scrollTo({ top: y, behavior: "smooth" })
                     }
                     setIsMenuOpen(false)
                   }}
                 >
-                  {item}
+                  {item.label}
                 </a>
               </li>
             ))}

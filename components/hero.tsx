@@ -5,9 +5,11 @@ import Image from "next/image"
 import { Mail, Globe, MapPin } from "lucide-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useTranslation } from "react-i18next"
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null)
+  const { t } = useTranslation("common")
 
   useEffect(() => {
     const updateMousePosition = (ev: MouseEvent) => {
@@ -52,18 +54,10 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <h1 className="text-6xl font-bold bg-gradient-to-r from-[#FFB800] to-[#FF647C] bg-clip-text text-transparent mb-4">
-            RICO RODRIQUEZ COLLINS
+            {t("name")}
           </h1>
-          <h2 className="text-4xl text-[#00B2FF] mb-6">EXPERIENCED FULL STACK & MOBILE ENGINEER</h2>
-          <p className="text-gray-300 mb-6 text-lg">
-            Technical leader who champions sustainable engineering practices through empathy and collaboration. I excel
-            at fostering team environments where open communication drives innovation and inclusivity enables everyone's
-            best work. <br />
-            <br /> My approach emphasizes building autonomous product teams that thrive across in-office, remote, and
-            offshore settings by establishing durable processes that can scale with complexity. Drawing from extensive
-            experience guiding cross-cultural teams, I help organizations create engineering cultures that balance rapid
-            delivery with maintainable solutions.
-          </p>
+          <h2 className="text-4xl text-[#00B2FF] mb-6">{t("title")}</h2>
+          <p className="text-gray-300 mb-6 text-lg">{t("about")}</p>
           <div className="space-y-4">
             {[
               {

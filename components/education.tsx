@@ -2,10 +2,12 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import { useTranslation } from "next-i18next"
 
 export default function Education() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const { t } = useTranslation("common")
 
   const educations = [
     {
@@ -17,14 +19,14 @@ export default function Education() {
     {
       school: "Stanton College Preparatory School",
       period: "Shout out to Mu Alpha Theta",
-      color: "#00B2FF", // Using a different color for variety
+      color: "#00B2FF",
     },
   ]
 
   return (
     <section id="education" className="py-20 bg-[#161B28]" ref={ref}>
       <div className="container mx-auto px-4">
-        <h2 className="text-5xl font-bold text-[#4ADE80] mb-12">EDUCATION</h2>
+        <h2 className="text-5xl font-bold text-[#4ADE80] mb-12">{t("education")}</h2>
         <div className="space-y-8">
           {educations.map((edu, index) => (
             <motion.div
