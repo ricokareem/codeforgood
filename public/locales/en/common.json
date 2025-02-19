@@ -6,8 +6,69 @@
   "skills": "SKILLS",
   "projects": "PAST PROJECTS",
   "education": "EDUCATION",
-  "contact": "CONTACT ME",
   "viewProject": "View Project",
-  "sendMessage": "Send Message"
+  "more": "more",
+  "menu": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "education": "Education",
+    "selectLanguage": "Select language"
+  },
+  "experience1": {
+    "title": "SENIOR PRINCIPAL SOFTWARE ENGINEER",
+    "company": "WEST MONROE",
+    "period": "January 2022 - May 2024",
+    "description1": "Transformed engineering practices by implementing agile methodologies across multiple teams, earning stakeholder trust and driving adoption through demonstrated success and measurable improvements in delivery speed",
+    "description2": "Successfully mentored West Monroe engineers located both in the US and in Costa Rica as a career advisor, with 3 of 5 engineers achieving promotions to Senior or Principal positions through focused guidance and technical leadership",
+    "description3": "Architected greenfield pricing and estimation platform that slashed project onboarding from months to days, significantly reducing overhead and accelerating sales cycles across the organization",
+    "description4": "Delivered high-impact technical solutions for key clients: Slingshot Aerospace (3D orbital dynamics visualization platform), Forge Global (private equity trading system), and Sisu/Snowflake (B2B machine learning analytics tool)"
+  },
+  "experience2": {
+    "title": "SENIOR SOFTWARE ENGINEER",
+    "company": "CARBON FIVE",
+    "period": "March 2018 - January 2022",
+    "description1": "Partnered with startups and enterprise clients to architect and launch mission-critical products, while mentoring engineering teams and establishing agile practices that elevated team performance",
+    "description2": "Led critical modernization projects at Hulu, driving SOX compliance pre-Disney acquisition and executing full-stack upgrades from Python 2 to 3 and KnockoutJS to React, including team training and knowledge transfer",
+    "description3": "Successfully upgraded PBS/ITVS platform to achieve WCAG AA certification, while delivering high-impact projects for Fender (React Hooks modernization, Storybook component library), Team Coco (GraphQL frontend architecture), and Swell Investing (ACATS brokerage integration, custom Sketch Plugins development)"
+  },
+  "experience3": {
+    "title": "SENIOR SOFTWARE ENGINEER",
+    "company": "YP",
+    "period": "July 2010 - December 2017",
+    "description1": "Full-stack Engineer, part of a small team making solutions for Yellowpages.com, yp.com, m.yp.com (desktop & mobile platforms) serving at the time 60M+ monthly users",
+    "description2": "Within first month, spearheaded company-wide version control transformation from Subversion to Git, created documentation and conducted hands-on training sessions for 25+ developers, resulting in 40% faster code integration and deployment cycles",
+    "description3": "Working solo, migrated main site's Admin Tool, used to create feature flags and embed content from Marketing's CMS (Radiant) host, from Ruby on Rails to NodeJS, allowing for instant updates, and a codebase that could be worked on by the entire team instead of only 1 or 2 Ruby specialists and reducing technical debt"
+  },
+  "experience4": {
+    "title": "SOFTWARE CONFIGURATION ENGINEER",
+    "company": "YAHOO!",
+    "period": "October 2007 - July 2010",
+    "description1": "Built and optimized build-automation pipelines that drastically reduced release cycle times and made way for \"set it and forget it\" code staging and production Pipelines to multiple CDN's across the globe",
+    "description2": "Led migration from CVS to Subversion, created conversion scripts and training materials that enabled smooth transition for development teams"
+  },
+  "experience5": {
+    "title": "SOFTWARE ENGINEER",
+    "company": "EARTHLINK, INC",
+    "period": "November 1998 - September 2007",
+    "description1": "Responsible for building and deploying Enterprise Java web applications and maintained CI infrastructure (Maven, Jenkins), driving development efficiency for 3 product teams",
+    "description2": "Drove version control modernization from CVS to Subversion while achieving ITIL certification and completing project management training"
+  },
+  "project1": {
+    "title": "Fender : Fender Play",
+    "description": "Forget 'Mary Had A Little Lamb'. Pick any guitar, and learn how to play your favorite song.",
+    "altText": "Animated demonstration of Fender Play app interface, showing guitar lessons and interactive features"
+  },
+  "project2": {
+    "title": "Slingshot Aerospace : Slingshot Laboratory",
+    "description": "Learn the fundamentals of astrodynamics and experiment.",
+    "altText": "Animated visualization of Slingshot Laboratory's 3D space environment, displaying orbital mechanics and satellite trajectories"
+  },
+  "project3": {
+    "title": "Team Coco : Conan Classic",
+    "description": "The best clips from over 25 years of cutting-edge television.",
+    "altText": "Animated showcase of Conan Classic website, featuring clips and highlights from Conan O'Brien's shows"
+  }
 }
 

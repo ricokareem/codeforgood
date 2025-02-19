@@ -3,23 +3,25 @@
 import { useRef, useState } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import Modal from "./modal"
+import { useTranslation } from "react-i18next"
 
 export default function Experience({ onHover, onHoverEnd, onClick, onModalClose, filteredSkills }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [selectedExperience, setSelectedExperience] = useState(null)
   const [activeExperience, setActiveExperience] = useState(null)
+  const { t } = useTranslation("common")
 
   const experiences = [
     {
-      title: "SENIOR PRINCIPAL SOFTWARE ENGINEER",
-      company: "WEST MONROE",
-      period: "January 2022 - May 2024",
+      title: t("experience1.title"),
+      company: t("experience1.company"),
+      period: t("experience1.period"),
       description: [
-        "Transformed engineering practices by implementing agile methodologies across multiple teams, earning stakeholder trust and driving adoption through demonstrated success and measurable improvements in delivery speed",
-        "Successfully mentored West Monroe engineers located both in the US and in Costa Rica as a career advisor, with 3 of 5 engineers achieving promotions to Senior or Principal positions through focused guidance and technical leadership",
-        "Architected greenfield pricing and estimation platform that slashed project onboarding from months to days, significantly reducing overhead and accelerating sales cycles across the organization",
-        "Delivered high-impact technical solutions for key clients: Slingshot Aerospace (3D orbital dynamics visualization platform), Forge Global (private equity trading system), and Sisu/Snowflake (B2B machine learning analytics tool)",
+        t("experience1.description1"),
+        t("experience1.description2"),
+        t("experience1.description3"),
+        t("experience1.description4"),
       ],
       color: "#FF647C",
       skills: [
@@ -63,14 +65,10 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
       ],
     },
     {
-      title: "SENIOR SOFTWARE ENGINEER",
-      company: "CARBON FIVE",
-      period: "March 2018 - January 2022",
-      description: [
-        "Partnered with startups and enterprise clients to architect and launch mission-critical products, while mentoring engineering teams and establishing agile practices that elevated team performance",
-        "Led critical modernization projects at Hulu, driving SOX compliance pre-Disney acquisition and executing full-stack upgrades from Python 2 to 3 and KnockoutJS to React, including team training and knowledge transfer",
-        "Successfully upgraded PBS/ITVS platform to achieve WCAG AA certification, while delivering high-impact projects for Fender (React Hooks modernization, Storybook component library), Team Coco (GraphQL frontend architecture), and Swell Investing (ACATS brokerage integration, custom Sketch Plugins development)",
-      ],
+      title: t("experience2.title"),
+      company: t("experience2.company"),
+      period: t("experience2.period"),
+      description: [t("experience2.description1"), t("experience2.description2"), t("experience2.description3")],
       color: "#00B2FF",
       skills: [
         "JavaScript",
@@ -93,14 +91,10 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
       ],
     },
     {
-      title: "SENIOR SOFTWARE ENGINEER",
-      company: "YP",
-      period: "July 2010 - December 2017",
-      description: [
-        "Full-stack Engineer, part of a small team making solutions for Yellowpages.com, yp.com, m.yp.com (desktop & mobile platforms) serving at the time 60M+ monthly users",
-        "Within first month, spearheaded company-wide version control transformation from Subversion to Git, created documentation and conducted hands-on training sessions for 25+ developers, resulting in 40% faster code integration and deployment cycles",
-        "Working solo, migrated main site's Admin Tool, used to create feature flags and embed content from Marketing's CMS (Radiant) host, from Ruby on Rails to NodeJS, allowing for instant updates, and a codebase that could be worked on by the entire team instead of only 1 or 2 Ruby specialists and reducing technical debt",
-      ],
+      title: t("experience3.title"),
+      company: t("experience3.company"),
+      period: t("experience3.period"),
+      description: [t("experience3.description1"), t("experience3.description2"), t("experience3.description3")],
       color: "#FFB800",
       skills: [
         "JavaScript",
@@ -114,24 +108,18 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
       ],
     },
     {
-      title: "SOFTWARE CONFIGURATION ENGINEER",
-      company: "YAHOO!",
-      period: "October 2007 - July 2010",
-      description: [
-        'Built and optimized build-automation pipelines that drastically reduced release cycle times and made way for "set it and forget it" code staging and production Pipelines to multiple CDN\'s across the globe',
-        "Led migration from CVS to Subversion, created conversion scripts and training materials that enabled smooth transition for development teams",
-      ],
+      title: t("experience4.title"),
+      company: t("experience4.company"),
+      period: t("experience4.period"),
+      description: [t("experience4.description1"), t("experience4.description2")],
       color: "#4ADE80",
       skills: ["Build Automation", "Pipelines", "Version Control (CVS, SVN)"],
     },
     {
-      title: "SOFTWARE ENGINEER",
-      company: "EARTHLINK, INC",
-      period: "November 1998 - September 2007",
-      description: [
-        "Responsible for building and deploying Enterprise Java web applications and maintained CI infrastructure (Maven, Jenkins), driving development efficiency for 3 product teams",
-        "Drove version control modernization from CVS to Subversion while achieving ITIL certification and completing project management training",
-      ],
+      title: t("experience5.title"),
+      company: t("experience5.company"),
+      period: t("experience5.period"),
+      description: [t("experience5.description1"), t("experience5.description2")],
       color: "#FF647C",
       skills: ["Java", "JSP", "Maven", "Jenkins", "Continuous Integration", "Project Management", "ITIL"],
     },
@@ -163,7 +151,7 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
 
   return (
     <section id="experience" ref={ref} className="py-20">
-      <h2 className="text-5xl font-bold text-[#00B2FF] mb-12">EXPERIENCE</h2>
+      <h2 className="text-5xl font-bold text-[#00B2FF] mb-12">{t("experience")}</h2>
       <div className="space-y-6">
         <AnimatePresence>
           {experiences
@@ -201,7 +189,7 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
                   </p>
                   <p className="text-gray-300">
                     {exp.description[0].slice(0, 150)}...
-                    <span className="text-[#00B2FF] hover:underline focus:outline-none ml-1">more</span>
+                    <span className="text-[#00B2FF] hover:underline focus:outline-none ml-1">{t("more")}</span>
                   </p>
                 </div>
               </motion.div>

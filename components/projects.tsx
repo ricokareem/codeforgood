@@ -3,48 +3,49 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
+import { useTranslation } from "react-i18next"
 
 export default function Projects() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const { t } = useTranslation("common")
 
   const projects = [
     {
-      title: "Fender : Fender Play",
-      description: "Forget 'Mary Had A Little Lamb'. Pick any guitar, and learn how to play your favorite song.",
+      title: t("project1.title"),
+      description: t("project1.description"),
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fender-play-2-5ij4cFMYlbyfhxTs370U7yNkmwQ57I.gif",
       link: "https://www.fender.com/play",
       color: "#FF647C",
       buttonColor: "#D14D63",
-      altText: "Animated demonstration of Fender Play app interface, showing guitar lessons and interactive features",
+      altText: t("project1.altText"),
     },
     {
-      title: "Slingshot Aerospace : Slingshot Laboratory",
-      description: "Learn the fundamentals of astrodynamics and experiment.",
+      title: t("project2.title"),
+      description: t("project2.description"),
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/slingshot-laboratory-a3MSO5bP5mYS6qWby0toQCdgC4xuEE.gif",
       link: "https://www.slingshot.space/solutions/applications#laboratory",
       color: "#00B2FF",
       buttonColor: "#0090CC",
-      altText:
-        "Animated visualization of Slingshot Laboratory's 3D space environment, displaying orbital mechanics and satellite trajectories",
+      altText: t("project2.altText"),
     },
     {
-      title: "Team Coco : Conan Classic",
-      description: "The best clips from over 25 years of cutting-edge television.",
+      title: t("project3.title"),
+      description: t("project3.description"),
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/conan-classic-3-U8w9fl0h7o70wQh7v0Y64ZEnv8cV1s.gif",
       link: "https://conanclassic.com",
       color: "#FFB800",
       buttonColor: "#CC9300",
-      altText: "Animated showcase of Conan Classic website, featuring clips and highlights from Conan O'Brien's shows",
+      altText: t("project3.altText"),
     },
   ]
 
   return (
     <section id="projects" className="py-20" ref={ref}>
       <div className="container mx-auto px-4">
-        <h2 className="text-5xl font-bold text-[#FF647C] mb-12">PAST PROJECTS</h2>
+        <h2 className="text-5xl font-bold text-[#FF647C] mb-12">{t("projects")}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -80,7 +81,7 @@ export default function Projects() {
                     className="inline-block px-6 py-3 rounded-xl text-white transition-transform duration-300 hover:scale-105 hover:-translate-y-1"
                     style={{ backgroundColor: project.buttonColor }}
                   >
-                    View Project
+                    {t("viewProject")}
                   </a>
                 </div>
               </div>

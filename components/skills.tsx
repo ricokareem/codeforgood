@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useTranslation } from "next-i18next"
 
 type Skill = {
   name: string
@@ -15,6 +16,8 @@ type SkillsProps = {
 }
 
 export default function Skills({ highlightedSkills, highlightColor, onSkillToggle, filteredSkills }: SkillsProps) {
+  const { t } = useTranslation("common")
+
   const skills: Skill[] = [
     { name: "JavaScript", color: "#FFB800" },
     { name: "TypeScript", color: "#00B2FF" },
@@ -64,7 +67,7 @@ export default function Skills({ highlightedSkills, highlightColor, onSkillToggl
 
   return (
     <section id="skills" className="py-20">
-      <h2 className="text-5xl font-bold text-[#FFB800] mb-12">SKILLS</h2>
+      <h2 className="text-5xl font-bold text-[#FFB800] mb-12">{t("skills")}</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {skills.map((skill, index) => (
           <motion.div

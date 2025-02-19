@@ -6,8 +6,68 @@
   "skills": "FÄHIGKEITEN",
   "projects": "VERGANGENE PROJEKTE",
   "education": "AUSBILDUNG",
-  "contact": "KONTAKTIEREN SIE MICH",
   "viewProject": "Projekt ansehen",
-  "sendMessage": "Nachricht senden"
+  "more": "mehr",
+  "menu": {
+    "about": "Über mich",
+    "experience": "Erfahrung",
+    "skills": "Fähigkeiten",
+    "projects": "Projekte",
+    "education": "Ausbildung",
+    "selectLanguage": "Sprache auswählen"
+  },
+  "experience1": {
+    "title": "LEITENDER PRINCIPAL SOFTWARE ENGINEER",
+    "company": "WEST MONROE",
+    "period": "Januar 2022 - Mai 2024",
+    "description1": "Transformierte Ingenieurpraktiken durch Implementierung agiler Methoden in mehreren Teams, gewann das Vertrauen der Stakeholder und trieb die Adoption durch nachgewiesenen Erfolg und messbare Verbesserungen in der Liefergeschwindigkeit voran",
+    "description2": "Erfolgreich als Karriereberater West Monroe-Ingenieure sowohl in den USA als auch in Costa Rica betreut, wobei 3 von 5 Ingenieuren durch gezielte Anleitung und technische Führung Beförderungen zu Senior- oder Principal-Positionen erreichten",
+    "description3": "Entwarf eine Greenfield-Preis- und Schätzplattform, die das Onboarding von Projekten von Monaten auf Tage reduzierte und damit den Overhead erheblich senkte und die Verkaufszyklen in der gesamten Organisation beschleunigte",
+    "description4": "Lieferte wirkungsvolle technische Lösungen für Schlüsselkunden: Slingshot Aerospace (3D-Orbitaldynamik-Visualisierungsplattform), Forge Global (Private-Equity-Handelssystem) und Sisu/Snowflake (B2B-Maschinenlern-Analysetool)"
+  },
+  "experience2": {
+    "title": "SENIOR SOFTWARE ENGINEER",
+    "company": "CARBON FIVE",
+    "period": "März 2018 - Januar 2022",
+    "description1": "Partnerschaft mit Startups und Unternehmenskunden, um geschäftskritische Produkte zu entwerfen und zu starten, während Ingenieurteams betreut und agile Praktiken etabliert wurden, die die Teamleistung steigerten",
+    "description2": "Leitete kritische Modernisierungsprojekte bei Hulu, trieb die SOX-Konformität vor der Disney-Übernahme voran und führte Full-Stack-Upgrades von Python 2 auf 3 und KnockoutJS auf React durch, einschließlich Teamschulung und Wissenstransfer",
+    "description3": "Erfolgreiches Upgrade der PBS/ITVS-Plattform zur Erreichung der WCAG AA-Zertifizierung, während wirkungsvolle Projekte für Fender (React Hooks Modernisierung, Storybook-Komponentenbibliothek), Team Coco (GraphQL-Frontend-Architektur) und Swell Investing (ACATS-Maklerintegration, Entwicklung benutzerdefinierter Sketch-Plugins) geliefert wurden"
+  },
+  "experience3": {
+    "title": "SENIOR SOFTWARE ENGINEER",
+    "company": "YP",
+    "period": "Juli 2010 - Dezember 2017",
+    "description1": "Full-Stack-Ingenieur, Teil eines kleinen Teams, das Lösungen für Yellowpages.com, yp.com, m.yp.com (Desktop- und mobile Plattformen) entwickelte, die damals über 60 Millionen monatliche Nutzer bedienten",
+    "description2": "Innerhalb des ersten Monats leitete ich die unternehmensweite Transformation der Versionskontrolle von Subversion zu Git, erstellte Dokumentation und führte praktische Schulungen für über 25 Entwickler durch, was zu 40% schnellerer Codeintegration und Bereitstellungszyklen führte",
+    "description3": "Arbeitete allein an der Migration des Admin-Tools der Hauptseite, das zur Erstellung von Feature-Flags und zur Einbettung von Inhalten aus dem CMS-Host (Radiant) des Marketings verwendet wurde, von Ruby on Rails zu NodeJS, was sofortige Updates ermöglichte und einen Codebase schuf, an dem das gesamte Team arbeiten konnte, anstatt nur 1 oder 2 Ruby-Spezialisten, und reduzierte technische Schulden"
+  },
+  "experience4": {
+    "title": "SOFTWARE-KONFIGURATIONSINGENIEUR",
+    "company": "YAHOO!",
+    "period": "Oktober 2007 - Juli 2010",
+    "description1": "Entwickelte und optimierte Build-Automatisierungspipelines, die die Freigabezykluszeiten drastisch reduzierten und den Weg für \"set it and forget it\" Code-Staging und Produktions-Pipelines zu mehreren CDNs weltweit ebneten",
+    "description2": "Leitete die Migration von CVS zu Subversion, erstellte Konvertierungsskripte und Schulungsmaterialien, die einen reibungslosen Übergang für Entwicklungsteams ermöglichten"
+  },
+  "experience5": {
+    "title": "SOFTWARE-INGENIEUR",
+    "company": "EARTHLINK, INC",
+    "period": "November 1998 - September 2007",
+    "description1": "Verantwortlich für den Aufbau und die Bereitstellung von Enterprise-Java-Webanwendungen und die Wartung der CI-Infrastruktur (Maven, Jenkins), was die Entwicklungseffizienz für 3 Produktteams vorantrieb",
+    "description2": "Trieb die Modernisierung der Versionskontrolle von CVS zu Subversion voran, während gleichzeitig die ITIL-Zertifizierung erreicht und Projektmanagement-Schulungen abgeschlossen wurden"
+  },
+  "project1": {
+    "title": "Fender : Fender Play",
+    "description": "Vergessen Sie 'Mary Had A Little Lamb'. Wählen Sie eine beliebige Gitarre und lernen Sie, Ihren Lieblingssong zu spielen.",
+    "altText": "Animierte Demonstration der Fender Play App-Oberfläche, die Gitarrenunterricht und interaktive Funktionen zeigt"
+  },
+  "project2": {
+    "title": "Slingshot Aerospace : Slingshot Laboratory",
+    "description": "Lernen Sie die Grundlagen der Astrodynamik und experimentieren Sie.",
+    "altText": "Animierte Visualisierung der 3D-Weltraumumgebung von Slingshot Laboratory, die Orbitalmechanik und Satellitenbahnen zeigt"
+  },
+  "project3": {
+    "title": "Team Coco : Conan Classic",
+    "description": "Die besten Clips aus über 25 Jahren bahnbrechendem Fernsehen.",
+    "altText": "Animierte Präsentation der Conan Classic Website mit Clips und Highlights aus Conan O'Briens Shows"
+  }
 }
-
