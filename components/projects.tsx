@@ -1,20 +1,21 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
-import Image from "next/image"
-import { useTranslation } from "react-i18next"
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export default function Projects() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-  const { t } = useTranslation("common")
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { t } = useTranslation("translation");
 
   const projects = [
     {
       title: t("project1.title"),
       description: t("project1.description"),
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fender-play-2-5ij4cFMYlbyfhxTs370U7yNkmwQ57I.gif",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fender-play-2-5ij4cFMYlbyfhxTs370U7yNkmwQ57I.gif",
       link: "https://www.fender.com/play",
       color: "#FF647C",
       buttonColor: "#D14D63",
@@ -40,12 +41,14 @@ export default function Projects() {
       buttonColor: "#CC9300",
       altText: t("project3.altText"),
     },
-  ]
+  ];
 
   return (
     <section id="projects" className="py-20" ref={ref}>
       <div className="container mx-auto px-4">
-        <h2 className="text-5xl font-bold text-[#FF647C] mb-12">{t("projects")}</h2>
+        <h2 className="text-5xl font-bold text-[#FF647C] mb-12">
+          {t("projects")}
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -70,7 +73,10 @@ export default function Projects() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2" style={{ color: project.color }}>
+                  <h3
+                    className="text-xl font-bold mb-2"
+                    style={{ color: project.color }}
+                  >
                     {project.title}
                   </h3>
                   <p className="text-gray-300 mb-4">{project.description}</p>
@@ -90,6 +96,5 @@ export default function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
