@@ -1,27 +1,22 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import { useTranslation } from "next-i18next";
+import { motion } from "framer-motion"
+import { useTranslation } from "next-i18next"
 
 type Skill = {
-  name: string;
-  color: string;
-};
+  name: string
+  color: string
+}
 
 type SkillsProps = {
-  highlightedSkills: string[];
-  highlightColor: string;
-  onSkillToggle: (skill: string) => void;
-  filteredSkills: string[];
-};
+  highlightedSkills: string[]
+  highlightColor: string
+  onSkillToggle: (skill: string) => void
+  filteredSkills: string[]
+}
 
-export default function Skills({
-  highlightedSkills,
-  highlightColor,
-  onSkillToggle,
-  filteredSkills,
-}: SkillsProps) {
-  const { t } = useTranslation("translation");
+export default function Skills({ highlightedSkills, highlightColor, onSkillToggle, filteredSkills }: SkillsProps) {
+  const { t } = useTranslation("translation")
 
   const skills: Skill[] = [
     { name: "JavaScript", color: "#FFB800" },
@@ -68,7 +63,7 @@ export default function Skills({
     { name: "Maven", color: "#FFB800" },
     { name: "Jenkins", color: "#00B2FF" },
     { name: "Project Management", color: "#4ADE80" },
-  ];
+  ]
 
   return (
     <section id="skills" className="py-20">
@@ -89,13 +84,9 @@ export default function Skills({
                 backgroundColor: filteredSkills.includes(skill.name)
                   ? "#00B2FF"
                   : highlightedSkills.includes(skill.name)
-                  ? highlightColor
-                  : "#4A5568",
-                opacity:
-                  filteredSkills.includes(skill.name) ||
-                  highlightedSkills.includes(skill.name)
-                    ? 1
-                    : 0.7,
+                    ? highlightColor
+                    : "#4A5568",
+                opacity: filteredSkills.includes(skill.name) || highlightedSkills.includes(skill.name) ? 1 : 0.7,
                 borderRadius: "0.5rem",
               }}
             />
@@ -113,5 +104,6 @@ export default function Skills({
         ))}
       </div>
     </section>
-  );
+  )
 }
+

@@ -1,34 +1,30 @@
-"use client";
+"use client"
 
-import { useEffect, useRef } from "react";
-import Image from "next/image";
-import { Mail, Globe, MapPin } from "lucide-react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { useTranslation } from "react-i18next";
+import { useEffect, useRef } from "react"
+import Image from "next/image"
+import { Mail, Globe, MapPin } from "lucide-react"
+import { motion } from "framer-motion"
+import Link from "next/link"
+import { useTranslation } from "react-i18next"
 
 export default function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { t } = useTranslation("translation");
+  const ref = useRef<HTMLDivElement>(null)
+  const { t } = useTranslation("translation")
 
   useEffect(() => {
     const updateMousePosition = (ev: MouseEvent) => {
-      if (!ref.current) return;
-      const { clientX, clientY } = ev;
-      ref.current.style.setProperty("--x", `${clientX}px`);
-      ref.current.style.setProperty("--y", `${clientY}px`);
-    };
+      if (!ref.current) return
+      const { clientX, clientY } = ev
+      ref.current.style.setProperty("--x", `${clientX}px`)
+      ref.current.style.setProperty("--y", `${clientY}px`)
+    }
 
-    window.addEventListener("mousemove", updateMousePosition);
-    return () => window.removeEventListener("mousemove", updateMousePosition);
-  }, []);
+    window.addEventListener("mousemove", updateMousePosition)
+    return () => window.removeEventListener("mousemove", updateMousePosition)
+  }, [])
 
   return (
-    <section
-      id="about"
-      className="py-20 min-h-screen flex items-center relative"
-      ref={ref}
-    >
+    <section id="about" className="py-20 min-h-screen flex items-center relative" ref={ref}>
       <div
         className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20"
         style={{ backgroundPosition: "center 40%" }}
@@ -103,5 +99,6 @@ export default function Hero() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }
+
