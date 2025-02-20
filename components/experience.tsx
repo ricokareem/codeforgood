@@ -7,7 +7,8 @@ import { useTranslation } from "react-i18next"
 
 export default function Experience({ onHover, onHoverEnd, onClick, onModalClose, filteredSkills, isSoundOn }) {
   const ref = useRef(null)
-  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const hoverAudioRef = useRef<HTMLAudioElement | null>(null)
+  const modalAudioRef = useRef<HTMLAudioElement | null>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [selectedExperience, setSelectedExperience] = useState(null)
   const [activeExperience, setActiveExperience] = useState(null)
@@ -16,29 +17,36 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
   const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
-    // Create audio element
-    audioRef.current = new Audio(
+    // Create audio elements
+    hoverAudioRef.current = new Audio(
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Mouse%20Click%20by%20DeVern-5fO8ekWDDXZWdU9FKDLulNvhP94Z1s.wav",
     )
-    audioRef.current.volume = 0.5 // Set volume to 50%
+    modalAudioRef.current = new Audio(
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Plasma%20Blaster%20by%20BigDino1995-EoERfGPL2zXzASXAe7YgkPYneH4Dyi.wav",
+    )
+    hoverAudioRef.current.volume = 0.5 // Set volume to 50%
+    modalAudioRef.current.volume = 0.5 // Set volume to 50%
 
     // Mark as loaded when the audio is ready
-    audioRef.current.addEventListener("canplaythrough", () => {
+    hoverAudioRef.current.addEventListener("canplaythrough", () => {
       setAudioLoaded(true)
       console.log("Mouse click sound loaded and ready to play")
     })
 
     return () => {
-      if (audioRef.current) {
-        audioRef.current.remove()
+      if (hoverAudioRef.current) {
+        hoverAudioRef.current.remove()
+      }
+      if (modalAudioRef.current) {
+        modalAudioRef.current.remove()
       }
     }
   }, [])
 
   const playHoverSound = () => {
-    if (audioRef.current && audioLoaded && isSoundOn) {
-      audioRef.current.currentTime = 0 // Reset to start
-      audioRef.current
+    if (hoverAudioRef.current && audioLoaded && isSoundOn) {
+      hoverAudioRef.current.currentTime = 0 // Reset to start
+      hoverAudioRef.current
         .play()
         .then(() => {
           console.log("Audio played successfully")
@@ -47,7 +55,19 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
         })
         .catch((e) => console.error("Audio play failed:", e))
     } else {
-      console.log("Audio not played:", { audioRef: !!audioRef.current, audioLoaded, isSoundOn })
+      console.log("Audio not played:", { audioRef: !!hoverAudioRef.current, audioLoaded, isSoundOn })
+    }
+  }
+
+  const playModalSound = () => {
+    if (modalAudioRef.current && isSoundOn) {
+      modalAudioRef.current.currentTime = 0 // Reset to start
+      modalAudioRef.current
+        .play()
+        .then(() => {
+          console.log("Modal audio played successfully")
+        })
+        .catch((e) => console.error("Modal audio play failed:", e))
     }
   }
 
@@ -168,6 +188,7 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
     setSelectedExperience(exp)
     setActiveExperience(exp)
     onClick(exp.skills, exp.color)
+    playModalSound()
   }
 
   const handleModalClose = () => {
