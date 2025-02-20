@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import Header from "@/components/header"
 import Hero from "@/components/hero"
 import Experience from "@/components/experience"
@@ -11,11 +11,44 @@ import Community from "@/components/community"
 import Footer from "@/components/footer"
 import CustomCursor from "@/components/custom-cursor"
 import FloatingShapes from "@/components/floating-shapes"
+import { Volume2, VolumeX } from "lucide-react"
 
 export default function Home() {
   const [highlightedSkills, setHighlightedSkills] = useState([])
   const [highlightColor, setHighlightColor] = useState("")
   const [filteredSkills, setFilteredSkills] = useState([])
+  const [isSoundOn, setIsSoundOn] = useState(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+
+  useEffect(() => {
+    audioRef.current = new Audio(
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Computer%20Chirp%202-D1CqZh4bVXk20OAwebK2eytmorcFbO.wav",
+    )
+    audioRef.current.volume = 0.5 // Set volume to 50%
+
+    const playSound = () => {
+      if (audioRef.current && isSoundOn) {
+        audioRef.current.play().catch((error) => console.error("Error playing sound:", error))
+      }
+    }
+
+    // Only attempt to play sound if isSoundOn is true
+    if (isSoundOn) {
+      playSound()
+    }
+
+    // Clean up
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current = null
+      }
+    }
+  }, [isSoundOn])
+
+  const toggleSound = () => {
+    setIsSoundOn(!isSoundOn)
+  }
 
   const handleExperienceHover = (skills, color) => {
     if (filteredSkills.length === 0) {
@@ -77,6 +110,7 @@ export default function Home() {
               onClick={handleExperienceClick}
               onModalClose={handleModalClose}
               filteredSkills={filteredSkills}
+              isSoundOn={isSoundOn}
             />
             <Skills
               highlightedSkills={highlightedSkills}
@@ -91,6 +125,13 @@ export default function Home() {
         <Community />
       </main>
       <Footer />
+      <button
+        onClick={toggleSound}
+        className="fixed bottom-4 left-4 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors duration-200"
+        aria-label={isSoundOn ? "Mute sound" : "Unmute sound"}
+      >
+        {isSoundOn ? <Volume2 size={24} /> : <VolumeX size={24} />}
+      </button>
     </div>
   )
 }

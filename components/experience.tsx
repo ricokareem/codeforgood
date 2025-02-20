@@ -1,16 +1,55 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import Modal from "./modal"
 import { useTranslation } from "react-i18next"
 
-export default function Experience({ onHover, onHoverEnd, onClick, onModalClose, filteredSkills }) {
+export default function Experience({ onHover, onHoverEnd, onClick, onModalClose, filteredSkills, isSoundOn }) {
   const ref = useRef(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [selectedExperience, setSelectedExperience] = useState(null)
   const [activeExperience, setActiveExperience] = useState(null)
   const { t } = useTranslation("translation")
+  const [audioLoaded, setAudioLoaded] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  useEffect(() => {
+    // Create audio element
+    audioRef.current = new Audio(
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Mouse%20Click%20by%20DeVern-5fO8ekWDDXZWdU9FKDLulNvhP94Z1s.wav",
+    )
+    audioRef.current.volume = 0.5 // Set volume to 50%
+
+    // Mark as loaded when the audio is ready
+    audioRef.current.addEventListener("canplaythrough", () => {
+      setAudioLoaded(true)
+      console.log("Mouse click sound loaded and ready to play")
+    })
+
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.remove()
+      }
+    }
+  }, [])
+
+  const playHoverSound = () => {
+    if (audioRef.current && audioLoaded && isSoundOn) {
+      audioRef.current.currentTime = 0 // Reset to start
+      audioRef.current
+        .play()
+        .then(() => {
+          console.log("Audio played successfully")
+          setIsPlaying(true)
+          setTimeout(() => setIsPlaying(false), 300) // Reset after 300ms
+        })
+        .catch((e) => console.error("Audio play failed:", e))
+    } else {
+      console.log("Audio not played:", { audioRef: !!audioRef.current, audioLoaded, isSoundOn })
+    }
+  }
 
   const experiences = [
     {
@@ -139,6 +178,7 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
 
   const handleExperienceHover = (exp) => {
     if (!selectedExperience) {
+      playHoverSound()
       onHover(exp.skills, exp.color)
     }
   }
@@ -168,6 +208,8 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
                 onClick={() => handleExperienceClick(exp)}
                 onMouseEnter={() => handleExperienceHover(exp)}
                 onMouseLeave={handleExperienceHoverEnd}
+                onFocus={() => handleExperienceHover(exp)}
+                onBlur={handleExperienceHoverEnd}
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
@@ -197,6 +239,9 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
         </AnimatePresence>
       </div>
       {selectedExperience && <Modal experience={selectedExperience} onClose={handleModalClose} />}
+      {isPlaying && isSoundOn && (
+        <div className="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full z-50">Sound Playing</div>
+      )}
     </section>
   )
 }
