@@ -5,7 +5,11 @@ import "./globals.css"
 import { I18nProvider } from "../components/i18n-provider"
 import { GoogleAnalytics } from "@next/third-parties/google"
 
-const outfit = Outfit({ subsets: ["latin"] })
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-outfit",
+})
 
 export const metadata: Metadata = {
   title: "Rico Rodriquez Collins - Full Stack & Mobile Engineer",
@@ -20,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <I18nProvider>
-        <body className={outfit.className}>
+        <body className={`${outfit.variable} ${outfit.className}`}>
           {children}
           <GoogleAnalytics gaId="G-K5XKE6L8VJ" />
         </body>
