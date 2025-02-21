@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useTranslation } from "next-i18next"
+import { useRef, useEffect, useState } from "react"
 
 type Skill = {
   name: string
@@ -13,10 +14,64 @@ type SkillsProps = {
   highlightColor: string
   onSkillToggle: (skill: string) => void
   filteredSkills: string[]
+  isSoundOn: boolean
 }
 
-export default function Skills({ highlightedSkills, highlightColor, onSkillToggle, filteredSkills }: SkillsProps) {
+export default function Skills({
+  highlightedSkills,
+  highlightColor,
+  onSkillToggle,
+  filteredSkills,
+  isSoundOn,
+}: SkillsProps) {
   const { t } = useTranslation("translation")
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [audioLoaded, setAudioLoaded] = useState(false)
+
+  useEffect(() => {
+    audioRef.current = new Audio(
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Space%201999%20Main%20Mission%20to%20Eagle%20by%20Tormy-qgfokpdMz4MmaY4d35hHYedkfGbD4s.wav",
+    )
+    audioRef.current.volume = 0.5 // Set volume to 50%
+
+    audioRef.current.addEventListener("canplaythrough", () => {
+      console.log("Audio file loaded successfully")
+      setAudioLoaded(true)
+    })
+
+    audioRef.current.addEventListener("error", (e) => {
+      console.error("Error loading audio file:", e)
+    })
+
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.remove()
+      }
+    }
+  }, [])
+
+  const playClickSound = () => {
+    console.log("Attempting to play sound. isSoundOn:", isSoundOn, "audioLoaded:", audioLoaded)
+    if (audioRef.current && isSoundOn && audioLoaded) {
+      audioRef.current.currentTime = 0 // Reset to start
+      audioRef.current
+        .play()
+        .then(() => console.log("Audio played successfully"))
+        .catch((e) => console.error("Audio play failed:", e))
+    } else {
+      console.log("Audio not played. Reasons:", {
+        audioRef: !!audioRef.current,
+        isSoundOn,
+        audioLoaded,
+      })
+    }
+  }
+
+  const handleSkillClick = (skill: string) => {
+    console.log("Skill clicked:", skill)
+    playClickSound()
+    onSkillToggle(skill)
+  }
 
   const skills: Skill[] = [
     { name: "JavaScript", color: "#FFB800" },
@@ -76,7 +131,7 @@ export default function Skills({ highlightedSkills, highlightColor, onSkillToggl
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.05 }}
-            onClick={() => onSkillToggle(skill.name)}
+            onClick={() => handleSkillClick(skill.name)}
           >
             <div
               className="absolute inset-0 rounded-lg transform scale-105 transition-all duration-300 group-hover:rotate-6 group-hover:scale-110 overflow-hidden"

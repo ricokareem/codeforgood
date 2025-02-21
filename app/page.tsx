@@ -19,12 +19,18 @@ export default function Home() {
   const [filteredSkills, setFilteredSkills] = useState([])
   const [isSoundOn, setIsSoundOn] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
+  const toggleSoundRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
     audioRef.current = new Audio(
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Computer%20Chirp%202-D1CqZh4bVXk20OAwebK2eytmorcFbO.wav",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Computer%20Chirp%202-D1CqZh4bVXk2eytmorcFbO.wav",
     )
     audioRef.current.volume = 0.5 // Set volume to 50%
+
+    toggleSoundRef.current = new Audio(
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Computer%20Chirp%202-D1CqZh4bVXk20OAwebK2eytmorcFbO.wav",
+    )
+    toggleSoundRef.current.volume = 0.5 // Set volume to 50%
 
     const playSound = () => {
       if (audioRef.current && isSoundOn) {
@@ -47,6 +53,10 @@ export default function Home() {
   }, [isSoundOn])
 
   const toggleSound = () => {
+    if (toggleSoundRef.current) {
+      toggleSoundRef.current.currentTime = 0
+      toggleSoundRef.current.play().catch((error) => console.error("Error playing toggle sound:", error))
+    }
     setIsSoundOn(!isSoundOn)
   }
 
@@ -117,12 +127,13 @@ export default function Home() {
               highlightColor={highlightColor}
               onSkillToggle={handleSkillToggle}
               filteredSkills={filteredSkills}
+              isSoundOn={isSoundOn}
             />
           </div>
         </div>
-        <Projects />
-        <Education />
-        <Community />
+        <Projects isSoundOn={isSoundOn} />
+        <Education isSoundOn={isSoundOn} />
+        <Community isSoundOn={isSoundOn} />
       </main>
       <Footer />
       <button

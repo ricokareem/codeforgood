@@ -1,13 +1,34 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useEffect } from "react"
 import { motion, useInView } from "framer-motion"
 import { useTranslation } from "react-i18next"
 
-export default function Community() {
+export default function Community({ isSoundOn }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const { t } = useTranslation("translation")
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+
+  useEffect(() => {
+    audioRef.current = new Audio(
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Spacey%20Cricket%20Click-DlSLodgcdvrAjUskn7lVAFDf0DUxqC.wav",
+    )
+    audioRef.current.volume = 0.5 // Set volume to 50%
+
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.remove()
+      }
+    }
+  }, [])
+
+  const playHoverSound = () => {
+    if (audioRef.current && isSoundOn) {
+      audioRef.current.currentTime = 0 // Reset to start
+      audioRef.current.play().catch((e) => console.error("Audio play failed:", e))
+    }
+  }
 
   const communityItems = [
     {
@@ -41,6 +62,8 @@ export default function Community() {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              onMouseEnter={playHoverSound}
+              onFocus={playHoverSound}
             >
               <div
                 className="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"

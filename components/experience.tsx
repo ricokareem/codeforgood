@@ -19,7 +19,7 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
   useEffect(() => {
     // Create audio elements
     hoverAudioRef.current = new Audio(
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Mouse%20Click%20by%20DeVern-5fO8ekWDDXZWdU9FKDLulNvhP94Z1s.wav",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Spacey%20Cricket%20Click-DlSLodgcdvrAjUskn7lVAFDf0DUxqC.wav",
     )
     modalAudioRef.current = new Audio(
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Plasma%20Blaster%20by%20BigDino1995-EoERfGPL2zXzASXAe7YgkPYneH4Dyi.wav",
@@ -30,7 +30,7 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
     // Mark as loaded when the audio is ready
     hoverAudioRef.current.addEventListener("canplaythrough", () => {
       setAudioLoaded(true)
-      console.log("Mouse click sound loaded and ready to play")
+      console.log("Hover sound loaded and ready to play")
     })
 
     return () => {
@@ -49,13 +49,13 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
       hoverAudioRef.current
         .play()
         .then(() => {
-          console.log("Audio played successfully")
+          console.log("Hover audio played successfully")
           setIsPlaying(true)
           setTimeout(() => setIsPlaying(false), 300) // Reset after 300ms
         })
-        .catch((e) => console.error("Audio play failed:", e))
+        .catch((e) => console.error("Hover audio play failed:", e))
     } else {
-      console.log("Audio not played:", { audioRef: !!hoverAudioRef.current, audioLoaded, isSoundOn })
+      console.log("Hover audio not played:", { audioRef: !!hoverAudioRef.current, audioLoaded, isSoundOn })
     }
   }
 
