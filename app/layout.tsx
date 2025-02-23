@@ -4,6 +4,7 @@ import { Outfit } from "next/font/google"
 import "./globals.css"
 import { I18nProvider } from "../components/i18n-provider"
 import { GoogleAnalytics } from "@next/third-parties/google"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -22,11 +23,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <I18nProvider>
         <body className={`${outfit.variable} ${outfit.className}`}>
-          {children}
-          <GoogleAnalytics gaId="G-K5XKE6L8VJ" />
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+            {children}
+            <GoogleAnalytics gaId="G-K5XKE6L8VJ" />
+          </ThemeProvider>
         </body>
       </I18nProvider>
     </html>

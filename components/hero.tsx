@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section id="about" className="py-20 min-h-screen flex items-center relative" ref={ref}>
       <div
-        className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20"
+        className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-20"
         style={{ backgroundPosition: "center 40%" }}
       />
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
@@ -57,7 +57,7 @@ export default function Hero() {
             {t("name")}
           </h1>
           <h2 className="text-4xl text-[#00B2FF] mb-6">{t("title")}</h2>
-          <p className="text-gray-300 mb-6 text-lg">{t("about")}</p>
+          <p className="text-foreground mb-6 text-lg">{t("about")}</p>
           <div className="space-y-4">
             {[
               {
@@ -87,11 +87,11 @@ export default function Hero() {
                 className="block"
               >
                 <motion.div
-                  className="flex items-center p-3 rounded-xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                  className="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
                   whileHover={{ scale: 1.05, x: 10 }}
                 >
                   <Icon className="w-6 h-6 mr-3" style={{ color }} />
-                  <span className="text-gray-200">{text}</span>
+                  <span className="text-foreground">{text}</span>
                 </motion.div>
               </Link>
             ))}

@@ -11,7 +11,8 @@ import Community from "@/components/community"
 import Footer from "@/components/footer"
 import CustomCursor from "@/components/custom-cursor"
 import FloatingShapes from "@/components/floating-shapes"
-import { Volume2, VolumeX } from "lucide-react"
+import { Volume2, VolumeX, Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
 
 export default function Home() {
   const [highlightedSkills, setHighlightedSkills] = useState([])
@@ -20,6 +21,7 @@ export default function Home() {
   const [isSoundOn, setIsSoundOn] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const toggleSoundRef = useRef<HTMLAudioElement | null>(null)
+  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     audioRef.current = new Audio(
@@ -38,12 +40,10 @@ export default function Home() {
       }
     }
 
-    // Only attempt to play sound if isSoundOn is true
     if (isSoundOn) {
       playSound()
     }
 
-    // Clean up
     return () => {
       if (audioRef.current) {
         audioRef.current.pause()
@@ -106,7 +106,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-[#1C2333] text-white overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground">
       <CustomCursor />
       <FloatingShapes />
       <Header />
@@ -136,13 +136,22 @@ export default function Home() {
         <Community isSoundOn={isSoundOn} />
       </main>
       <Footer />
-      <button
-        onClick={toggleSound}
-        className="fixed bottom-4 left-4 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors duration-200"
-        aria-label={isSoundOn ? "Mute sound" : "Unmute sound"}
-      >
-        {isSoundOn ? <Volume2 size={24} /> : <VolumeX size={24} />}
-      </button>
+      <div className="fixed bottom-4 left-4 flex flex-col space-y-2">
+        <button
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          className="bg-accent hover:bg-accent/80 text-accent-foreground p-2 rounded-full transition-colors duration-200"
+          aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+        >
+          {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
+        </button>
+        <button
+          onClick={toggleSound}
+          className="bg-accent hover:bg-accent/80 text-accent-foreground p-2 rounded-full transition-colors duration-200"
+          aria-label={isSoundOn ? "Mute sound" : "Unmute sound"}
+        >
+          {isSoundOn ? <Volume2 size={24} /> : <VolumeX size={24} />}
+        </button>
+      </div>
     </div>
   )
 }

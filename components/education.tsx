@@ -45,9 +45,9 @@ export default function Education({ isSoundOn }) {
   ]
 
   return (
-    <section id="education" className="py-20 bg-[#161B28]" ref={ref}>
+    <section id="education" className="py-20 bg-background" ref={ref}>
       <div className="container mx-auto px-4">
-        <h2 className="text-5xl font-bold text-[#4ADE80] mb-12">{t("education")}</h2>
+        <h2 className="text-5xl font-bold text-[#FFB800] mb-12">{t("education")}</h2>
         <div className="space-y-8">
           {educations.map((edu, index) => (
             <motion.div
@@ -63,12 +63,12 @@ export default function Education({ isSoundOn }) {
                 className="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
                 style={{ background: `linear-gradient(to right, ${edu.color}, ${edu.color}66)` }}
               />
-              <div className="relative bg-[#1C2333]/90 backdrop-blur-sm p-6 rounded-2xl border border-white/10">
+              <div className="relative bg-card/90 backdrop-blur-sm p-6 rounded-2xl border border-border">
                 <h3 className="text-xl font-bold mb-2" style={{ color: edu.color }}>
                   {edu.school}
                 </h3>
-                {edu.degree && <p className="text-[#00B2FF] mb-1">{edu.degree}</p>}
-                <p className="text-gray-300">{edu.period}</p>
+                {edu.degree && <p className="text-primary mb-1">{edu.degree}</p>}
+                <p className="text-muted-foreground">{edu.period}</p>
               </div>
             </motion.div>
           ))}

@@ -51,7 +51,7 @@ export default function Community({ isSoundOn }) {
   ]
 
   return (
-    <section id="community" className="py-20 bg-[#1C2333]" ref={ref}>
+    <section id="community" className="py-20 bg-background" ref={ref}>
       <div className="container mx-auto px-4">
         <h2 className="text-5xl font-bold text-[#4ADE80] mb-12">{t("community.title")}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -69,7 +69,7 @@ export default function Community({ isSoundOn }) {
                 className="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
                 style={{ background: `linear-gradient(to right, ${item.color}, ${item.color}66)` }}
               />
-              <div className="relative bg-[#161B28]/90 backdrop-blur-sm p-6 rounded-2xl border border-white/10">
+              <div className="relative bg-card/90 backdrop-blur-sm p-6 rounded-2xl border border-border">
                 {item.link ? (
                   <a
                     href={item.link}
@@ -80,14 +80,14 @@ export default function Community({ isSoundOn }) {
                     <h3 className="text-xl font-bold mb-2" style={{ color: item.color }}>
                       {item.title}
                     </h3>
-                    <p className="text-gray-300">{item.description}</p>
+                    <p className="text-muted-foreground">{item.description}</p>
                   </a>
                 ) : (
                   <>
                     <h3 className="text-xl font-bold mb-2" style={{ color: item.color }}>
                       {item.title}
                     </h3>
-                    <p className="text-gray-300">{item.description}</p>
+                    <p className="text-muted-foreground">{item.description}</p>
                   </>
                 )}
               </div>

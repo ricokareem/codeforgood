@@ -79,10 +79,10 @@ export default function Projects({ isSoundOn }) {
               onFocus={playHoverSound}
             >
               <div
-                className="absolute inset-0 rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110"
-                style={{ backgroundColor: project.color }}
+                className="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
+                style={{ background: `linear-gradient(to right, ${project.color}, ${project.color}66)` }}
               />
-              <div className="relative bg-[#1C2333]/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10">
+              <div className="relative bg-background/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border">
                 <div className="relative h-48">
                   <Image
                     src={project.image || "/placeholder.svg"}
@@ -96,7 +96,7 @@ export default function Projects({ isSoundOn }) {
                   <h3 className="text-xl font-bold mb-2" style={{ color: project.color }}>
                     {project.title}
                   </h3>
-                  <p className="text-gray-300 mb-4">{project.description}</p>
+                  <p className="text-muted-foreground mb-4">{project.description}</p>
                   <a
                     href={project.link}
                     target="_blank"

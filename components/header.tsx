@@ -31,9 +31,9 @@ export default function Header() {
   ]
 
   return (
-    <header className="fixed w-full bg-background/80 backdrop-blur-sm z-50">
+    <header className="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b border-border">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-white">
+        <Link href="/" className="text-2xl font-bold text-foreground">
           CFG
         </Link>
         <div className="flex items-center space-x-4">
@@ -41,7 +41,7 @@ export default function Header() {
             <select
               onChange={(e) => changeLanguage(e.target.value)}
               value={i18n.language}
-              className="appearance-none bg-white/10 text-white py-2 pl-3 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00B2FF]"
+              className="appearance-none bg-accent text-accent-foreground py-2 pl-3 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               style={{ width: "140px", height: "40px" }}
               aria-label={t("menu.selectLanguage")}
             >
@@ -49,13 +49,13 @@ export default function Header() {
               <option value="de">DEUTSCH 🇩🇪</option>
               <option value="es">ESPAÑOL 🇪🇸</option>
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-foreground">
               <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
               </svg>
             </div>
           </div>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-foreground">
             <svg
               className="w-6 h-6"
               fill="none"
@@ -73,7 +73,7 @@ export default function Header() {
               <li key={item.key}>
                 <a
                   href={`#${item.key}`}
-                  className="text-gray-200 hover:text-white transition-colors"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
                   onClick={(e) => {
                     e.preventDefault()
                     const element = document.getElementById(item.key)
