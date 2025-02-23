@@ -243,14 +243,14 @@ export default function Experience({ onHover, onHoverEnd, onClick, onModalClose,
                   className="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
                   style={{ background: `linear-gradient(to right, ${exp.color}, ${exp.color}66)` }}
                 />
-                <div className="relative bg-[#1C2333]/90 backdrop-blur-sm p-6 rounded-2xl border border-white/10">
+                <div className="relative bg-background/90 backdrop-blur-sm p-6 rounded-2xl border border-border">
                   <h3 className="text-xl font-bold mb-2" style={{ color: exp.color }}>
                     {exp.title}
                   </h3>
                   <p className="text-[#00B2FF] mb-2 font-bold">
                     {exp.company} | {exp.period}
                   </p>
-                  <p className="text-gray-300">
+                  <p className="text-muted-foreground">
                     {exp.description[0].slice(0, 150)}...
                     <span className="text-[#00B2FF] hover:underline focus:outline-none ml-1">{t("more")}</span>
                   </p>

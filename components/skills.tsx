@@ -140,18 +140,18 @@ export default function Skills({
                   ? "#00B2FF"
                   : highlightedSkills.includes(skill.name)
                     ? highlightColor
-                    : "#4A5568",
+                    : "rgba(203, 213, 224, 0.7)", // Light gray for light mode
                 opacity: filteredSkills.includes(skill.name) || highlightedSkills.includes(skill.name) ? 1 : 0.7,
                 borderRadius: "0.5rem",
               }}
             />
             <div
-              className="relative bg-[#1C2333]/90 backdrop-blur-sm p-3 rounded-lg border border-white/10 transform transition-transform duration-300 hover:-translate-y-1 overflow-hidden"
+              className="relative bg-white/90 dark:bg-[#1C2333]/90 backdrop-blur-sm p-3 rounded-lg border border-gray-200 dark:border-white/10 transform transition-transform duration-300 hover:-translate-y-1 overflow-hidden"
               style={{
                 borderRadius: "0.5rem",
               }}
             >
-              <span className="text-sm font-medium text-white whitespace-nowrap overflow-hidden text-ellipsis">
+              <span className="text-sm font-medium text-gray-800 dark:text-white whitespace-nowrap overflow-hidden text-ellipsis">
                 {skill.name}
               </span>
             </div>
