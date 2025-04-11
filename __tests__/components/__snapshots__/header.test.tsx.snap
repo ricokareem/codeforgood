@@ -1,0 +1,391 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component renders correctly in English 1`] = `
+<div>
+  <header
+    class="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b border-border"
+  >
+    <nav
+      class="container mx-auto px-4 py-4 flex justify-between items-center"
+    >
+      <a
+        class="text-2xl font-bold text-foreground"
+        href="/"
+      >
+        CFG
+      </a>
+      <div
+        class="flex items-center space-x-4"
+      >
+        <div
+          class="relative"
+        >
+          <select
+            aria-label="Select language"
+            class="appearance-none bg-accent text-accent-foreground py-2 pl-3 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            style="width: 140px; height: 40px;"
+          >
+            <option
+              value="en"
+            >
+              ENGLISH 🇬🇧
+            </option>
+            <option
+              value="de"
+            >
+              DEUTSCH 🇩🇪
+            </option>
+            <option
+              value="es"
+            >
+              ESPAÑOL 🇪🇸
+            </option>
+          </select>
+          <div
+            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-foreground"
+          >
+            <svg
+              class="fill-current h-4 w-4"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+              />
+            </svg>
+          </div>
+        </div>
+        <button
+          class="md:hidden text-foreground"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+        <ul
+          class="md:flex space-x-4 hidden"
+        >
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#about"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#experience"
+            >
+              Experience
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#skills"
+            >
+              Skills
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#projects"
+            >
+              Projects
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#education"
+            >
+              Education
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#community"
+            >
+              Community
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+</div>
+`;
+
+exports[`Header Component renders correctly in German 1`] = `
+<div>
+  <header
+    class="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b border-border"
+  >
+    <nav
+      class="container mx-auto px-4 py-4 flex justify-between items-center"
+    >
+      <a
+        class="text-2xl font-bold text-foreground"
+        href="/"
+      >
+        CFG
+      </a>
+      <div
+        class="flex items-center space-x-4"
+      >
+        <div
+          class="relative"
+        >
+          <select
+            aria-label="Sprache auswählen"
+            class="appearance-none bg-accent text-accent-foreground py-2 pl-3 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            style="width: 140px; height: 40px;"
+          >
+            <option
+              value="en"
+            >
+              ENGLISH 🇬🇧
+            </option>
+            <option
+              value="de"
+            >
+              DEUTSCH 🇩🇪
+            </option>
+            <option
+              value="es"
+            >
+              ESPAÑOL 🇪🇸
+            </option>
+          </select>
+          <div
+            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-foreground"
+          >
+            <svg
+              class="fill-current h-4 w-4"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+              />
+            </svg>
+          </div>
+        </div>
+        <button
+          class="md:hidden text-foreground"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+        <ul
+          class="md:flex space-x-4 hidden"
+        >
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#about"
+            >
+              Über mich
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#experience"
+            >
+              Erfahrung
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#skills"
+            >
+              Fähigkeiten
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#projects"
+            >
+              Projekte
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#education"
+            >
+              Ausbildung
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#community"
+            >
+              Gemeinschaft
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+</div>
+`;
+
+exports[`Header Component renders correctly in Spanish 1`] = `
+<div>
+  <header
+    class="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b border-border"
+  >
+    <nav
+      class="container mx-auto px-4 py-4 flex justify-between items-center"
+    >
+      <a
+        class="text-2xl font-bold text-foreground"
+        href="/"
+      >
+        CFG
+      </a>
+      <div
+        class="flex items-center space-x-4"
+      >
+        <div
+          class="relative"
+        >
+          <select
+            aria-label="Select language"
+            class="appearance-none bg-accent text-accent-foreground py-2 pl-3 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            style="width: 140px; height: 40px;"
+          >
+            <option
+              value="en"
+            >
+              ENGLISH 🇬🇧
+            </option>
+            <option
+              value="de"
+            >
+              DEUTSCH 🇩🇪
+            </option>
+            <option
+              value="es"
+            >
+              ESPAÑOL 🇪🇸
+            </option>
+          </select>
+          <div
+            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-foreground"
+          >
+            <svg
+              class="fill-current h-4 w-4"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+              />
+            </svg>
+          </div>
+        </div>
+        <button
+          class="md:hidden text-foreground"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+        <ul
+          class="md:flex space-x-4 hidden"
+        >
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#about"
+            >
+              Acerca de
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#experience"
+            >
+              Experiencia
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#skills"
+            >
+              Habilidades
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#projects"
+            >
+              Proyectos
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#education"
+            >
+              Educación
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-muted-foreground hover:text-foreground transition-colors"
+              href="#community"
+            >
+              Comunidad
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+</div>
+`;

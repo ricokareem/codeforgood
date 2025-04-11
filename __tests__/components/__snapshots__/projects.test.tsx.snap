@@ -1,0 +1,493 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Projects Component renders correctly in English 1`] = `
+<div>
+  <section
+    class="py-20"
+    id="projects"
+  >
+    <div
+      class="container mx-auto px-4"
+    >
+      <h2
+        class="text-5xl font-bold text-[#FF647C] mb-12"
+      >
+        PAST PROJECTS
+      </h2>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        <div
+          animate="[object Object]"
+          class="group relative"
+          initial="[object Object]"
+          transition="[object Object]"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
+          />
+          <div
+            class="relative bg-background/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border"
+          >
+            <div
+              class="relative h-48"
+            >
+              <img
+                alt="Animated demonstration of Fender Play app interface, showing guitar lessons and interactive features"
+                class="object-cover"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fender-play-2-5ij4cFMYlbyfhxTs370U7yNkmwQ57I.gif"
+              />
+            </div>
+            <div
+              class="p-6"
+            >
+              <h3
+                class="text-xl font-bold mb-2"
+                style="color: rgb(255, 100, 124);"
+              >
+                Fender : Fender Play
+              </h3>
+              <p
+                class="text-muted-foreground mb-4"
+              >
+                Forget 'Mary Had A Little Lamb'. Pick any guitar, and learn how to play your favorite song.
+              </p>
+              <a
+                class="inline-block px-6 py-3 rounded-xl text-white transition-transform duration-300 hover:scale-105 hover:-translate-y-1"
+                href="https://www.fender.com/play"
+                rel="noopener noreferrer"
+                style="background-color: rgb(209, 77, 99);"
+                target="_blank"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          animate="[object Object]"
+          class="group relative"
+          initial="[object Object]"
+          transition="[object Object]"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
+          />
+          <div
+            class="relative bg-background/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border"
+          >
+            <div
+              class="relative h-48"
+            >
+              <img
+                alt="Animated visualization of Slingshot Laboratory's 3D space environment, displaying orbital mechanics and satellite trajectories"
+                class="object-cover"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/slingshot-laboratory-a3MSO5bP5mYS6qWby0toQCdgC4xuEE.gif"
+              />
+            </div>
+            <div
+              class="p-6"
+            >
+              <h3
+                class="text-xl font-bold mb-2"
+                style="color: rgb(0, 178, 255);"
+              >
+                Slingshot Aerospace : Slingshot Laboratory
+              </h3>
+              <p
+                class="text-muted-foreground mb-4"
+              >
+                Learn the fundamentals of astrodynamics and experiment.
+              </p>
+              <a
+                class="inline-block px-6 py-3 rounded-xl text-white transition-transform duration-300 hover:scale-105 hover:-translate-y-1"
+                href="https://www.slingshot.space/solutions/applications#laboratory"
+                rel="noopener noreferrer"
+                style="background-color: rgb(0, 144, 204);"
+                target="_blank"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          animate="[object Object]"
+          class="group relative"
+          initial="[object Object]"
+          transition="[object Object]"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
+          />
+          <div
+            class="relative bg-background/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border"
+          >
+            <div
+              class="relative h-48"
+            >
+              <img
+                alt="Animated showcase of Conan Classic website, featuring clips and highlights from Conan O'Brien's shows"
+                class="object-cover"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/conan-classic-3-U8w9fl0h7o70wQh7v0Y64ZEnv8cV1s.gif"
+              />
+            </div>
+            <div
+              class="p-6"
+            >
+              <h3
+                class="text-xl font-bold mb-2"
+                style="color: rgb(255, 184, 0);"
+              >
+                Team Coco : Conan Classic
+              </h3>
+              <p
+                class="text-muted-foreground mb-4"
+              >
+                The best clips from over 25 years of cutting-edge television.
+              </p>
+              <a
+                class="inline-block px-6 py-3 rounded-xl text-white transition-transform duration-300 hover:scale-105 hover:-translate-y-1"
+                href="https://conanclassic.com"
+                rel="noopener noreferrer"
+                style="background-color: rgb(204, 147, 0);"
+                target="_blank"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Projects Component renders correctly in German 1`] = `
+<div>
+  <section
+    class="py-20"
+    id="projects"
+  >
+    <div
+      class="container mx-auto px-4"
+    >
+      <h2
+        class="text-5xl font-bold text-[#FF647C] mb-12"
+      >
+        VERGANGENE PROJEKTE
+      </h2>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        <div
+          animate="[object Object]"
+          class="group relative"
+          initial="[object Object]"
+          transition="[object Object]"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
+          />
+          <div
+            class="relative bg-background/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border"
+          >
+            <div
+              class="relative h-48"
+            >
+              <img
+                alt="Animierte Demonstration der Fender Play App-Oberfläche, die Gitarrenunterricht und interaktive Funktionen zeigt"
+                class="object-cover"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fender-play-2-5ij4cFMYlbyfhxTs370U7yNkmwQ57I.gif"
+              />
+            </div>
+            <div
+              class="p-6"
+            >
+              <h3
+                class="text-xl font-bold mb-2"
+                style="color: rgb(255, 100, 124);"
+              >
+                Fender : Fender Play
+              </h3>
+              <p
+                class="text-muted-foreground mb-4"
+              >
+                Vergessen Sie 'Mary Had A Little Lamb'. Wählen Sie eine beliebige Gitarre und lernen Sie, Ihren Lieblingssong zu spielen.
+              </p>
+              <a
+                class="inline-block px-6 py-3 rounded-xl text-white transition-transform duration-300 hover:scale-105 hover:-translate-y-1"
+                href="https://www.fender.com/play"
+                rel="noopener noreferrer"
+                style="background-color: rgb(209, 77, 99);"
+                target="_blank"
+              >
+                Projekt ansehen
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          animate="[object Object]"
+          class="group relative"
+          initial="[object Object]"
+          transition="[object Object]"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
+          />
+          <div
+            class="relative bg-background/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border"
+          >
+            <div
+              class="relative h-48"
+            >
+              <img
+                alt="Animierte Visualisierung der 3D-Weltraumumgebung von Slingshot Laboratory, die Orbitalmechanik und Satellitenbahnen zeigt"
+                class="object-cover"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/slingshot-laboratory-a3MSO5bP5mYS6qWby0toQCdgC4xuEE.gif"
+              />
+            </div>
+            <div
+              class="p-6"
+            >
+              <h3
+                class="text-xl font-bold mb-2"
+                style="color: rgb(0, 178, 255);"
+              >
+                Slingshot Aerospace : Slingshot Laboratory
+              </h3>
+              <p
+                class="text-muted-foreground mb-4"
+              >
+                Lernen Sie die Grundlagen der Astrodynamik und experimentieren Sie.
+              </p>
+              <a
+                class="inline-block px-6 py-3 rounded-xl text-white transition-transform duration-300 hover:scale-105 hover:-translate-y-1"
+                href="https://www.slingshot.space/solutions/applications#laboratory"
+                rel="noopener noreferrer"
+                style="background-color: rgb(0, 144, 204);"
+                target="_blank"
+              >
+                Projekt ansehen
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          animate="[object Object]"
+          class="group relative"
+          initial="[object Object]"
+          transition="[object Object]"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
+          />
+          <div
+            class="relative bg-background/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border"
+          >
+            <div
+              class="relative h-48"
+            >
+              <img
+                alt="Animierte Präsentation der Conan Classic Website mit Clips und Highlights aus Conan O'Briens Shows"
+                class="object-cover"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/conan-classic-3-U8w9fl0h7o70wQh7v0Y64ZEnv8cV1s.gif"
+              />
+            </div>
+            <div
+              class="p-6"
+            >
+              <h3
+                class="text-xl font-bold mb-2"
+                style="color: rgb(255, 184, 0);"
+              >
+                Team Coco : Conan Classic
+              </h3>
+              <p
+                class="text-muted-foreground mb-4"
+              >
+                Die besten Clips aus über 25 Jahren bahnbrechendem Fernsehen.
+              </p>
+              <a
+                class="inline-block px-6 py-3 rounded-xl text-white transition-transform duration-300 hover:scale-105 hover:-translate-y-1"
+                href="https://conanclassic.com"
+                rel="noopener noreferrer"
+                style="background-color: rgb(204, 147, 0);"
+                target="_blank"
+              >
+                Projekt ansehen
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Projects Component renders correctly in Spanish 1`] = `
+<div>
+  <section
+    class="py-20"
+    id="projects"
+  >
+    <div
+      class="container mx-auto px-4"
+    >
+      <h2
+        class="text-5xl font-bold text-[#FF647C] mb-12"
+      >
+        PROYECTOS ANTERIORES
+      </h2>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        <div
+          animate="[object Object]"
+          class="group relative"
+          initial="[object Object]"
+          transition="[object Object]"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
+          />
+          <div
+            class="relative bg-background/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border"
+          >
+            <div
+              class="relative h-48"
+            >
+              <img
+                alt="Demostración animada de la interfaz de la aplicación Fender Play, mostrando lecciones de guitarra y características interactivas"
+                class="object-cover"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fender-play-2-5ij4cFMYlbyfhxTs370U7yNkmwQ57I.gif"
+              />
+            </div>
+            <div
+              class="p-6"
+            >
+              <h3
+                class="text-xl font-bold mb-2"
+                style="color: rgb(255, 100, 124);"
+              >
+                Fender : Fender Play
+              </h3>
+              <p
+                class="text-muted-foreground mb-4"
+              >
+                Olvídate de 'Mary Had A Little Lamb'. Elige cualquier guitarra y aprende a tocar tu canción favorita.
+              </p>
+              <a
+                class="inline-block px-6 py-3 rounded-xl text-white transition-transform duration-300 hover:scale-105 hover:-translate-y-1"
+                href="https://www.fender.com/play"
+                rel="noopener noreferrer"
+                style="background-color: rgb(209, 77, 99);"
+                target="_blank"
+              >
+                Ver Proyecto
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          animate="[object Object]"
+          class="group relative"
+          initial="[object Object]"
+          transition="[object Object]"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
+          />
+          <div
+            class="relative bg-background/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border"
+          >
+            <div
+              class="relative h-48"
+            >
+              <img
+                alt="Visualización animada del entorno espacial 3D de Slingshot Laboratory, mostrando mecánica orbital y trayectorias de satélites"
+                class="object-cover"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/slingshot-laboratory-a3MSO5bP5mYS6qWby0toQCdgC4xuEE.gif"
+              />
+            </div>
+            <div
+              class="p-6"
+            >
+              <h3
+                class="text-xl font-bold mb-2"
+                style="color: rgb(0, 178, 255);"
+              >
+                Slingshot Aerospace : Slingshot Laboratory
+              </h3>
+              <p
+                class="text-muted-foreground mb-4"
+              >
+                Aprende los fundamentos de la astrodinámica y experimenta.
+              </p>
+              <a
+                class="inline-block px-6 py-3 rounded-xl text-white transition-transform duration-300 hover:scale-105 hover:-translate-y-1"
+                href="https://www.slingshot.space/solutions/applications#laboratory"
+                rel="noopener noreferrer"
+                style="background-color: rgb(0, 144, 204);"
+                target="_blank"
+              >
+                Ver Proyecto
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          animate="[object Object]"
+          class="group relative"
+          initial="[object Object]"
+          transition="[object Object]"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
+          />
+          <div
+            class="relative bg-background/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border"
+          >
+            <div
+              class="relative h-48"
+            >
+              <img
+                alt="Presentación animada del sitio web Conan Classic, con clips y momentos destacados de los programas de Conan O'Brien"
+                class="object-cover"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/conan-classic-3-U8w9fl0h7o70wQh7v0Y64ZEnv8cV1s.gif"
+              />
+            </div>
+            <div
+              class="p-6"
+            >
+              <h3
+                class="text-xl font-bold mb-2"
+                style="color: rgb(255, 184, 0);"
+              >
+                Team Coco : Conan Classic
+              </h3>
+              <p
+                class="text-muted-foreground mb-4"
+              >
+                Los mejores clips de más de 25 años de televisión innovadora.
+              </p>
+              <a
+                class="inline-block px-6 py-3 rounded-xl text-white transition-transform duration-300 hover:scale-105 hover:-translate-y-1"
+                href="https://conanclassic.com"
+                rel="noopener noreferrer"
+                style="background-color: rgb(204, 147, 0);"
+                target="_blank"
+              >
+                Ver Proyecto
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;

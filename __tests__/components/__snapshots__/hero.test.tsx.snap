@@ -1,0 +1,568 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero Component renders correctly in English 1`] = `
+<div>
+  <section
+    class="py-20 min-h-screen flex items-center relative"
+    id="about"
+  >
+    <div
+      class="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-20"
+    />
+    <div
+      class="container mx-auto px-4 flex flex-col md:flex-row items-center"
+    >
+      <div
+        animate="[object Object]"
+        class="md:w-1/2 mb-8 md:mb-0"
+        initial="[object Object]"
+        transition="[object Object]"
+      >
+        <div
+          class="relative"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-[#FF647C] to-[#00B2FF] rounded-3xl transform rotate-6 scale-105"
+          />
+          <img
+            alt="Rico Rodriquez Collins"
+            class="rounded-3xl relative z-10 transform transition-transform duration-500 hover:scale-105 hover:rotate-3 object-cover"
+            height="400"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_4262.JPG-Pzije6asoS4EBzHaiyj3kofdy6sWO6.jpeg"
+            width="400"
+          />
+        </div>
+      </div>
+      <div
+        animate="[object Object]"
+        class="md:w-1/2 md:pl-12"
+        initial="[object Object]"
+        transition="[object Object]"
+      >
+        <h1
+          class="text-6xl font-bold bg-gradient-to-r from-[#FFB800] to-[#FF647C] bg-clip-text text-transparent mb-4"
+        >
+          RICO RODRIQUEZ COLLINS
+        </h1>
+        <h2
+          class="text-4xl text-[#00B2FF] mb-6"
+        >
+          EXPERIENCED FULL STACK & MOBILE ENGINEER
+        </h2>
+        <p
+          class="text-foreground mb-6 text-lg"
+        >
+          Technical leader who champions sustainable engineering practices through empathy and collaboration. I excel at fostering team environments where open communication drives innovation and inclusivity enables everyone's best work.
+        </p>
+        <div
+          class="space-y-4"
+        >
+          <a
+            class="block"
+            href="mailto:hello.world@codeforgood.com"
+            rel=""
+            target="_self"
+          >
+            <div
+              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              whilehover="[object Object]"
+            >
+              <svg
+                class="w-6 h-6 mr-3"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="color: rgb(255, 100, 124);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  height="16"
+                  rx="2"
+                  width="20"
+                  x="2"
+                  y="4"
+                />
+                <path
+                  d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                />
+              </svg>
+              <span
+                class="text-foreground"
+              >
+                hello.world@codeforgood.com
+              </span>
+            </div>
+          </a>
+          <a
+            class="block"
+            href="https://www.linkedin.com/in/ricocollins"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <div
+              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              whilehover="[object Object]"
+            >
+              <svg
+                class="w-6 h-6 mr-3"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="color: rgb(0, 178, 255);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                />
+                <line
+                  x1="2"
+                  x2="22"
+                  y1="12"
+                  y2="12"
+                />
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                />
+              </svg>
+              <span
+                class="text-foreground"
+              >
+                www.linkedin.com/in/ricocollins
+              </span>
+            </div>
+          </a>
+          <a
+            class="block"
+            href="https://www.google.com/maps/place/Los+Angeles,+CA"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <div
+              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              whilehover="[object Object]"
+            >
+              <svg
+                class="w-6 h-6 mr-3"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="color: rgb(255, 184, 0);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                />
+                <circle
+                  cx="12"
+                  cy="10"
+                  r="3"
+                />
+              </svg>
+              <span
+                class="text-foreground"
+              >
+                Los Angeles, California, United States
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Hero Component renders correctly in German 1`] = `
+<div>
+  <section
+    class="py-20 min-h-screen flex items-center relative"
+    id="about"
+  >
+    <div
+      class="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-20"
+    />
+    <div
+      class="container mx-auto px-4 flex flex-col md:flex-row items-center"
+    >
+      <div
+        animate="[object Object]"
+        class="md:w-1/2 mb-8 md:mb-0"
+        initial="[object Object]"
+        transition="[object Object]"
+      >
+        <div
+          class="relative"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-[#FF647C] to-[#00B2FF] rounded-3xl transform rotate-6 scale-105"
+          />
+          <img
+            alt="Rico Rodriquez Collins"
+            class="rounded-3xl relative z-10 transform transition-transform duration-500 hover:scale-105 hover:rotate-3 object-cover"
+            height="400"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_4262.JPG-Pzije6asoS4EBzHaiyj3kofdy6sWO6.jpeg"
+            width="400"
+          />
+        </div>
+      </div>
+      <div
+        animate="[object Object]"
+        class="md:w-1/2 md:pl-12"
+        initial="[object Object]"
+        transition="[object Object]"
+      >
+        <h1
+          class="text-6xl font-bold bg-gradient-to-r from-[#FFB800] to-[#FF647C] bg-clip-text text-transparent mb-4"
+        >
+          RICO RODRIQUEZ COLLINS
+        </h1>
+        <h2
+          class="text-4xl text-[#00B2FF] mb-6"
+        >
+          ERFAHRENER FULL-STACK- UND MOBILE-INGENIEUR
+        </h2>
+        <p
+          class="text-foreground mb-6 text-lg"
+        >
+          Technischer Leiter, der nachhaltige Ingenieurpraktiken durch Empathie und Zusammenarbeit fördert. Ich bin hervorragend darin, Teamumgebungen zu schaffen, in denen offene Kommunikation Innovation vorantreibt und Inklusivität die beste Arbeit aller ermöglicht.
+        </p>
+        <div
+          class="space-y-4"
+        >
+          <a
+            class="block"
+            href="mailto:hello.world@codeforgood.com"
+            rel=""
+            target="_self"
+          >
+            <div
+              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              whilehover="[object Object]"
+            >
+              <svg
+                class="w-6 h-6 mr-3"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="color: rgb(255, 100, 124);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  height="16"
+                  rx="2"
+                  width="20"
+                  x="2"
+                  y="4"
+                />
+                <path
+                  d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                />
+              </svg>
+              <span
+                class="text-foreground"
+              >
+                hello.world@codeforgood.com
+              </span>
+            </div>
+          </a>
+          <a
+            class="block"
+            href="https://www.linkedin.com/in/ricocollins"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <div
+              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              whilehover="[object Object]"
+            >
+              <svg
+                class="w-6 h-6 mr-3"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="color: rgb(0, 178, 255);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                />
+                <line
+                  x1="2"
+                  x2="22"
+                  y1="12"
+                  y2="12"
+                />
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                />
+              </svg>
+              <span
+                class="text-foreground"
+              >
+                www.linkedin.com/in/ricocollins
+              </span>
+            </div>
+          </a>
+          <a
+            class="block"
+            href="https://www.google.com/maps/place/Los+Angeles,+CA"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <div
+              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              whilehover="[object Object]"
+            >
+              <svg
+                class="w-6 h-6 mr-3"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="color: rgb(255, 184, 0);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                />
+                <circle
+                  cx="12"
+                  cy="10"
+                  r="3"
+                />
+              </svg>
+              <span
+                class="text-foreground"
+              >
+                Los Angeles, California, United States
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Hero Component renders correctly in Spanish 1`] = `
+<div>
+  <section
+    class="py-20 min-h-screen flex items-center relative"
+    id="about"
+  >
+    <div
+      class="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-20"
+    />
+    <div
+      class="container mx-auto px-4 flex flex-col md:flex-row items-center"
+    >
+      <div
+        animate="[object Object]"
+        class="md:w-1/2 mb-8 md:mb-0"
+        initial="[object Object]"
+        transition="[object Object]"
+      >
+        <div
+          class="relative"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-[#FF647C] to-[#00B2FF] rounded-3xl transform rotate-6 scale-105"
+          />
+          <img
+            alt="Rico Rodriquez Collins"
+            class="rounded-3xl relative z-10 transform transition-transform duration-500 hover:scale-105 hover:rotate-3 object-cover"
+            height="400"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_4262.JPG-Pzije6asoS4EBzHaiyj3kofdy6sWO6.jpeg"
+            width="400"
+          />
+        </div>
+      </div>
+      <div
+        animate="[object Object]"
+        class="md:w-1/2 md:pl-12"
+        initial="[object Object]"
+        transition="[object Object]"
+      >
+        <h1
+          class="text-6xl font-bold bg-gradient-to-r from-[#FFB800] to-[#FF647C] bg-clip-text text-transparent mb-4"
+        >
+          RICO RODRIQUEZ COLLINS
+        </h1>
+        <h2
+          class="text-4xl text-[#00B2FF] mb-6"
+        >
+          INGENIERO EXPERIMENTADO EN FULL STACK Y MÓVIL
+        </h2>
+        <p
+          class="text-foreground mb-6 text-lg"
+        >
+          Líder técnico que defiende prácticas de ingeniería sostenibles a través de la empatía y la colaboración. Sobresalgo en fomentar entornos de equipo donde la comunicación abierta impulsa la innovación y la inclusividad permite el mejor trabajo de todos.
+        </p>
+        <div
+          class="space-y-4"
+        >
+          <a
+            class="block"
+            href="mailto:hello.world@codeforgood.com"
+            rel=""
+            target="_self"
+          >
+            <div
+              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              whilehover="[object Object]"
+            >
+              <svg
+                class="w-6 h-6 mr-3"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="color: rgb(255, 100, 124);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  height="16"
+                  rx="2"
+                  width="20"
+                  x="2"
+                  y="4"
+                />
+                <path
+                  d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                />
+              </svg>
+              <span
+                class="text-foreground"
+              >
+                hello.world@codeforgood.com
+              </span>
+            </div>
+          </a>
+          <a
+            class="block"
+            href="https://www.linkedin.com/in/ricocollins"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <div
+              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              whilehover="[object Object]"
+            >
+              <svg
+                class="w-6 h-6 mr-3"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="color: rgb(0, 178, 255);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                />
+                <line
+                  x1="2"
+                  x2="22"
+                  y1="12"
+                  y2="12"
+                />
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                />
+              </svg>
+              <span
+                class="text-foreground"
+              >
+                www.linkedin.com/in/ricocollins
+              </span>
+            </div>
+          </a>
+          <a
+            class="block"
+            href="https://www.google.com/maps/place/Los+Angeles,+CA"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <div
+              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              whilehover="[object Object]"
+            >
+              <svg
+                class="w-6 h-6 mr-3"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                style="color: rgb(255, 184, 0);"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                />
+                <circle
+                  cx="12"
+                  cy="10"
+                  r="3"
+                />
+              </svg>
+              <span
+                class="text-foreground"
+              >
+                Los Angeles, California, United States
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
