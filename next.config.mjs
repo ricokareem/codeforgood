@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: process.env.NODE_ENV === "development",
   },
   reactStrictMode: true,
   i18n: {
