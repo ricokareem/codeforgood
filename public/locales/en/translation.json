@@ -36,26 +36,26 @@
     "title": "SENIOR PRINCIPAL SOFTWARE ENGINEER",
     "company": "WEST MONROE",
     "period": "January 2022 - May 2024",
-    "description1": "Transformed engineering practices by implementing agile methodologies across multiple teams, earning stakeholder trust and driving adoption through demonstrated success and measurable improvements in delivery speed",
-    "description2": "Successfully mentored West Monroe engineers located both in the US and in Costa Rica as a career advisor, with 3 of 5 engineers achieving promotions to Senior or Principal positions through focused guidance and technical leadership",
-    "description3": "Architected greenfield pricing and estimation platform that slashed project onboarding from months to days, significantly reducing overhead and accelerating sales cycles across the organization",
-    "description4": "Delivered high-impact technical solutions for key clients: Slingshot Aerospace (3D orbital dynamics visualization platform), Forge Global (private equity trading system), and Sisu/Snowflake (B2B machine learning analytics tool)"
+    "description1": "As Lead Developer, created rapid prototype for an internal Pricing Tool Dashboard that estimated consulting project costs and margins. Recruited designers, and shepherded it into production as the official proposal pricing platform for West Monroe. The stack (Remix + AWS) balanced speed, feature parity, and brutal prioritization: code as if we could be shut down tomorrow.",
+    "description2": "At Fintech Startup (just recently went public), Senior Engineer on team that developed private equity trading platform. Creating fast server-rendered interfaces with React for complex interactive elements, emphasizing highly-scalable performance and SOX compliance.",
+    "description3": "Senior Dev for an aerospace client's 3D orbital visualization platform, blending a fluid interactive experiences with complex animations and custom UI components for modelling satellites, rockets, and space debris in real-time.",
+    "description4": "Mentored engineers across US and Costa Rica, with 3/5 of engineers achieving promotions to Senior positions, through bi-weekly 1: 1 sessions, code reviews, and pair-programming sessions."
   },
   "experience2": {
     "title": "SENIOR SOFTWARE ENGINEER",
     "company": "CARBON FIVE",
     "period": "March 2018 - January 2022",
-    "description1": "Partnered with startups and enterprise clients to architect and launch mission-critical products, while mentoring engineering teams and establishing agile practices that elevated team performance",
-    "description2": "Led critical modernization projects at Hulu, driving SOX compliance pre-Disney acquisition and executing full-stack upgrades from Python 2 to 3 and KnockoutJS to React, including team training and knowledge transfer",
-    "description3": "Successfully upgraded PBS/ITVS platform to achieve WCAG AA certification, while delivering high-impact projects for Fender (React Hooks modernization, Storybook component library), Team Coco (GraphQL frontend architecture), and Swell Investing (ACATS brokerage integration, custom Sketch Plugins development)"
+    "description1": "Led critical SOX-compliance updates and modernization for the Plans & Offerings Dashboard of a major streaming company with 53.6M+ subscribers, with a focus on performance optimization and responsive design principles executing full-stack upgrades from Python 2 to 3 and KnockoutJS to React/Typescript. Trained and leveled up development teams via docs, pair programming, and Tech Talks",
+    "description2": "At a Fintech startup, produced complex state management with asynchronous flows, ensuring rigorous financial compliance. Also implemented ACATS ability.",
+    "description3": "Developed GraphQL-based React frontend for a well-known entertainment production company, engineering highly performant data fetching and state management strategies "
   },
   "experience3": {
     "title": "SENIOR SOFTWARE ENGINEER",
     "company": "YP",
     "period": "July 2010 - December 2017",
-    "description1": "Full-stack Engineer, part of a small team making solutions for Yellowpages.com, yp.com, m.yp.com (desktop & mobile platforms) serving at the time 60M+ monthly users",
-    "description2": "Within first month, spearheaded company-wide version control transformation from Subversion to Git, created documentation and conducted hands-on training sessions for 25+ developers, resulting in 40% faster code integration and deployment cycles",
-    "description3": "Working solo, migrated main site's Admin Tool, used to create feature flags and embed content from Marketing's CMS (Radiant) host, from Ruby on Rails to NodeJS, allowing for instant updates, and a codebase that could be worked on by the entire team instead of only 1 or 2 Ruby specialists and reducing technical debt"
+    "description1": "Part of core development group. Supporting 60M+ monthly users through highly scalable distributed services, focusing on performance optimization and responsive design principles.",
+    "description2": "Amongst solo projects: migrated site's CMS & Admin Tool from Ruby on Rails to Node.js + MongoDB, enabling Dev team contribution and achieving a 40% improvement in deployment cycles, and faster (now instant) Marketing updates.",
+    "description3": ""
   },
   "experience4": {
     "title": "SOFTWARE CONFIGURATION ENGINEER",
@@ -87,4 +87,3 @@
     "altText": "Animated showcase of Conan Classic website, featuring clips and highlights from Conan O'Brien's shows"
   }
 }
-
