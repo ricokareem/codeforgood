@@ -27,7 +27,9 @@ export default function Experience({
   const [selectedExperience, setSelectedExperience] = useState<
     (typeof experiences)[0] | null
   >(null);
-  const [activeExperience, setActiveExperience] = useState(null);
+  const [activeExperience, setActiveExperience] = useState<
+    (typeof experiences)[0] | null
+  >(null);
   const { t } = useTranslation("translation");
   const [audioLoaded, setAudioLoaded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -227,8 +229,8 @@ export default function Experience({
   ];
 
   const handleExperienceClick = (exp: (typeof experiences)[0]) => {
-    setSelectedExperience(exp as any);
-    setActiveExperience(exp as any);
+    setSelectedExperience(exp);
+    setActiveExperience(exp);
     onClick(exp.skills, exp.color);
     playModalSound();
   };
