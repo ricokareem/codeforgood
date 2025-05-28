@@ -5,6 +5,7 @@ import "./globals.css";
 import { I18nProvider } from "../components/i18n-provider";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             {children}
             <GoogleAnalytics gaId="G-K5XKE6L8VJ" />
+            <SpeedInsights />
           </ThemeProvider>
         </body>
       </I18nProvider>
