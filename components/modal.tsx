@@ -1,8 +1,20 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
-export default function Modal({ experience, onClose }) {
+export default function Modal({
+  experience,
+  onClose,
+}: {
+  experience: {
+    title: string;
+    company: string;
+    period: string;
+    description: string[];
+    color: string;
+  };
+  onClose: () => void;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -18,7 +30,10 @@ export default function Modal({ experience, onClose }) {
         className="bg-white dark:bg-[#1C2333] p-8 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        <h3 className="text-2xl font-bold mb-2" style={{ color: experience.color }}>
+        <h3
+          className="text-2xl font-bold mb-2"
+          style={{ color: experience.color }}
+        >
           {experience.title}
         </h3>
         <p className="text-[#00B2FF] mb-4 font-bold">
@@ -37,6 +52,5 @@ export default function Modal({ experience, onClose }) {
         </button>
       </motion.div>
     </motion.div>
-  )
+  );
 }
-
