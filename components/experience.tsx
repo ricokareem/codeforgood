@@ -182,7 +182,6 @@ export default function Experience({
       description: [
         t("experience3.description1"),
         t("experience3.description2"),
-        t("experience3.description3"),
       ],
       color: "#FFB800",
       skills: [

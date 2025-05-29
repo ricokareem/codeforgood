@@ -36,26 +36,25 @@
     "title": "LEITENDER PRINCIPAL SOFTWARE ENGINEER",
     "company": "WEST MONROE",
     "period": "Januar 2022 - Mai 2024",
-    "description1": "Transformierte Ingenieurpraktiken durch Implementierung agiler Methoden in mehreren Teams, gewann das Vertrauen der Stakeholder und trieb die Adoption durch nachgewiesenen Erfolg und messbare Verbesserungen in der Liefergeschwindigkeit voran",
-    "description2": "Erfolgreich als Karriereberater West Monroe-Ingenieure sowohl in den USA als auch in Costa Rica betreut, wobei 3 von 5 Ingenieuren durch gezielte Anleitung und technische Führung Beförderungen zu Senior- oder Principal-Positionen erreichten",
-    "description3": "Entwarf eine Greenfield-Preis- und Schätzplattform, die das Onboarding von Projekten von Monaten auf Tage reduzierte und damit den Overhead erheblich senkte und die Verkaufszyklen in der gesamten Organisation beschleunigte",
-    "description4": "Lieferte wirkungsvolle technische Lösungen für Schlüsselkunden: Slingshot Aerospace (3D-Orbitaldynamik-Visualisierungsplattform), Forge Global (Private-Equity-Handelssystem) und Sisu/Snowflake (B2B-Maschinenlern-Analysetool)"
+    "description1": "Als Lead-Entwickler erstellte ich einen schnellen Prototyp für ein internes Preistool-Dashboard, das Beratungsprojektkosten und -margen schätzte. Rekrutierte Designer und führte es als offizielle Preisplattform für West Monroe in die Produktion ein. Der Stack (Remix + AWS) balancierte Geschwindigkeit, Funktionsparität und brutale Priorisierung: Code, als ob wir morgen eingestellt werden könnten.",
+    "description2": "Bei einem Fintech-Startup (kürzlich an die Börse gegangen) Senior Engineer im Team, das eine Private-Equity-Handelsplattform entwickelte. Erstellung schneller serverseitig gerendeter Schnittstellen mit React für komplexe interaktive Elemente, mit Schwerpunkt auf hochskalierbarer Leistung und SOX-Konformität.",
+    "description3": "Senior-Entwickler für die 3D-Orbitalvisualisierungsplattform eines Luft- und Raumfahrtkunden, die flüssige interaktive Erfahrungen mit komplexen Animationen und benutzerdefinierten UI-Komponenten für die Modellierung von Satelliten, Raketen und Weltraumschrott in Echtzeit kombiniert.",
+    "description4": "Mentorte Ingenieure in den USA und Costa Rica, wobei 3/5 der Ingenieure durch zweiwöchentliche 1:1-Sitzungen, Code-Reviews und Pair-Programming-Sitzungen Beförderungen in Senior-Positionen erreichten."
   },
   "experience2": {
     "title": "SENIOR SOFTWARE ENGINEER",
     "company": "CARBON FIVE",
     "period": "März 2018 - Januar 2022",
-    "description1": "Partnerschaft mit Startups und Unternehmenskunden, um geschäftskritische Produkte zu entwerfen und zu starten, während Ingenieurteams betreut und agile Praktiken etabliert wurden, die die Teamleistung steigerten",
-    "description2": "Leitete kritische Modernisierungsprojekte bei Hulu, trieb die SOX-Konformität vor der Disney-Übernahme voran und führte Full-Stack-Upgrades von Python 2 auf 3 und KnockoutJS auf React durch, einschließlich Teamschulung und Wissenstransfer",
-    "description3": "Erfolgreiches Upgrade der PBS/ITVS-Plattform zur Erreichung der WCAG AA-Zertifizierung, während wirkungsvolle Projekte für Fender (React Hooks Modernisierung, Storybook-Komponentenbibliothek), Team Coco (GraphQL-Frontend-Architektur) und Swell Investing (ACATS-Maklerintegration, Entwicklung benutzerdefinierter Sketch-Plugins) geliefert wurden"
+    "description1": "Leitete kritische SOX-Compliance-Updates und Modernisierung für das Plans & Offerings Dashboard eines großen Streaming-Unternehmens mit 53,6 Mio.+ Abonnenten, mit Fokus auf Leistungsoptimierung und responsive Design-Prinzipien, führte Full-Stack-Upgrades von Python 2 auf 3 und KnockoutJS auf React/Typescript durch. Schulte und verbesserte Entwicklungsteams durch Dokumentation, Pair Programming und Tech Talks.",
+    "description2": "Bei einem Fintech-Startup entwickelte komplexes State Management mit asynchronen Abläufen und stellte strenge finanzielle Compliance sicher. Implementierte auch ACATS-Fähigkeit.",
+    "description3": "Entwickelte GraphQL-basiertes React-Frontend für ein bekanntes Unterhaltungsproduktionsunternehmen und entwickelte hochleistungsfähige Datenabfrage- und State-Management-Strategien."
   },
   "experience3": {
     "title": "SENIOR SOFTWARE ENGINEER",
     "company": "YP",
     "period": "Juli 2010 - Dezember 2017",
-    "description1": "Full-Stack-Ingenieur, Teil eines kleinen Teams, das Lösungen für Yellowpages.com, yp.com, m.yp.com (Desktop- und mobile Plattformen) entwickelte, die damals über 60 Millionen monatliche Nutzer bedienten",
-    "description2": "Innerhalb des ersten Monats leitete ich die unternehmensweite Transformation der Versionskontrolle von Subversion zu Git, erstellte Dokumentation und führte praktische Schulungen für über 25 Entwickler durch, was zu 40% schnellerer Codeintegration und Bereitstellungszyklen führte",
-    "description3": "Arbeitete allein an der Migration des Admin-Tools der Hauptseite, das zur Erstellung von Feature-Flags und zur Einbettung von Inhalten aus dem CMS-Host (Radiant) des Marketings verwendet wurde, von Ruby on Rails zu NodeJS, was sofortige Updates ermöglichte und einen Codebase schuf, an dem das gesamte Team arbeiten konnte, anstatt nur 1 oder 2 Ruby-Spezialisten, und reduzierte technische Schulden"
+    "description1": "Teil der Kernentwicklungsgruppe. Unterstützung von 60 Mio.+ monatlichen Nutzern durch hochskalierbare verteilte Dienste, mit Fokus auf Leistungsoptimierung und responsive Design-Prinzipien.",
+    "description2": "Unter den Einzelprojekten: Migration des CMS & Admin-Tools der Website von Ruby on Rails zu Node.js + MongoDB, Ermöglichung von Entwicklerteam-Beiträgen und Erreichung einer 40%igen Verbesserung der Bereitstellungszyklen und schnelleren (jetzt sofortigen) Marketing-Updates."
   },
   "experience4": {
     "title": "SOFTWARE-KONFIGURATIONSINGENIEUR",
@@ -87,4 +86,3 @@
     "altText": "Animierte Präsentation der Conan Classic Website mit Clips und Highlights aus Conan O'Briens Shows"
   }
 }
-

@@ -54,8 +54,7 @@
     "company": "YP",
     "period": "July 2010 - December 2017",
     "description1": "Part of core development group. Supporting 60M+ monthly users through highly scalable distributed services, focusing on performance optimization and responsive design principles.",
-    "description2": "Amongst solo projects: migrated site's CMS & Admin Tool from Ruby on Rails to Node.js + MongoDB, enabling Dev team contribution and achieving a 40% improvement in deployment cycles, and faster (now instant) Marketing updates.",
-    "description3": ""
+    "description2": "Amongst solo projects: migrated site's CMS & Admin Tool from Ruby on Rails to Node.js + MongoDB, enabling Dev team contribution and achieving a 40% improvement in deployment cycles, and faster (now instant) Marketing updates."
   },
   "experience4": {
     "title": "SOFTWARE CONFIGURATION ENGINEER",
