@@ -1,30 +1,34 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import Image from "next/image"
-import { Mail, Globe, MapPin } from "lucide-react"
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { useTranslation } from "react-i18next"
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { Mail, Globe, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export default function Hero() {
-  const ref = useRef<HTMLDivElement>(null)
-  const { t } = useTranslation("translation")
+  const ref = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation("translation");
 
   useEffect(() => {
     const updateMousePosition = (ev: MouseEvent) => {
-      if (!ref.current) return
-      const { clientX, clientY } = ev
-      ref.current.style.setProperty("--x", `${clientX}px`)
-      ref.current.style.setProperty("--y", `${clientY}px`)
-    }
+      if (!ref.current) return;
+      const { clientX, clientY } = ev;
+      ref.current.style.setProperty("--x", `${clientX}px`);
+      ref.current.style.setProperty("--y", `${clientY}px`);
+    };
 
-    window.addEventListener("mousemove", updateMousePosition)
-    return () => window.removeEventListener("mousemove", updateMousePosition)
-  }, [])
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => window.removeEventListener("mousemove", updateMousePosition);
+  }, []);
 
   return (
-    <section id="about" className="py-20 min-h-screen flex items-center relative" ref={ref}>
+    <section
+      id="about"
+      className="py-20 min-h-screen flex items-center relative"
+      ref={ref}
+    >
       <div
         className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-20"
         style={{ backgroundPosition: "center 40%" }}
@@ -39,7 +43,7 @@ export default function Hero() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-[#FF647C] to-[#00B2FF] rounded-3xl transform rotate-6 scale-105" />
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_4262.JPG-Pzije6asoS4EBzHaiyj3kofdy6sWO6.jpeg"
+              src="/img/hero.jpeg"
               alt="Rico Rodriquez Collins"
               width={400}
               height={400}
@@ -99,6 +103,5 @@ export default function Hero() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

@@ -4,10 +4,6 @@ const nextConfig = {
     // ignoreBuildErrors: true,
   },
   reactStrictMode: true,
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "de", "es"],
-  },
   images: {
     remotePatterns: [
       {
