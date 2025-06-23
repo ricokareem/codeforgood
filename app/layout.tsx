@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <I18nProvider>
         <body className={`${outfit.variable} ${outfit.className}`}>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             {children}
             <GoogleAnalytics gaId="G-K5XKE6L8VJ" />
             <SpeedInsights />
