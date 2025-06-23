@@ -18,7 +18,7 @@ export default function Header() {
 
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang)
-    Cookies.set("selectedLanguage", lang, { expires: 2 }) // 2 days expiration
+    Cookies.set("selectedLanguage", lang, { expires: 2 })
   }
 
   const menuItems = [
@@ -31,17 +31,17 @@ export default function Header() {
   ]
 
   return (
-    <header className="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b border-border">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-foreground">
+    <header className="fixed w-full bg-background/80 backdrop-blur-md z-50 border-b border-border">
+      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <Link href="/" className="text-2xl font-bold figure-heading">
           CFG
         </Link>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-6">
           <div className="relative">
             <select
               onChange={(e) => changeLanguage(e.target.value)}
               value={i18n.language}
-              className="appearance-none bg-accent text-accent-foreground py-2 pl-3 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              className="appearance-none bg-background border border-border text-foreground py-2 pl-3 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               style={{ width: "140px", height: "40px" }}
               aria-label={t("menu.selectLanguage")}
             >
@@ -68,12 +68,12 @@ export default function Header() {
               <path d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
             </svg>
           </button>
-          <ul className={`md:flex space-x-4 ${isMenuOpen ? "block" : "hidden"}`}>
+          <ul className={`md:flex space-x-6 ${isMenuOpen ? "block" : "hidden"}`}>
             {menuItems.map((item) => (
               <li key={item.key}>
                 <a
                   href={`#${item.key}`}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
                   onClick={(e) => {
                     e.preventDefault()
                     const element = document.getElementById(item.key)
@@ -95,4 +95,3 @@ export default function Header() {
     </header>
   )
 }
-
