@@ -26,63 +26,62 @@ export default function Hero() {
   return (
     <section
       id="about"
-      className="py-20 min-h-screen flex items-center relative"
+      className="py-32 min-h-screen flex items-center relative bg-background"
       ref={ref}
     >
-      <div
-        className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-20"
-        style={{ backgroundPosition: "center 40%" }}
-      />
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-10" />
+      <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16 relative z-10">
         <motion.div
-          className="md:w-1/2 mb-8 md:mb-0"
+          className="md:w-1/2"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#FF647C] to-[#00B2FF] rounded-3xl transform rotate-6 scale-105" />
-            <Image
-              src="/img/hero.jpeg"
-              alt="Rico Rodriquez Collins"
-              width={400}
-              height={400}
-              className="rounded-3xl relative z-10 transform transition-transform duration-500 hover:scale-105 hover:rotate-3 object-cover"
-            />
+            <div className="w-80 h-80 mx-auto">
+              <Image
+                src="/img/hero.jpeg"
+                alt="Rico Rodriquez Collins"
+                width={400}
+                height={400}
+                className="rounded-2xl w-full h-full object-cover shadow-2xl"
+              />
+            </div>
           </div>
         </motion.div>
+
         <motion.div
-          className="md:w-1/2 md:pl-12"
+          className="md:w-1/2 space-y-8"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
         >
-          <h1 className="text-6xl font-bold bg-gradient-to-r from-[#FFB800] to-[#FF647C] bg-clip-text text-transparent mb-4">
-            {t("name")}
-          </h1>
-          <h2 className="text-4xl text-[#00B2FF] mb-6">{t("title")}</h2>
-          <p className="text-foreground mb-6 text-lg">{t("about")}</p>
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-6xl figure-heading">{t("name")}</h1>
+            <h2 className="text-2xl md:text-3xl figure-subheading">
+              {t("title")}
+            </h2>
+            <p className="text-lg figure-text max-w-2xl">{t("about")}</p>
+          </div>
+
           <div className="space-y-4">
             {[
               {
                 Icon: Mail,
                 text: "hello.world@codeforgood.com",
-                color: "#FF647C",
                 href: "mailto:hello.world@codeforgood.com",
               },
               {
                 Icon: Globe,
                 text: "www.linkedin.com/in/ricocollins",
-                color: "#00B2FF",
                 href: "https://www.linkedin.com/in/ricocollins",
               },
               {
                 Icon: MapPin,
                 text: "Los Angeles, California, United States",
-                color: "#FFB800",
                 href: "https://www.google.com/maps/place/Los+Angeles,+CA",
               },
-            ].map(({ Icon, text, color, href }) => (
+            ].map(({ Icon, text, href }) => (
               <Link
                 key={text}
                 href={href}
@@ -91,11 +90,14 @@ export default function Hero() {
                 className="block"
               >
                 <motion.div
-                  className="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
-                  whileHover={{ scale: 1.05, x: 10 }}
+                  className="flex items-center p-4 rounded-xl professional-card group cursor-pointer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <Icon className="w-6 h-6 mr-3" style={{ color }} />
-                  <span className="text-foreground">{text}</span>
+                  <Icon className="w-5 h-5 mr-4 text-blue-500 group-hover:text-blue-600 transition-colors" />
+                  <span className="text-foreground group-hover:text-blue-600 transition-colors">
+                    {text}
+                  </span>
                 </motion.div>
               </Link>
             ))}

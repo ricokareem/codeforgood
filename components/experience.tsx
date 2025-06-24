@@ -10,14 +10,14 @@ export default function Experience({
   onHoverEnd,
   onClick,
   onModalClose,
-  filteredSkills,
+  highlightedFromSkill,
   isSoundOn,
 }: {
   onHover: (skills: string[], color: string) => void;
   onHoverEnd: () => void;
   onClick: (skills: string[], color: string) => void;
   onModalClose: () => void;
-  filteredSkills: string[];
+  highlightedFromSkill: string;
   isSoundOn: boolean;
 }) {
   const ref = useRef(null);
@@ -32,7 +32,6 @@ export default function Experience({
   >(null);
   const { t } = useTranslation("translation");
   const [audioLoaded, setAudioLoaded] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     // Create audio elements
@@ -42,13 +41,11 @@ export default function Experience({
     modalAudioRef.current = new Audio(
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Plasma%20Blaster%20by%20BigDino1995-EoERfGPL2zXzASXAe7YgkPYneH4Dyi.wav"
     );
-    hoverAudioRef.current.volume = 0.5; // Set volume to 50%
-    modalAudioRef.current.volume = 0.5; // Set volume to 50%
+    hoverAudioRef.current.volume = 0.5;
+    modalAudioRef.current.volume = 0.5;
 
-    // Mark as loaded when the audio is ready
     hoverAudioRef.current.addEventListener("canplaythrough", () => {
       setAudioLoaded(true);
-      console.log("Hover sound loaded and ready to play");
     });
 
     return () => {
@@ -63,32 +60,19 @@ export default function Experience({
 
   const playHoverSound = () => {
     if (hoverAudioRef.current && audioLoaded && isSoundOn) {
-      hoverAudioRef.current.currentTime = 0; // Reset to start
+      hoverAudioRef.current.currentTime = 0;
       hoverAudioRef.current
         .play()
-        .then(() => {
-          console.log("Hover audio played successfully");
-          setIsPlaying(true);
-          setTimeout(() => setIsPlaying(false), 300); // Reset after 300ms
-        })
+        .then(() => {})
         .catch((e) => console.error("Hover audio play failed:", e));
-    } else {
-      console.log("Hover audio not played:", {
-        audioRef: !!hoverAudioRef.current,
-        audioLoaded,
-        isSoundOn,
-      });
     }
   };
 
   const playModalSound = () => {
     if (modalAudioRef.current && isSoundOn) {
-      modalAudioRef.current.currentTime = 0; // Reset to start
+      modalAudioRef.current.currentTime = 0;
       modalAudioRef.current
         .play()
-        .then(() => {
-          console.log("Modal audio played successfully");
-        })
         .catch((e) => console.error("Modal audio play failed:", e));
     }
   };
@@ -104,7 +88,7 @@ export default function Experience({
         t("experience1.description3"),
         t("experience1.description4"),
       ],
-      color: "#FF647C",
+      color: "#00B2FF",
       skills: [
         "JavaScript",
         "TypeScript",
@@ -154,7 +138,7 @@ export default function Experience({
         t("experience2.description2"),
         t("experience2.description3"),
       ],
-      color: "#00B2FF",
+      color: "#FF647C",
       skills: [
         "JavaScript",
         "React",
@@ -255,82 +239,74 @@ export default function Experience({
 
   return (
     <section id="experience" ref={ref} className="py-20">
-      <h2 className="text-5xl font-bold text-[#00B2FF] mb-12">
-        {t("experience")}
-      </h2>
-      <div className="space-y-6">
-        <AnimatePresence>
-          {experiences
-            .filter(
-              (exp) =>
-                filteredSkills.length === 0 ||
-                exp.skills.some((skill) => filteredSkills.includes(skill))
-            )
-            .map((exp, index) => (
-              <motion.div
-                key={index}
-                className={`relative group cursor-pointer ${
-                  activeExperience === exp ? "ring-2 ring-offset-2" : ""
-                }`}
-                style={
-                  {
-                    "--ring-color": exp.color,
-                    "--ring-offset-color": "#1C2333",
-                  } as React.CSSProperties
-                }
-                initial={{ opacity: 0, x: -50 }}
-                animate={
-                  isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
-                }
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                onClick={() => handleExperienceClick(exp)}
-                onMouseEnter={() => handleExperienceHover(exp)}
-                onMouseLeave={handleExperienceHoverEnd}
-                onFocus={() => handleExperienceHover(exp)}
-                onBlur={handleExperienceHoverEnd}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    handleExperienceClick(exp);
-                  }
-                }}
-              >
-                <div
-                  className="absolute inset-0 bg-gradient-to-r rounded-2xl transform scale-105 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
+      <div className="container mx-auto px-6">
+        <h2 className="md:text-5xl mb-12">
+          <span className="text-4xl figure-heading">{t("experience")}</span>
+        </h2>
+        <div className="space-y-6">
+          <AnimatePresence>
+            {experiences.map((exp, index) => {
+              const isHighlightedFromSkill =
+                highlightedFromSkill &&
+                exp.skills.includes(highlightedFromSkill);
+
+              return (
+                <motion.div
+                  key={index}
+                  className={`professional-card p-6 rounded-xl cursor-pointer transition-all duration-300 ${
+                    activeExperience === exp ? "ring-2 ring-blue-500" : ""
+                  }`}
                   style={{
-                    background: `linear-gradient(to right, ${exp.color}, ${exp.color}66)`,
+                    borderColor: isHighlightedFromSkill ? exp.color : undefined,
+                    backgroundColor: isHighlightedFromSkill
+                      ? `${exp.color}15`
+                      : undefined,
+                    transform: isHighlightedFromSkill
+                      ? "translateY(-2px)"
+                      : undefined,
+                    boxShadow: isHighlightedFromSkill
+                      ? `0 8px 25px ${exp.color}25`
+                      : undefined,
                   }}
-                />
-                <div className="relative bg-background/90 backdrop-blur-sm p-6 rounded-2xl border border-border">
-                  <h3
-                    className="text-xl font-bold mb-2"
-                    style={{ color: exp.color }}
-                  >
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={
+                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                  }
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  onClick={() => handleExperienceClick(exp)}
+                  onMouseEnter={() => handleExperienceHover(exp)}
+                  onMouseLeave={handleExperienceHoverEnd}
+                  onFocus={() => handleExperienceHover(exp)}
+                  onBlur={handleExperienceHoverEnd}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      handleExperienceClick(exp);
+                    }
+                  }}
+                >
+                  <h3 className="text-xl font-semibold mb-2 figure-subheading">
                     {exp.title}
                   </h3>
-                  <p className="text-[#00B2FF] mb-2 font-bold">
+                  <p className="figure-subheading mb-3 font-medium">
                     {exp.company} | {exp.period}
                   </p>
-                  <p className="text-muted-foreground">
+                  <p className="figure-text">
                     {exp.description[0].slice(0, 150)}...
-                    <span className="text-[#00B2FF] hover:underline focus:outline-none ml-1">
+                    <span className="text-blue-500 hover:text-blue-600 ml-1 font-medium">
                       {t("more")}
                     </span>
                   </p>
-                </div>
-              </motion.div>
-            ))}
-        </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </div>
       </div>
       {selectedExperience && (
         <Modal experience={selectedExperience} onClose={handleModalClose} />
-      )}
-      {isPlaying && isSoundOn && (
-        <div className="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full z-50">
-          Sound Playing
-        </div>
       )}
     </section>
   );

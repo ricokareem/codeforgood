@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { useTranslation } from "react-i18next"
-import Cookies from "js-cookie"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useTranslation } from "react-i18next";
+import Cookies from "js-cookie";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { t, i18n } = useTranslation("translation")
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation("translation");
 
   useEffect(() => {
-    const savedLanguage = Cookies.get("selectedLanguage")
+    const savedLanguage = Cookies.get("selectedLanguage");
     if (savedLanguage) {
-      i18n.changeLanguage(savedLanguage)
+      i18n.changeLanguage(savedLanguage);
     }
-  }, [i18n])
+  }, [i18n]);
 
   const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang)
-    Cookies.set("selectedLanguage", lang, { expires: 2 }) // 2 days expiration
-  }
+    i18n.changeLanguage(lang);
+    Cookies.set("selectedLanguage", lang, { expires: 2 });
+  };
 
   const menuItems = [
     { key: "about", label: t("menu.about") },
@@ -28,34 +28,42 @@ export default function Header() {
     { key: "projects", label: t("menu.projects") },
     { key: "education", label: t("menu.education") },
     { key: "community", label: t("menu.community") },
-  ]
+  ];
 
   return (
-    <header className="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b border-border">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-foreground">
+    <header className="fixed w-full bg-background/60 backdrop-blur-xl z-50 border-b border-border/50">
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-transparent"></div>
+      <nav className="container mx-auto px-6 py-4 flex justify-between items-center relative z-10">
+        <Link href="/" className="text-2xl font-bold figure-heading-logo">
           CFG
         </Link>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-6">
           <div className="relative">
             <select
               onChange={(e) => changeLanguage(e.target.value)}
               value={i18n.language}
-              className="appearance-none bg-accent text-accent-foreground py-2 pl-3 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              style={{ width: "140px", height: "40px" }}
+              className="appearance-none bg-background/80 backdrop-blur-sm border border-border text-foreground py-2 pl-3 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              style={{ width: "98px", height: "40px", marginLeft: "10px" }}
               aria-label={t("menu.selectLanguage")}
             >
-              <option value="en">ENGLISH 🇬🇧</option>
-              <option value="de">DEUTSCH 🇩🇪</option>
-              <option value="es">ESPAÑOL 🇪🇸</option>
+              <option value="en">EN 🇬🇧</option>
+              <option value="de">DE 🇩🇪</option>
+              <option value="es">ES 🇪🇸</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-foreground">
-              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <svg
+                className="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
               </svg>
             </div>
           </div>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-foreground">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-foreground"
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -65,24 +73,35 @@ export default function Header() {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
+              <path
+                d={
+                  isMenuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
+              ></path>
             </svg>
           </button>
-          <ul className={`md:flex space-x-4 ${isMenuOpen ? "block" : "hidden"}`}>
+          <ul
+            className={`md:flex space-x-6 ${isMenuOpen ? "block" : "hidden"}`}
+          >
             {menuItems.map((item) => (
               <li key={item.key}>
                 <a
                   href={`#${item.key}`}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
                   onClick={(e) => {
-                    e.preventDefault()
-                    const element = document.getElementById(item.key)
+                    e.preventDefault();
+                    const element = document.getElementById(item.key);
                     if (element) {
-                      const yOffset = -100
-                      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
-                      window.scrollTo({ top: y, behavior: "smooth" })
+                      const yOffset = -100;
+                      const y =
+                        element.getBoundingClientRect().top +
+                        window.pageYOffset +
+                        yOffset;
+                      window.scrollTo({ top: y, behavior: "smooth" });
                     }
-                    setIsMenuOpen(false)
+                    setIsMenuOpen(false);
                   }}
                 >
                   {item.label}
@@ -93,6 +112,5 @@ export default function Header() {
         </div>
       </nav>
     </header>
-  )
+  );
 }
-
