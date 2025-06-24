@@ -30,9 +30,9 @@ export default function Hero() {
       ref={ref}
     >
       <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-10" />
-      <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
+      <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16 relative z-10">
         <motion.div
-          className="lg:w-1/2"
+          className="md:w-1/2"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -51,14 +51,14 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          className="lg:w-1/2 space-y-8"
+          className="md:w-1/2 space-y-8"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
         >
           <div className="space-y-4">
-            <h1 className="text-5xl lg:text-6xl figure-heading">{t("name")}</h1>
-            <h2 className="text-2xl lg:text-3xl figure-subheading">
+            <h1 className="text-5xl md:text-6xl figure-heading">{t("name")}</h1>
+            <h2 className="text-2xl md:text-3xl figure-subheading">
               {t("title")}
             </h2>
             <p className="text-lg figure-text max-w-2xl">{t("about")}</p>

@@ -118,6 +118,13 @@ body {
 .figure-heading {
   font-weight: 700;
   letter-spacing: -0.025em;
+  color: white;
+  background-color: hsl(var(--figure-blue));
+}
+
+.figure-heading-logo {
+  font-weight: 700;
+  letter-spacing: -0.025em;
   color: hsl(var(--figure-dark));
 }
 

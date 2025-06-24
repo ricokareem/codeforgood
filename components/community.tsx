@@ -1,34 +1,36 @@
-"use client"
+"use client";
 
-import { useRef, useEffect } from "react"
-import { motion, useInView } from "framer-motion"
-import { useTranslation } from "react-i18next"
+import { useRef, useEffect } from "react";
+import { motion, useInView } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function Community({ isSoundOn }: { isSoundOn: boolean }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-  const { t } = useTranslation("translation")
-  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { t } = useTranslation("translation");
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     audioRef.current = new Audio(
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Spacey%20Cricket%20Click-DlSLodgcdvrAjUskn7lVAFDf0DUxqC.wav",
-    )
-    audioRef.current.volume = 0.5
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Spacey%20Cricket%20Click-DlSLodgcdvrAjUskn7lVAFDf0DUxqC.wav"
+    );
+    audioRef.current.volume = 0.5;
 
     return () => {
       if (audioRef.current) {
-        audioRef.current.remove()
+        audioRef.current.remove();
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const playHoverSound = () => {
     if (audioRef.current && isSoundOn) {
-      audioRef.current.currentTime = 0
-      audioRef.current.play().catch((e) => console.error("Audio play failed:", e))
+      audioRef.current.currentTime = 0;
+      audioRef.current
+        .play()
+        .catch((e) => console.error("Audio play failed:", e));
     }
-  }
+  };
 
   const communityItems = [
     {
@@ -45,12 +47,20 @@ export default function Community({ isSoundOn }: { isSoundOn: boolean }) {
       description: t("community.item3.description"),
       link: "https://www.smpride.com/",
     },
-  ]
+  ];
 
   return (
-    <section id="community" className="py-20 bg-gray-50 dark:bg-gray-900" ref={ref}>
+    <section
+      id="community"
+      className="py-20 bg-gray-50 dark:bg-gray-900"
+      ref={ref}
+    >
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl lg:text-5xl figure-heading mb-12">{t("community.title")}</h2>
+        <h2 className="md:text-5xl mb-12">
+          <span className="text-4xl figure-heading">
+            {t("community.title")}
+          </span>
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {communityItems.map((item, index) => (
             <motion.div
@@ -63,7 +73,12 @@ export default function Community({ isSoundOn }: { isSoundOn: boolean }) {
               onFocus={playHoverSound}
             >
               {item.link ? (
-                <a href={item.link} target="_blank" rel="noopener noreferrer" className="block group">
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
                   <h3 className="text-xl font-semibold mb-3 figure-subheading group-hover:text-blue-600 transition-colors">
                     {item.title}
                   </h3>
@@ -71,7 +86,9 @@ export default function Community({ isSoundOn }: { isSoundOn: boolean }) {
                 </a>
               ) : (
                 <>
-                  <h3 className="text-xl font-semibold mb-3 figure-subheading">{item.title}</h3>
+                  <h3 className="text-xl font-semibold mb-3 figure-subheading">
+                    {item.title}
+                  </h3>
                   <p className="figure-text">{item.description}</p>
                 </>
               )}
@@ -80,5 +97,5 @@ export default function Community({ isSoundOn }: { isSoundOn: boolean }) {
         </div>
       </div>
     </section>
-  )
+  );
 }
