@@ -86,7 +86,7 @@ export default function Experience({
         t("experience1.description3"),
         t("experience1.description4"),
       ],
-      color: "hsl(var(--figure-blue))",
+      color: "#00B2FF",
       skills: [
         "JavaScript",
         "TypeScript",
@@ -132,7 +132,7 @@ export default function Experience({
       company: t("experience2.company"),
       period: t("experience2.period"),
       description: [t("experience2.description1"), t("experience2.description2"), t("experience2.description3")],
-      color: "hsl(var(--figure-blue))",
+      color: "#FF647C",
       skills: [
         "JavaScript",
         "React",
@@ -158,7 +158,7 @@ export default function Experience({
       company: t("experience3.company"),
       period: t("experience3.period"),
       description: [t("experience3.description1"), t("experience3.description2")],
-      color: "hsl(var(--figure-blue))",
+      color: "#FFB800",
       skills: [
         "JavaScript",
         "Node.js",
@@ -175,7 +175,7 @@ export default function Experience({
       company: t("experience4.company"),
       period: t("experience4.period"),
       description: [t("experience4.description1"), t("experience4.description2")],
-      color: "hsl(var(--figure-blue))",
+      color: "#4ADE80",
       skills: ["Build Automation", "Pipelines", "Version Control (CVS, SVN)"],
     },
     {
@@ -183,7 +183,7 @@ export default function Experience({
       company: t("experience5.company"),
       period: t("experience5.period"),
       description: [t("experience5.description1"), t("experience5.description2")],
-      color: "hsl(var(--figure-blue))",
+      color: "#FF647C",
       skills: ["Java", "JSP", "Maven", "Jenkins", "Continuous Integration", "Project Management", "ITIL"],
     },
   ]
@@ -217,46 +217,56 @@ export default function Experience({
   return (
     <section id="experience" ref={ref} className="py-20">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl lg:text-5xl figure-heading mb-12">{t("experience")}</h2>
+        <h2 className="text-4xl lg:text-5xl font-bold text-[#FF647C] mb-12">{t("experience")}</h2>
         <div className="space-y-6">
           <AnimatePresence>
-            {experiences
-              .filter(
-                (exp) => filteredSkills.length === 0 || exp.skills.some((skill) => filteredSkills.includes(skill)),
-              )
-              .map((exp, index) => (
-                <motion.div
-                  key={index}
-                  className={`professional-card p-6 rounded-xl cursor-pointer ${
-                    activeExperience === exp ? "ring-2 ring-blue-500" : ""
-                  }`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  onClick={() => handleExperienceClick(exp)}
-                  onMouseEnter={() => handleExperienceHover(exp)}
-                  onMouseLeave={handleExperienceHoverEnd}
-                  onFocus={() => handleExperienceHover(exp)}
-                  onBlur={handleExperienceHoverEnd}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      handleExperienceClick(exp)
-                    }
-                  }}
-                >
-                  <h3 className="text-xl font-semibold mb-2 figure-subheading">{exp.title}</h3>
-                  <p className="figure-subheading mb-3 font-medium">
-                    {exp.company} | {exp.period}
-                  </p>
-                  <p className="figure-text">
-                    {exp.description[0].slice(0, 150)}...
-                    <span className="text-blue-500 hover:text-blue-600 ml-1 font-medium">{t("more")}</span>
-                  </p>
-                </motion.div>
-              ))}
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                className={`professional-card p-6 rounded-xl cursor-pointer ${
+                  activeExperience === exp ? "ring-2 ring-blue-500" : ""
+                } ${
+                  filteredSkills.length > 0 && exp.skills.some((skill) => filteredSkills.includes(skill))
+                    ? "ring-2"
+                    : ""
+                }`}
+                style={{
+                  borderColor:
+                    filteredSkills.length > 0 && exp.skills.some((skill) => filteredSkills.includes(skill))
+                      ? exp.color
+                      : undefined,
+                  backgroundColor:
+                    filteredSkills.length > 0 && exp.skills.some((skill) => filteredSkills.includes(skill))
+                      ? `${exp.color}10`
+                      : undefined,
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                onClick={() => handleExperienceClick(exp)}
+                onMouseEnter={() => handleExperienceHover(exp)}
+                onMouseLeave={handleExperienceHoverEnd}
+                onFocus={() => handleExperienceHover(exp)}
+                onBlur={handleExperienceHoverEnd}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleExperienceClick(exp)
+                  }
+                }}
+              >
+                <h3 className="text-xl font-semibold mb-2 figure-subheading">{exp.title}</h3>
+                <p className="figure-subheading mb-3 font-medium">
+                  {exp.company} | {exp.period}
+                </p>
+                <p className="figure-text">
+                  {exp.description[0].slice(0, 150)}...
+                  <span className="text-blue-500 hover:text-blue-600 ml-1 font-medium">{t("more")}</span>
+                </p>
+              </motion.div>
+            ))}
           </AnimatePresence>
         </div>
       </div>

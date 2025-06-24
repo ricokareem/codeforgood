@@ -13,17 +13,10 @@ type SkillsProps = {
   highlightedSkills: string[]
   highlightColor: string
   onSkillToggle: (skill: string) => void
-  filteredSkills: string[]
   isSoundOn: boolean
 }
 
-export default function Skills({
-  highlightedSkills,
-  highlightColor,
-  onSkillToggle,
-  filteredSkills,
-  isSoundOn,
-}: SkillsProps) {
+export default function Skills({ highlightedSkills, highlightColor, onSkillToggle, isSoundOn }: SkillsProps) {
   const { t } = useTranslation("translation")
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [audioLoaded, setAudioLoaded] = useState(false)
@@ -134,24 +127,17 @@ export default function Skills({
             onClick={() => handleSkillClick(skill.name)}
           >
             <div
-              className="absolute inset-0 rounded-lg transform scale-105 transition-all duration-300 group-hover:rotate-6 group-hover:scale-110 overflow-hidden"
+              className="professional-card p-3 rounded-lg relative"
               style={{
-                backgroundColor: filteredSkills.includes(skill.name)
-                  ? "#00B2FF"
-                  : highlightedSkills.includes(skill.name)
-                    ? highlightColor
-                    : "rgba(203, 213, 224, 0.7)", // Light gray for light mode
-                opacity: filteredSkills.includes(skill.name) || highlightedSkills.includes(skill.name) ? 1 : 0.7,
-                borderRadius: "0.5rem",
-              }}
-            />
-            <div
-              className="relative bg-white/90 dark:bg-[#1C2333]/90 backdrop-blur-sm p-3 rounded-lg border border-gray-200 dark:border-white/10 transform transition-transform duration-300 hover:-translate-y-1 overflow-hidden"
-              style={{
-                borderRadius: "0.5rem",
+                backgroundColor: highlightedSkills.includes(skill.name) ? highlightColor : undefined,
               }}
             >
-              <span className="text-sm font-medium text-gray-800 dark:text-white whitespace-nowrap overflow-hidden text-ellipsis">
+              <span
+                className="text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis"
+                style={{
+                  color: highlightedSkills.includes(skill.name) ? "white" : undefined,
+                }}
+              >
                 {skill.name}
               </span>
             </div>
@@ -161,4 +147,3 @@ export default function Skills({
     </section>
   )
 }
-
