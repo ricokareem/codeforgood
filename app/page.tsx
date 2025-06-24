@@ -17,22 +17,111 @@ import { useTheme } from "next-themes"
 export default function Home() {
   const [highlightedSkills, setHighlightedSkills] = useState<string[]>([])
   const [highlightColor, setHighlightColor] = useState("")
-  const [highlightedSkillsFromClick, setHighlightedSkillsFromClick] = useState<string[]>([])
+  const [highlightedFromSkill, setHighlightedFromSkill] = useState("")
   const [isSoundOn, setIsSoundOn] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const toggleSoundRef = useRef<HTMLAudioElement | null>(null)
   const { theme, setTheme } = useTheme()
 
+  // All experiences data for skill lookup
+  const experiences = [
+    {
+      color: "#00B2FF",
+      skills: [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "React Native",
+        "Remix",
+        "Enzyme",
+        "React Testing Library",
+        "Prisma ORM",
+        "Redis",
+        "Elasticsearch",
+        "AWS",
+        "PostgreSQL",
+        "Accessibility",
+        "ThreeJS",
+        "React Three Fiber",
+        "ReactVR",
+        "Zustand",
+        "React Query",
+        "Swift",
+        "UIKit",
+        "SwiftUI",
+        "Combine",
+        "Core Data",
+        "Ruby on Rails",
+        "Hotwire",
+        "Turbo",
+        "Stimulus",
+        "Strada",
+        "ViewComponents",
+        "RSpec",
+        "Docker",
+        "Python",
+        "Django",
+        "Flask",
+        "Numpy",
+        "Jupyter",
+      ],
+    },
+    {
+      color: "#FF647C",
+      skills: [
+        "JavaScript",
+        "React",
+        "TypeScript",
+        "Redux",
+        "Jest",
+        "KnockoutJS",
+        "Python",
+        "Flask",
+        "Django",
+        "Ruby on Rails",
+        "Sketch",
+        "Sketch Plugins",
+        "Redis",
+        "PostgreSQL",
+        "Accessibility",
+        "WCAG",
+        "GraphQL",
+      ],
+    },
+    {
+      color: "#FFB800",
+      skills: [
+        "JavaScript",
+        "Node.js",
+        "Ruby on Rails",
+        "RSpec",
+        "Sinatra",
+        "MongoDB",
+        "Express.js",
+        "CMS Integration",
+      ],
+    },
+    {
+      color: "#4ADE80",
+      skills: ["Build Automation", "Pipelines", "Version Control (CVS, SVN)"],
+    },
+    {
+      color: "#FF647C",
+      skills: ["Java", "JSP", "Maven", "Jenkins", "Continuous Integration", "Project Management", "ITIL"],
+    },
+  ]
+
   useEffect(() => {
     audioRef.current = new Audio(
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Computer%20Chirp%202-D1CqZh4bVXk2eytmorcFbO.wav",
     )
-    audioRef.current.volume = 0.5 // Set volume to 50%
+    audioRef.current.volume = 0.5
 
     toggleSoundRef.current = new Audio(
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Computer%20Chirp%202-D1CqZh4bVXk20OAwebK2eytmorcFbO.wav",
     )
-    toggleSoundRef.current.volume = 0.5 // Set volume to 50%
+    toggleSoundRef.current.volume = 0.5
 
     const playSound = () => {
       if (audioRef.current && isSoundOn) {
@@ -61,41 +150,39 @@ export default function Home() {
   }
 
   const handleExperienceHover = (skills: string[], color: string) => {
-    if (highlightedSkillsFromClick.length === 0) {
-      setHighlightedSkills(skills as string[])
-      setHighlightColor(color)
-    }
+    setHighlightedSkills(skills as string[])
+    setHighlightColor(color)
   }
 
   const handleExperienceHoverEnd = () => {
-    if (highlightedSkillsFromClick.length === 0) {
-      setHighlightedSkills([])
-      setHighlightColor("")
-    }
+    setHighlightedSkills([])
+    setHighlightColor("")
   }
 
   const handleExperienceClick = (skills: string[], color: string) => {
-    if (highlightedSkillsFromClick.length === 0) {
-      setHighlightedSkills(skills as string[])
-      setHighlightColor(color)
-    }
+    setHighlightedSkills(skills as string[])
+    setHighlightColor(color)
   }
 
   const handleModalClose = () => {
-    if (highlightedSkillsFromClick.length === 0) {
-      setHighlightedSkills([])
-      setHighlightColor("")
+    setHighlightedSkills([])
+    setHighlightColor("")
+  }
+
+  const handleSkillHover = (skill: string) => {
+    setHighlightedFromSkill(skill)
+    // Find which experiences contain this skill and highlight the skill with the first matching experience's color
+    const matchingExperience = experiences.find((exp) => exp.skills.includes(skill))
+    if (matchingExperience) {
+      setHighlightedSkills([skill])
+      setHighlightColor(matchingExperience.color)
     }
   }
 
-  const handleSkillToggle = (skill: string) => {
-    setHighlightedSkillsFromClick((prev: string[]) => {
-      if (prev.includes(skill)) {
-        return prev.filter((s) => s !== skill)
-      } else {
-        return [skill] // Only highlight one skill at a time
-      }
-    })
+  const handleSkillHoverEnd = () => {
+    setHighlightedFromSkill("")
+    setHighlightedSkills([])
+    setHighlightColor("")
   }
 
   return (
@@ -112,14 +199,14 @@ export default function Home() {
               onHoverEnd={handleExperienceHoverEnd}
               onClick={handleExperienceClick}
               onModalClose={handleModalClose}
-              filteredSkills={highlightedSkillsFromClick}
+              highlightedFromSkill={highlightedFromSkill}
               isSoundOn={isSoundOn}
             />
             <Skills
               highlightedSkills={highlightedSkills}
               highlightColor={highlightColor}
-              onSkillToggle={handleSkillToggle}
-              filteredSkills={highlightedSkillsFromClick}
+              onSkillHover={handleSkillHover}
+              onSkillHoverEnd={handleSkillHoverEnd}
               isSoundOn={isSoundOn}
             />
           </div>

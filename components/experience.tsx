@@ -10,14 +10,14 @@ export default function Experience({
   onHoverEnd,
   onClick,
   onModalClose,
-  filteredSkills,
+  highlightedFromSkill,
   isSoundOn,
 }: {
   onHover: (skills: string[], color: string) => void
   onHoverEnd: () => void
   onClick: (skills: string[], color: string) => void
   onModalClose: () => void
-  filteredSkills: string[]
+  highlightedFromSkill: string
   isSoundOn: boolean
 }) {
   const ref = useRef(null)
@@ -28,7 +28,6 @@ export default function Experience({
   const [activeExperience, setActiveExperience] = useState<(typeof experiences)[0] | null>(null)
   const { t } = useTranslation("translation")
   const [audioLoaded, setAudioLoaded] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
     // Create audio elements
@@ -60,10 +59,7 @@ export default function Experience({
       hoverAudioRef.current.currentTime = 0
       hoverAudioRef.current
         .play()
-        .then(() => {
-          setIsPlaying(true)
-          setTimeout(() => setIsPlaying(false), 300)
-        })
+        .then(() => {})
         .catch((e) => console.error("Hover audio play failed:", e))
     }
   }
@@ -220,53 +216,49 @@ export default function Experience({
         <h2 className="text-4xl lg:text-5xl font-bold text-[#FF647C] mb-12">{t("experience")}</h2>
         <div className="space-y-6">
           <AnimatePresence>
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                className={`professional-card p-6 rounded-xl cursor-pointer ${
-                  activeExperience === exp ? "ring-2 ring-blue-500" : ""
-                } ${
-                  filteredSkills.length > 0 && exp.skills.some((skill) => filteredSkills.includes(skill))
-                    ? "ring-2"
-                    : ""
-                }`}
-                style={{
-                  borderColor:
-                    filteredSkills.length > 0 && exp.skills.some((skill) => filteredSkills.includes(skill))
-                      ? exp.color
-                      : undefined,
-                  backgroundColor:
-                    filteredSkills.length > 0 && exp.skills.some((skill) => filteredSkills.includes(skill))
-                      ? `${exp.color}10`
-                      : undefined,
-                }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                onClick={() => handleExperienceClick(exp)}
-                onMouseEnter={() => handleExperienceHover(exp)}
-                onMouseLeave={handleExperienceHoverEnd}
-                onFocus={() => handleExperienceHover(exp)}
-                onBlur={handleExperienceHoverEnd}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    handleExperienceClick(exp)
-                  }
-                }}
-              >
-                <h3 className="text-xl font-semibold mb-2 figure-subheading">{exp.title}</h3>
-                <p className="figure-subheading mb-3 font-medium">
-                  {exp.company} | {exp.period}
-                </p>
-                <p className="figure-text">
-                  {exp.description[0].slice(0, 150)}...
-                  <span className="text-blue-500 hover:text-blue-600 ml-1 font-medium">{t("more")}</span>
-                </p>
-              </motion.div>
-            ))}
+            {experiences.map((exp, index) => {
+              const isHighlightedFromSkill = highlightedFromSkill && exp.skills.includes(highlightedFromSkill)
+
+              return (
+                <motion.div
+                  key={index}
+                  className={`professional-card p-6 rounded-xl cursor-pointer transition-all duration-300 ${
+                    activeExperience === exp ? "ring-2 ring-blue-500" : ""
+                  }`}
+                  style={{
+                    borderColor: isHighlightedFromSkill ? exp.color : undefined,
+                    backgroundColor: isHighlightedFromSkill ? `${exp.color}15` : undefined,
+                    transform: isHighlightedFromSkill ? "translateY(-2px)" : undefined,
+                    boxShadow: isHighlightedFromSkill ? `0 8px 25px ${exp.color}25` : undefined,
+                  }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  onClick={() => handleExperienceClick(exp)}
+                  onMouseEnter={() => handleExperienceHover(exp)}
+                  onMouseLeave={handleExperienceHoverEnd}
+                  onFocus={() => handleExperienceHover(exp)}
+                  onBlur={handleExperienceHoverEnd}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      handleExperienceClick(exp)
+                    }
+                  }}
+                >
+                  <h3 className="text-xl font-semibold mb-2 figure-subheading">{exp.title}</h3>
+                  <p className="figure-subheading mb-3 font-medium">
+                    {exp.company} | {exp.period}
+                  </p>
+                  <p className="figure-text">
+                    {exp.description[0].slice(0, 150)}...
+                    <span className="text-blue-500 hover:text-blue-600 ml-1 font-medium">{t("more")}</span>
+                  </p>
+                </motion.div>
+              )
+            })}
           </AnimatePresence>
         </div>
       </div>

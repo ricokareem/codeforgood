@@ -12,23 +12,29 @@ type Skill = {
 type SkillsProps = {
   highlightedSkills: string[]
   highlightColor: string
-  onSkillToggle: (skill: string) => void
+  onSkillHover: (skill: string) => void
+  onSkillHoverEnd: () => void
   isSoundOn: boolean
 }
 
-export default function Skills({ highlightedSkills, highlightColor, onSkillToggle, isSoundOn }: SkillsProps) {
+export default function Skills({
+  highlightedSkills,
+  highlightColor,
+  onSkillHover,
+  onSkillHoverEnd,
+  isSoundOn,
+}: SkillsProps) {
   const { t } = useTranslation("translation")
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [audioLoaded, setAudioLoaded] = useState(false)
 
   useEffect(() => {
     audioRef.current = new Audio(
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Space%201999%20Main%20Mission%20to%20Eagle%20by%20Tormy-qgfokpdMz4MmaY4d35hHYedkfGbD4s.wav",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Spacey%20Cricket%20Click-DlSLodgcdvrAjUskn7lVAFDf0DUxqC.wav",
     )
-    audioRef.current.volume = 0.5 // Set volume to 50%
+    audioRef.current.volume = 0.3 // Lower volume for hover sounds
 
     audioRef.current.addEventListener("canplaythrough", () => {
-      console.log("Audio file loaded successfully")
       setAudioLoaded(true)
     })
 
@@ -43,27 +49,19 @@ export default function Skills({ highlightedSkills, highlightColor, onSkillToggl
     }
   }, [])
 
-  const playClickSound = () => {
-    console.log("Attempting to play sound. isSoundOn:", isSoundOn, "audioLoaded:", audioLoaded)
+  const playHoverSound = () => {
     if (audioRef.current && isSoundOn && audioLoaded) {
-      audioRef.current.currentTime = 0 // Reset to start
+      audioRef.current.currentTime = 0
       audioRef.current
         .play()
-        .then(() => console.log("Audio played successfully"))
+        .then(() => console.log("Hover audio played successfully"))
         .catch((e) => console.error("Audio play failed:", e))
-    } else {
-      console.log("Audio not played. Reasons:", {
-        audioRef: !!audioRef.current,
-        isSoundOn,
-        audioLoaded,
-      })
     }
   }
 
-  const handleSkillClick = (skill: string) => {
-    console.log("Skill clicked:", skill)
-    playClickSound()
-    onSkillToggle(skill)
+  const handleSkillHover = (skill: string) => {
+    playHoverSound()
+    onSkillHover(skill)
   }
 
   const skills: Skill[] = [
@@ -124,16 +122,17 @@ export default function Skills({ highlightedSkills, highlightColor, onSkillToggl
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.05 }}
-            onClick={() => handleSkillClick(skill.name)}
+            onMouseEnter={() => handleSkillHover(skill.name)}
+            onMouseLeave={onSkillHoverEnd}
           >
             <div
-              className="professional-card p-3 rounded-lg relative"
+              className="professional-card p-3 rounded-lg relative transition-all duration-200"
               style={{
                 backgroundColor: highlightedSkills.includes(skill.name) ? highlightColor : undefined,
               }}
             >
               <span
-                className="text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis"
+                className="text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis transition-colors duration-200"
                 style={{
                   color: highlightedSkills.includes(skill.name) ? "white" : undefined,
                 }}
