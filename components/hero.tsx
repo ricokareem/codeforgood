@@ -61,7 +61,7 @@ export default function Hero() {
             <h2 className="text-2xl md:text-3xl figure-heading">
               {t("title")}
             </h2>
-            <p className="text-lg figure-text max-w-2xl" style={{ color: "white", backgroundColor: 'hsl(var(--figure-blue))' }}>{t("about")}</p>
+            <p className="text-lg figure-text max-w-2xl" style={{ color: "white", backgroundColor: 'hsl(var(--figure-blue))', paddingLeft: '10px' }}>{t("about")}</p>
           </div>
 
           <div className="space-y-4">
