@@ -35,7 +35,7 @@ export default function Header() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-transparent"></div>
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center relative z-10">
         <Link href="/" className="text-2xl font-bold figure-heading-logo">
-          CFG
+          CodeForGood
         </Link>
         <div className="flex items-center space-x-6">
           <div className="relative">
