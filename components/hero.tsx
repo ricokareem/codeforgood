@@ -57,11 +57,25 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
         >
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl figure-heading">{t("name")}</h1>
+            <h1
+              className="text-3xl md:text-5xl figure-heading"
+              style={{ lineHeight: "1.75" }}
+            >
+              RICO COLLINS
+            </h1>
             <h2 className="text-2xl md:text-3xl figure-heading">
               {t("title")}
             </h2>
-            <p className="text-lg figure-text max-w-2xl" style={{ color: "white", backgroundColor: 'hsl(var(--figure-blue))', paddingLeft: '10px' }}>{t("about")}</p>
+            <p
+              className="text-lg figure-text max-w-2xl"
+              style={{
+                color: "white",
+                backgroundColor: "hsl(var(--figure-blue))",
+                paddingLeft: "10px",
+              }}
+            >
+              {t("about")}
+            </p>
           </div>
 
           <div className="space-y-4">
