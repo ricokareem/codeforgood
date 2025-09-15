@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
+  <g id="Group_3" data-name="Group 3" transform="translate(-373 -210)">
+    <rect id="Rectangle_1" data-name="Rectangle 1" width="17" height="17" rx="2" transform="translate(373 210)" fill="#216dfe"/>
+    <g id="linkedin" transform="translate(376.998 214)">
+      <g id="Group_98" data-name="Group 98">
+        <path id="Path_160" data-name="Path 160" d="M27.3,215.98a1.033,1.033,0,0,1,1.036,1.043,1.052,1.052,0,0,1-1.051,1.043,1.035,1.035,0,0,1-1.036-1.043A1.055,1.055,0,0,1,27.3,215.98Z" transform="translate(-26.247 -215.98)" fill="#fff"/>
+      </g>
+      <g id="Group_99" data-name="Group 99" transform="translate(0.087 2.875)">
+        <path id="Path_161" data-name="Path 161" d="M28.375,225.374l-.044,5.793h-1.8l.044-5.793Z" transform="translate(-26.53 -225.374)" fill="#fff"/>
+      </g>
+      <g id="Group_100" data-name="Group 100" transform="translate(3.015 2.734)">
+        <path id="Path_162" data-name="Path 162" d="M39.6,224.913c1.824,0,2.15,1.2,2.138,2.757l-.024,3.176h-1.8l.021-2.815c0-.674,0-1.538-.925-1.538s-1.083.731-1.089,1.489l-.022,2.864H36.1l.044-5.792h1.725l-.006.792h.027a1.909,1.909,0,0,1,1.71-.933Z" transform="translate(-36.098 -224.913)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
