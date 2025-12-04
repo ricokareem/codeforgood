@@ -23,7 +23,7 @@ export default function Experience({
   const ref = useRef(null);
   const hoverAudioRef = useRef<HTMLAudioElement | null>(null);
   const modalAudioRef = useRef<HTMLAudioElement | null>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref as unknown as React.RefObject<Element>, { once: true, amount: 0.2 });
   const [selectedExperience, setSelectedExperience] = useState<
     (typeof experiences)[0] | null
   >(null);
@@ -32,6 +32,13 @@ export default function Experience({
   >(null);
   const { t } = useTranslation("translation");
   const [audioLoaded, setAudioLoaded] = useState(false);
+  const [experienceLabel, setExperienceLabel] = useState("");
+  const [moreLabel, setMoreLabel] = useState("");
+
+  useEffect(() => {
+    setExperienceLabel(t("experience"));
+    setMoreLabel(t("more"));
+  }, [t]);
 
   useEffect(() => {
     // Create audio elements
@@ -239,7 +246,7 @@ export default function Experience({
     <section id="experience" ref={ref} className="py-20">
       <div className="container mx-auto px-6">
         <h2 className="md:text-5xl mb-12">
-          <span className="text-4xl figure-heading">{t("experience")}</span>
+          <span className="text-4xl figure-heading">{experienceLabel}</span>
         </h2>
         <div className="space-y-6">
           <AnimatePresence>
@@ -294,7 +301,7 @@ export default function Experience({
                   <p className="figure-text">
                     {exp.description[0].slice(0, 150)}...
                     <span className="text-blue-500 hover:text-blue-600 ml-1 font-medium">
-                      {t("more")}
+                      {moreLabel}
                     </span>
                   </p>
                 </motion.div>

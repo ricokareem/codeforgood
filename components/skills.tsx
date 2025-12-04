@@ -27,6 +27,7 @@ export default function Skills({
   const { t } = useTranslation("translation");
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [audioLoaded, setAudioLoaded] = useState(false);
+  const [skillsLabel, setSkillsLabel] = useState("");
 
   useEffect(() => {
     audioRef.current = new Audio(
@@ -48,6 +49,10 @@ export default function Skills({
       }
     };
   }, []);
+
+  useEffect(() => {
+    setSkillsLabel(t("skills"));
+  }, [t]);
 
   const playHoverSound = () => {
     if (audioRef.current && isSoundOn && audioLoaded) {
@@ -108,7 +113,7 @@ export default function Skills({
   return (
     <section id="skills" className="py-20">
       <h2 className="md:text-5xl mb-12">
-        <span className="text-4xl figure-heading">{t("skills")}</span>
+        <span className="text-4xl figure-heading">{skillsLabel}</span>
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
         {skills.map((skill, index) => (

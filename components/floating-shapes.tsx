@@ -1,9 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useState, useEffect, useMemo } from "react"
 
 export default function FloatingShapes() {
-  const shapes = [
+  const shapes = useMemo(() => [
     { color: "#FF647C", type: "plus", size: 20 },
     { color: "#00B2FF", type: "circle", size: 15 },
     { color: "#FFB800", type: "cross", size: 12 },
@@ -12,7 +13,22 @@ export default function FloatingShapes() {
     { color: "#00B2FF", type: "plus", size: 15 },
     { color: "#FFB800", type: "circle", size: 20 },
     { color: "#4ADE80", type: "cross", size: 15 },
-  ]
+  ], [])
+
+  const [positions, setPositions] = useState<Array<{ left: number; top: number }>>([])
+
+  useEffect(() => {
+    setPositions(
+      shapes.map(() => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+      }))
+    )
+  }, [shapes])
+
+  if (positions.length === 0) {
+    return null
+  }
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">
@@ -21,8 +37,8 @@ export default function FloatingShapes() {
           key={i}
           className="absolute"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: `${positions[i].left}%`,
+            top: `${positions[i].top}%`,
           }}
           animate={{
             y: [0, -30, 0],
@@ -31,7 +47,7 @@ export default function FloatingShapes() {
           }}
           transition={{
             duration: Math.random() * 3 + 2,
-            repeat: Number.POSITIVE_INFINITY,
+            repeat: Infinity,
             ease: "linear",
           }}
         >

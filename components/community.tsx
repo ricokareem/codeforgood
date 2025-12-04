@@ -1,14 +1,20 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 export default function Community({ isSoundOn }: { isSoundOn: boolean }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref as unknown as React.RefObject<Element>, { once: true, amount: 0.2 });
   const { t } = useTranslation("translation");
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [communityTitle, setCommunityTitle] = useState("");
+  const [communityItems, setCommunityItems] = useState<Array<{
+    title: string;
+    description: string;
+    link?: string;
+  }>>([]);
 
   useEffect(() => {
     audioRef.current = new Audio(
@@ -23,6 +29,26 @@ export default function Community({ isSoundOn }: { isSoundOn: boolean }) {
     };
   }, []);
 
+  useEffect(() => {
+    setCommunityTitle(t("community.title"));
+    setCommunityItems([
+      {
+        title: t("community.item1.title"),
+        description: t("community.item1.description"),
+      },
+      {
+        title: t("community.item2.title"),
+        description: t("community.item2.description"),
+        link: "https://www.meetup.com/Gay-Geeks-Gay-and-Lesbian-Software-Developers",
+      },
+      {
+        title: t("community.item3.title"),
+        description: t("community.item3.description"),
+        link: "https://www.smpride.com/",
+      },
+    ]);
+  }, [t]);
+
   const playHoverSound = () => {
     if (audioRef.current && isSoundOn) {
       audioRef.current.currentTime = 0;
@@ -31,23 +57,6 @@ export default function Community({ isSoundOn }: { isSoundOn: boolean }) {
         .catch((e) => console.error("Audio play failed:", e));
     }
   };
-
-  const communityItems = [
-    {
-      title: t("community.item1.title"),
-      description: t("community.item1.description"),
-    },
-    {
-      title: t("community.item2.title"),
-      description: t("community.item2.description"),
-      link: "https://www.meetup.com/Gay-Geeks-Gay-and-Lesbian-Software-Developers",
-    },
-    {
-      title: t("community.item3.title"),
-      description: t("community.item3.description"),
-      link: "https://www.smpride.com/",
-    },
-  ];
 
   return (
     <section
@@ -58,7 +67,7 @@ export default function Community({ isSoundOn }: { isSoundOn: boolean }) {
       <div className="container mx-auto px-6">
         <h2 className="md:text-5xl mb-12">
           <span className="text-4xl figure-heading">
-            {t("community.title")}
+            {communityTitle}
           </span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

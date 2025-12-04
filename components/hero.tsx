@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Mail, Globe, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
@@ -10,6 +10,8 @@ import { useTranslation } from "react-i18next";
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { t } = useTranslation("translation");
+  const [title, setTitle] = useState("");
+  const [about, setAbout] = useState("");
 
   useEffect(() => {
     const updateMousePosition = (ev: MouseEvent) => {
@@ -22,6 +24,11 @@ export default function Hero() {
     window.addEventListener("mousemove", updateMousePosition);
     return () => window.removeEventListener("mousemove", updateMousePosition);
   }, []);
+
+  useEffect(() => {
+    setTitle(t("title"));
+    setAbout(t("about"));
+  }, [t]);
 
   return (
     <section
@@ -64,7 +71,7 @@ export default function Hero() {
               RICO COLLINS
             </h1>
             <h2 className="text-2xl md:text-3xl figure-heading">
-              {t("title")}
+              {title}
             </h2>
             <p
               className="text-lg figure-text max-w-2xl"
@@ -74,7 +81,7 @@ export default function Hero() {
                 paddingLeft: "10px",
               }}
             >
-              {t("about")}
+              {about}
             </p>
           </div>
 

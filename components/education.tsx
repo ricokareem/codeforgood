@@ -1,14 +1,15 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useTranslation } from "next-i18next";
 
 export default function Education({ isSoundOn }: { isSoundOn: boolean }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref as unknown as React.RefObject<Element>, { once: true, amount: 0.2 });
   const { t } = useTranslation("translation");
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [educationLabel, setEducationLabel] = useState("");
 
   useEffect(() => {
     audioRef.current = new Audio(
@@ -22,6 +23,10 @@ export default function Education({ isSoundOn }: { isSoundOn: boolean }) {
       }
     };
   }, []);
+
+  useEffect(() => {
+    setEducationLabel(t("education"));
+  }, [t]);
 
   const playHoverSound = () => {
     if (audioRef.current && isSoundOn) {
@@ -48,7 +53,7 @@ export default function Education({ isSoundOn }: { isSoundOn: boolean }) {
     <section id="education" className="py-20 bg-background" ref={ref}>
       <div className="container mx-auto px-6">
         <h2 className="md:text-5xl mb-12">
-          <span className="text-4xl figure-heading">{t("education")} </span>
+          <span className="text-4xl figure-heading">{educationLabel} </span>
         </h2>
         <div className="space-y-6">
           {educations.map((edu, index) => (

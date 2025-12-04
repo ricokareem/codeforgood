@@ -8,6 +8,14 @@ import Cookies from "js-cookie";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t, i18n } = useTranslation("translation");
+  const [menuItems, setMenuItems] = useState([
+    { key: "about", label: "" },
+    { key: "experience", label: "" },
+    { key: "skills", label: "" },
+    { key: "projects", label: "" },
+    { key: "education", label: "" },
+    { key: "community", label: "" },
+  ]);
 
   useEffect(() => {
     const savedLanguage = Cookies.get("selectedLanguage");
@@ -16,19 +24,21 @@ export default function Header() {
     }
   }, [i18n]);
 
+  useEffect(() => {
+    setMenuItems([
+      { key: "about", label: t("menu.about") },
+      { key: "experience", label: t("menu.experience") },
+      { key: "skills", label: t("menu.skills") },
+      { key: "projects", label: t("menu.projects") },
+      { key: "education", label: t("menu.education") },
+      { key: "community", label: t("menu.community") },
+    ]);
+  }, [t]);
+
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
     Cookies.set("selectedLanguage", lang, { expires: 2 });
   };
-
-  const menuItems = [
-    { key: "about", label: t("menu.about") },
-    { key: "experience", label: t("menu.experience") },
-    { key: "skills", label: t("menu.skills") },
-    { key: "projects", label: t("menu.projects") },
-    { key: "education", label: t("menu.education") },
-    { key: "community", label: t("menu.community") },
-  ];
 
   return (
     <header className="fixed w-full bg-background/60 backdrop-blur-xl z-50 border-b border-border/50">
@@ -44,7 +54,7 @@ export default function Header() {
               value={i18n.language}
               className="appearance-none bg-background/80 backdrop-blur-sm border border-border text-foreground py-2 pl-3 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               style={{ width: "98px", height: "40px", marginLeft: "10px" }}
-              aria-label={t("menu.selectLanguage")}
+              aria-label="Select language"
             >
               <option value="en">EN 🇬🇧</option>
               <option value="de">DE 🇩🇪</option>
