@@ -3,18 +3,18 @@
 exports[`Hero Component renders correctly in English 1`] = `
 <div>
   <section
-    class="py-20 min-h-screen flex items-center relative"
+    class="py-32 min-h-screen flex items-center relative bg-background"
     id="about"
   >
     <div
-      class="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-20"
+      class="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-10"
     />
     <div
-      class="container mx-auto px-4 flex flex-col md:flex-row items-center"
+      class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16 relative z-10"
     >
       <div
         animate="[object Object]"
-        class="md:w-1/2 mb-8 md:mb-0"
+        class="md:w-1/2"
         initial="[object Object]"
         transition="[object Object]"
       >
@@ -22,38 +22,45 @@ exports[`Hero Component renders correctly in English 1`] = `
           class="relative"
         >
           <div
-            class="absolute inset-0 bg-gradient-to-br from-[#FF647C] to-[#00B2FF] rounded-3xl transform rotate-6 scale-105"
-          />
-          <img
-            alt="Rico Rodriquez Collins"
-            class="rounded-3xl relative z-10 transform transition-transform duration-500 hover:scale-105 hover:rotate-3 object-cover"
-            height="400"
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_4262.JPG-Pzije6asoS4EBzHaiyj3kofdy6sWO6.jpeg"
-            width="400"
-          />
+            class="w-80 h-80 mx-auto"
+          >
+            <img
+              alt="Rico Rodriquez Collins"
+              class="rounded-2xl w-full h-full object-cover shadow-2xl"
+              height="400"
+              src="/img/hero.jpeg"
+              width="400"
+            />
+          </div>
         </div>
       </div>
       <div
         animate="[object Object]"
-        class="md:w-1/2 md:pl-12"
+        class="md:w-1/2 space-y-8"
         initial="[object Object]"
         transition="[object Object]"
       >
-        <h1
-          class="text-6xl font-bold bg-gradient-to-r from-[#FFB800] to-[#FF647C] bg-clip-text text-transparent mb-4"
+        <div
+          class="space-y-4"
         >
-          RICO RODRIQUEZ COLLINS
-        </h1>
-        <h2
-          class="text-4xl text-[#00B2FF] mb-6"
-        >
-          EXPERIENCED FULL STACK & MOBILE ENGINEER
-        </h2>
-        <p
-          class="text-foreground mb-6 text-lg"
-        >
-          Technical leader who champions sustainable engineering practices through empathy and collaboration. I excel at fostering team environments where open communication drives innovation and inclusivity enables everyone's best work.
-        </p>
+          <h1
+            class="text-3xl md:text-5xl figure-heading"
+            style="line-height: 1.75;"
+          >
+            RICO COLLINS
+          </h1>
+          <h2
+            class="text-2xl md:text-3xl figure-heading"
+          >
+            EXPERIENCED FULL STACK & MOBILE ENGINEER
+          </h2>
+          <p
+            class="text-lg figure-text max-w-2xl"
+            style="color: white; padding-left: 10px;"
+          >
+            Technical leader who champions sustainable engineering practices through empathy and collaboration. I excel at fostering team environments where open communication drives innovation and inclusivity enables everyone's best work.
+          </p>
+        </div>
         <div
           class="space-y-4"
         >
@@ -64,18 +71,18 @@ exports[`Hero Component renders correctly in English 1`] = `
             target="_self"
           >
             <div
-              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              class="flex items-center p-4 rounded-xl professional-card group cursor-pointer"
               whilehover="[object Object]"
+              whiletap="[object Object]"
             >
               <svg
-                class="w-6 h-6 mr-3"
+                class="w-5 h-5 mr-4 text-blue-500 group-hover:text-blue-600 transition-colors"
                 fill="none"
                 height="24"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                style="color: rgb(255, 100, 124);"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +99,7 @@ exports[`Hero Component renders correctly in English 1`] = `
                 />
               </svg>
               <span
-                class="text-foreground"
+                class="text-foreground group-hover:text-blue-600 transition-colors"
               >
                 hello.world@codeforgood.com
               </span>
@@ -105,18 +112,18 @@ exports[`Hero Component renders correctly in English 1`] = `
             target="_blank"
           >
             <div
-              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              class="flex items-center p-4 rounded-xl professional-card group cursor-pointer"
               whilehover="[object Object]"
+              whiletap="[object Object]"
             >
               <svg
-                class="w-6 h-6 mr-3"
+                class="w-5 h-5 mr-4 text-blue-500 group-hover:text-blue-600 transition-colors"
                 fill="none"
                 height="24"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                style="color: rgb(0, 178, 255);"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +144,7 @@ exports[`Hero Component renders correctly in English 1`] = `
                 />
               </svg>
               <span
-                class="text-foreground"
+                class="text-foreground group-hover:text-blue-600 transition-colors"
               >
                 www.linkedin.com/in/ricocollins
               </span>
@@ -150,18 +157,18 @@ exports[`Hero Component renders correctly in English 1`] = `
             target="_blank"
           >
             <div
-              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              class="flex items-center p-4 rounded-xl professional-card group cursor-pointer"
               whilehover="[object Object]"
+              whiletap="[object Object]"
             >
               <svg
-                class="w-6 h-6 mr-3"
+                class="w-5 h-5 mr-4 text-blue-500 group-hover:text-blue-600 transition-colors"
                 fill="none"
                 height="24"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                style="color: rgb(255, 184, 0);"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -176,7 +183,7 @@ exports[`Hero Component renders correctly in English 1`] = `
                 />
               </svg>
               <span
-                class="text-foreground"
+                class="text-foreground group-hover:text-blue-600 transition-colors"
               >
                 Los Angeles, California, United States
               </span>
@@ -192,18 +199,18 @@ exports[`Hero Component renders correctly in English 1`] = `
 exports[`Hero Component renders correctly in German 1`] = `
 <div>
   <section
-    class="py-20 min-h-screen flex items-center relative"
+    class="py-32 min-h-screen flex items-center relative bg-background"
     id="about"
   >
     <div
-      class="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-20"
+      class="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-10"
     />
     <div
-      class="container mx-auto px-4 flex flex-col md:flex-row items-center"
+      class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16 relative z-10"
     >
       <div
         animate="[object Object]"
-        class="md:w-1/2 mb-8 md:mb-0"
+        class="md:w-1/2"
         initial="[object Object]"
         transition="[object Object]"
       >
@@ -211,38 +218,45 @@ exports[`Hero Component renders correctly in German 1`] = `
           class="relative"
         >
           <div
-            class="absolute inset-0 bg-gradient-to-br from-[#FF647C] to-[#00B2FF] rounded-3xl transform rotate-6 scale-105"
-          />
-          <img
-            alt="Rico Rodriquez Collins"
-            class="rounded-3xl relative z-10 transform transition-transform duration-500 hover:scale-105 hover:rotate-3 object-cover"
-            height="400"
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_4262.JPG-Pzije6asoS4EBzHaiyj3kofdy6sWO6.jpeg"
-            width="400"
-          />
+            class="w-80 h-80 mx-auto"
+          >
+            <img
+              alt="Rico Rodriquez Collins"
+              class="rounded-2xl w-full h-full object-cover shadow-2xl"
+              height="400"
+              src="/img/hero.jpeg"
+              width="400"
+            />
+          </div>
         </div>
       </div>
       <div
         animate="[object Object]"
-        class="md:w-1/2 md:pl-12"
+        class="md:w-1/2 space-y-8"
         initial="[object Object]"
         transition="[object Object]"
       >
-        <h1
-          class="text-6xl font-bold bg-gradient-to-r from-[#FFB800] to-[#FF647C] bg-clip-text text-transparent mb-4"
+        <div
+          class="space-y-4"
         >
-          RICO RODRIQUEZ COLLINS
-        </h1>
-        <h2
-          class="text-4xl text-[#00B2FF] mb-6"
-        >
-          ERFAHRENER FULL-STACK- UND MOBILE-INGENIEUR
-        </h2>
-        <p
-          class="text-foreground mb-6 text-lg"
-        >
-          Technischer Leiter, der nachhaltige Ingenieurpraktiken durch Empathie und Zusammenarbeit fördert. Ich bin hervorragend darin, Teamumgebungen zu schaffen, in denen offene Kommunikation Innovation vorantreibt und Inklusivität die beste Arbeit aller ermöglicht.
-        </p>
+          <h1
+            class="text-3xl md:text-5xl figure-heading"
+            style="line-height: 1.75;"
+          >
+            RICO COLLINS
+          </h1>
+          <h2
+            class="text-2xl md:text-3xl figure-heading"
+          >
+            ERFAHRENER FULL-STACK- UND MOBILE-INGENIEUR
+          </h2>
+          <p
+            class="text-lg figure-text max-w-2xl"
+            style="color: white; padding-left: 10px;"
+          >
+            Technischer Leiter, der nachhaltige Ingenieurpraktiken durch Empathie und Zusammenarbeit fördert. Ich bin hervorragend darin, Teamumgebungen zu schaffen, in denen offene Kommunikation Innovation vorantreibt und Inklusivität die beste Arbeit aller ermöglicht.
+          </p>
+        </div>
         <div
           class="space-y-4"
         >
@@ -253,18 +267,18 @@ exports[`Hero Component renders correctly in German 1`] = `
             target="_self"
           >
             <div
-              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              class="flex items-center p-4 rounded-xl professional-card group cursor-pointer"
               whilehover="[object Object]"
+              whiletap="[object Object]"
             >
               <svg
-                class="w-6 h-6 mr-3"
+                class="w-5 h-5 mr-4 text-blue-500 group-hover:text-blue-600 transition-colors"
                 fill="none"
                 height="24"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                style="color: rgb(255, 100, 124);"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -281,7 +295,7 @@ exports[`Hero Component renders correctly in German 1`] = `
                 />
               </svg>
               <span
-                class="text-foreground"
+                class="text-foreground group-hover:text-blue-600 transition-colors"
               >
                 hello.world@codeforgood.com
               </span>
@@ -294,18 +308,18 @@ exports[`Hero Component renders correctly in German 1`] = `
             target="_blank"
           >
             <div
-              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              class="flex items-center p-4 rounded-xl professional-card group cursor-pointer"
               whilehover="[object Object]"
+              whiletap="[object Object]"
             >
               <svg
-                class="w-6 h-6 mr-3"
+                class="w-5 h-5 mr-4 text-blue-500 group-hover:text-blue-600 transition-colors"
                 fill="none"
                 height="24"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                style="color: rgb(0, 178, 255);"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -326,7 +340,7 @@ exports[`Hero Component renders correctly in German 1`] = `
                 />
               </svg>
               <span
-                class="text-foreground"
+                class="text-foreground group-hover:text-blue-600 transition-colors"
               >
                 www.linkedin.com/in/ricocollins
               </span>
@@ -339,18 +353,18 @@ exports[`Hero Component renders correctly in German 1`] = `
             target="_blank"
           >
             <div
-              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              class="flex items-center p-4 rounded-xl professional-card group cursor-pointer"
               whilehover="[object Object]"
+              whiletap="[object Object]"
             >
               <svg
-                class="w-6 h-6 mr-3"
+                class="w-5 h-5 mr-4 text-blue-500 group-hover:text-blue-600 transition-colors"
                 fill="none"
                 height="24"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                style="color: rgb(255, 184, 0);"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -365,7 +379,7 @@ exports[`Hero Component renders correctly in German 1`] = `
                 />
               </svg>
               <span
-                class="text-foreground"
+                class="text-foreground group-hover:text-blue-600 transition-colors"
               >
                 Los Angeles, California, United States
               </span>
@@ -381,18 +395,18 @@ exports[`Hero Component renders correctly in German 1`] = `
 exports[`Hero Component renders correctly in Spanish 1`] = `
 <div>
   <section
-    class="py-20 min-h-screen flex items-center relative"
+    class="py-32 min-h-screen flex items-center relative bg-background"
     id="about"
   >
     <div
-      class="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-20"
+      class="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3d-wall.jpg-kTNp9iGlmZRCDKNicouRCL3pc449Qp.jpeg')] bg-cover bg-center opacity-20 dark:opacity-10"
     />
     <div
-      class="container mx-auto px-4 flex flex-col md:flex-row items-center"
+      class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16 relative z-10"
     >
       <div
         animate="[object Object]"
-        class="md:w-1/2 mb-8 md:mb-0"
+        class="md:w-1/2"
         initial="[object Object]"
         transition="[object Object]"
       >
@@ -400,38 +414,45 @@ exports[`Hero Component renders correctly in Spanish 1`] = `
           class="relative"
         >
           <div
-            class="absolute inset-0 bg-gradient-to-br from-[#FF647C] to-[#00B2FF] rounded-3xl transform rotate-6 scale-105"
-          />
-          <img
-            alt="Rico Rodriquez Collins"
-            class="rounded-3xl relative z-10 transform transition-transform duration-500 hover:scale-105 hover:rotate-3 object-cover"
-            height="400"
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_4262.JPG-Pzije6asoS4EBzHaiyj3kofdy6sWO6.jpeg"
-            width="400"
-          />
+            class="w-80 h-80 mx-auto"
+          >
+            <img
+              alt="Rico Rodriquez Collins"
+              class="rounded-2xl w-full h-full object-cover shadow-2xl"
+              height="400"
+              src="/img/hero.jpeg"
+              width="400"
+            />
+          </div>
         </div>
       </div>
       <div
         animate="[object Object]"
-        class="md:w-1/2 md:pl-12"
+        class="md:w-1/2 space-y-8"
         initial="[object Object]"
         transition="[object Object]"
       >
-        <h1
-          class="text-6xl font-bold bg-gradient-to-r from-[#FFB800] to-[#FF647C] bg-clip-text text-transparent mb-4"
+        <div
+          class="space-y-4"
         >
-          RICO RODRIQUEZ COLLINS
-        </h1>
-        <h2
-          class="text-4xl text-[#00B2FF] mb-6"
-        >
-          INGENIERO EXPERIMENTADO EN FULL STACK Y MÓVIL
-        </h2>
-        <p
-          class="text-foreground mb-6 text-lg"
-        >
-          Líder técnico que defiende prácticas de ingeniería sostenibles a través de la empatía y la colaboración. Sobresalgo en fomentar entornos de equipo donde la comunicación abierta impulsa la innovación y la inclusividad permite el mejor trabajo de todos.
-        </p>
+          <h1
+            class="text-3xl md:text-5xl figure-heading"
+            style="line-height: 1.75;"
+          >
+            RICO COLLINS
+          </h1>
+          <h2
+            class="text-2xl md:text-3xl figure-heading"
+          >
+            INGENIERO EXPERIMENTADO EN FULL STACK Y MÓVIL
+          </h2>
+          <p
+            class="text-lg figure-text max-w-2xl"
+            style="color: white; padding-left: 10px;"
+          >
+            Líder técnico que defiende prácticas de ingeniería sostenibles a través de la empatía y la colaboración. Sobresalgo en fomentar entornos de equipo donde la comunicación abierta impulsa la innovación y la inclusividad permite el mejor trabajo de todos.
+          </p>
+        </div>
         <div
           class="space-y-4"
         >
@@ -442,18 +463,18 @@ exports[`Hero Component renders correctly in Spanish 1`] = `
             target="_self"
           >
             <div
-              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              class="flex items-center p-4 rounded-xl professional-card group cursor-pointer"
               whilehover="[object Object]"
+              whiletap="[object Object]"
             >
               <svg
-                class="w-6 h-6 mr-3"
+                class="w-5 h-5 mr-4 text-blue-500 group-hover:text-blue-600 transition-colors"
                 fill="none"
                 height="24"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                style="color: rgb(255, 100, 124);"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -470,7 +491,7 @@ exports[`Hero Component renders correctly in Spanish 1`] = `
                 />
               </svg>
               <span
-                class="text-foreground"
+                class="text-foreground group-hover:text-blue-600 transition-colors"
               >
                 hello.world@codeforgood.com
               </span>
@@ -483,18 +504,18 @@ exports[`Hero Component renders correctly in Spanish 1`] = `
             target="_blank"
           >
             <div
-              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              class="flex items-center p-4 rounded-xl professional-card group cursor-pointer"
               whilehover="[object Object]"
+              whiletap="[object Object]"
             >
               <svg
-                class="w-6 h-6 mr-3"
+                class="w-5 h-5 mr-4 text-blue-500 group-hover:text-blue-600 transition-colors"
                 fill="none"
                 height="24"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                style="color: rgb(0, 178, 255);"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -515,7 +536,7 @@ exports[`Hero Component renders correctly in Spanish 1`] = `
                 />
               </svg>
               <span
-                class="text-foreground"
+                class="text-foreground group-hover:text-blue-600 transition-colors"
               >
                 www.linkedin.com/in/ricocollins
               </span>
@@ -528,18 +549,18 @@ exports[`Hero Component renders correctly in Spanish 1`] = `
             target="_blank"
           >
             <div
-              class="flex items-center p-3 rounded-xl bg-accent/50 backdrop-blur-sm hover:bg-accent transition-colors"
+              class="flex items-center p-4 rounded-xl professional-card group cursor-pointer"
               whilehover="[object Object]"
+              whiletap="[object Object]"
             >
               <svg
-                class="w-6 h-6 mr-3"
+                class="w-5 h-5 mr-4 text-blue-500 group-hover:text-blue-600 transition-colors"
                 fill="none"
                 height="24"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                style="color: rgb(255, 184, 0);"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -554,7 +575,7 @@ exports[`Hero Component renders correctly in Spanish 1`] = `
                 />
               </svg>
               <span
-                class="text-foreground"
+                class="text-foreground group-hover:text-blue-600 transition-colors"
               >
                 Los Angeles, California, United States
               </span>

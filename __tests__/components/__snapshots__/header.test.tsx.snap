@@ -3,42 +3,45 @@
 exports[`Header Component renders correctly in English 1`] = `
 <div>
   <header
-    class="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b border-border"
+    class="fixed w-full bg-background/60 backdrop-blur-xl z-50 border-b border-border/50"
   >
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-transparent"
+    />
     <nav
-      class="container mx-auto px-4 py-4 flex justify-between items-center"
+      class="container mx-auto px-6 py-4 flex justify-between items-center relative z-10"
     >
       <a
-        class="text-2xl font-bold text-foreground"
+        class="text-2xl font-bold figure-heading-logo"
         href="/"
       >
         CodeForGood
       </a>
       <div
-        class="flex items-center space-x-4"
+        class="flex items-center space-x-6"
       >
         <div
           class="relative"
         >
           <select
             aria-label="Select language"
-            class="appearance-none bg-accent text-accent-foreground py-2 pl-3 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            style="width: 140px; height: 40px;"
+            class="appearance-none bg-background/80 backdrop-blur-sm border border-border text-foreground py-2 pl-3 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            style="width: 98px; height: 40px; margin-left: 10px;"
           >
             <option
               value="en"
             >
-              ENGLISH 🇬🇧
+              EN 🇬🇧
             </option>
             <option
               value="de"
             >
-              DEUTSCH 🇩🇪
+              DE 🇩🇪
             </option>
             <option
               value="es"
             >
-              ESPAÑOL 🇪🇸
+              ES 🇪🇸
             </option>
           </select>
           <div
@@ -73,11 +76,11 @@ exports[`Header Component renders correctly in English 1`] = `
           </svg>
         </button>
         <ul
-          class="md:flex space-x-4 hidden"
+          class="md:flex space-x-6 hidden"
         >
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#about"
             >
               About
@@ -85,7 +88,7 @@ exports[`Header Component renders correctly in English 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#experience"
             >
               Experience
@@ -93,7 +96,7 @@ exports[`Header Component renders correctly in English 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#skills"
             >
               Skills
@@ -101,7 +104,7 @@ exports[`Header Component renders correctly in English 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#projects"
             >
               Projects
@@ -109,7 +112,7 @@ exports[`Header Component renders correctly in English 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#education"
             >
               Education
@@ -117,7 +120,7 @@ exports[`Header Component renders correctly in English 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#community"
             >
               Community
@@ -133,42 +136,45 @@ exports[`Header Component renders correctly in English 1`] = `
 exports[`Header Component renders correctly in German 1`] = `
 <div>
   <header
-    class="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b border-border"
+    class="fixed w-full bg-background/60 backdrop-blur-xl z-50 border-b border-border/50"
   >
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-transparent"
+    />
     <nav
-      class="container mx-auto px-4 py-4 flex justify-between items-center"
+      class="container mx-auto px-6 py-4 flex justify-between items-center relative z-10"
     >
       <a
-        class="text-2xl font-bold text-foreground"
+        class="text-2xl font-bold figure-heading-logo"
         href="/"
       >
         CodeForGood
       </a>
       <div
-        class="flex items-center space-x-4"
+        class="flex items-center space-x-6"
       >
         <div
           class="relative"
         >
           <select
-            aria-label="Sprache auswählen"
-            class="appearance-none bg-accent text-accent-foreground py-2 pl-3 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            style="width: 140px; height: 40px;"
+            aria-label="Select language"
+            class="appearance-none bg-background/80 backdrop-blur-sm border border-border text-foreground py-2 pl-3 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            style="width: 98px; height: 40px; margin-left: 10px;"
           >
             <option
               value="en"
             >
-              ENGLISH 🇬🇧
+              EN 🇬🇧
             </option>
             <option
               value="de"
             >
-              DEUTSCH 🇩🇪
+              DE 🇩🇪
             </option>
             <option
               value="es"
             >
-              ESPAÑOL 🇪🇸
+              ES 🇪🇸
             </option>
           </select>
           <div
@@ -203,11 +209,11 @@ exports[`Header Component renders correctly in German 1`] = `
           </svg>
         </button>
         <ul
-          class="md:flex space-x-4 hidden"
+          class="md:flex space-x-6 hidden"
         >
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#about"
             >
               Über mich
@@ -215,7 +221,7 @@ exports[`Header Component renders correctly in German 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#experience"
             >
               Erfahrung
@@ -223,7 +229,7 @@ exports[`Header Component renders correctly in German 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#skills"
             >
               Fähigkeiten
@@ -231,7 +237,7 @@ exports[`Header Component renders correctly in German 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#projects"
             >
               Projekte
@@ -239,7 +245,7 @@ exports[`Header Component renders correctly in German 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#education"
             >
               Ausbildung
@@ -247,7 +253,7 @@ exports[`Header Component renders correctly in German 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#community"
             >
               Gemeinschaft
@@ -263,42 +269,45 @@ exports[`Header Component renders correctly in German 1`] = `
 exports[`Header Component renders correctly in Spanish 1`] = `
 <div>
   <header
-    class="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b border-border"
+    class="fixed w-full bg-background/60 backdrop-blur-xl z-50 border-b border-border/50"
   >
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-transparent"
+    />
     <nav
-      class="container mx-auto px-4 py-4 flex justify-between items-center"
+      class="container mx-auto px-6 py-4 flex justify-between items-center relative z-10"
     >
       <a
-        class="text-2xl font-bold text-foreground"
+        class="text-2xl font-bold figure-heading-logo"
         href="/"
       >
         CodeForGood
       </a>
       <div
-        class="flex items-center space-x-4"
+        class="flex items-center space-x-6"
       >
         <div
           class="relative"
         >
           <select
             aria-label="Select language"
-            class="appearance-none bg-accent text-accent-foreground py-2 pl-3 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            style="width: 140px; height: 40px;"
+            class="appearance-none bg-background/80 backdrop-blur-sm border border-border text-foreground py-2 pl-3 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            style="width: 98px; height: 40px; margin-left: 10px;"
           >
             <option
               value="en"
             >
-              ENGLISH 🇬🇧
+              EN 🇬🇧
             </option>
             <option
               value="de"
             >
-              DEUTSCH 🇩🇪
+              DE 🇩🇪
             </option>
             <option
               value="es"
             >
-              ESPAÑOL 🇪🇸
+              ES 🇪🇸
             </option>
           </select>
           <div
@@ -333,11 +342,11 @@ exports[`Header Component renders correctly in Spanish 1`] = `
           </svg>
         </button>
         <ul
-          class="md:flex space-x-4 hidden"
+          class="md:flex space-x-6 hidden"
         >
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#about"
             >
               Acerca de
@@ -345,7 +354,7 @@ exports[`Header Component renders correctly in Spanish 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#experience"
             >
               Experiencia
@@ -353,7 +362,7 @@ exports[`Header Component renders correctly in Spanish 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#skills"
             >
               Habilidades
@@ -361,7 +370,7 @@ exports[`Header Component renders correctly in Spanish 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#projects"
             >
               Proyectos
@@ -369,7 +378,7 @@ exports[`Header Component renders correctly in Spanish 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#education"
             >
               Educación
@@ -377,7 +386,7 @@ exports[`Header Component renders correctly in Spanish 1`] = `
           </li>
           <li>
             <a
-              class="text-muted-foreground hover:text-foreground transition-colors"
+              class="text-muted-foreground hover:text-blue-500 transition-colors font-medium"
               href="#community"
             >
               Comunidad
