@@ -18,8 +18,6 @@ export const metadata: Metadata = {
   description: "Experienced Full Stack & Mobile Engineer portfolio",
 }
 
-export const dynamic = "force-dynamic"
-
 export default function RootLayout({
   children,
 }: {

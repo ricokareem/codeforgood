@@ -1,18 +1,21 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import dynamic from "next/dynamic"
 import Header from "@/components/header"
 import Hero from "@/components/hero"
 import Experience from "@/components/experience"
 import Skills from "@/components/skills"
-import Projects from "@/components/projects"
-import Education from "@/components/education"
-import Community from "@/components/community"
-import Footer from "@/components/footer"
-import CustomCursor from "@/components/custom-cursor"
-import FloatingShapes from "@/components/floating-shapes"
 import { Volume2, VolumeX, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
+
+// Lazy load below-the-fold components
+const Projects = dynamic(() => import("@/components/projects"), { ssr: true })
+const Education = dynamic(() => import("@/components/education"), { ssr: true })
+const Community = dynamic(() => import("@/components/community"), { ssr: true })
+const Footer = dynamic(() => import("@/components/footer"), { ssr: true })
+const CustomCursor = dynamic(() => import("@/components/custom-cursor"), { ssr: false })
+const FloatingShapes = dynamic(() => import("@/components/floating-shapes"), { ssr: false })
 
 export default function Home() {
   const [highlightedSkills, setHighlightedSkills] = useState<string[]>([])
@@ -111,24 +114,13 @@ export default function Home() {
   ]
 
   useEffect(() => {
-    audioRef.current = new Audio(
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Computer%20Chirp%202-D1CqZh4bVXk2eytmorcFbO.wav",
-    )
-    audioRef.current.volume = 0.5
-
-    toggleSoundRef.current = new Audio(
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Computer%20Chirp%202-D1CqZh4bVXk20OAwebK2eytmorcFbO.wav",
-    )
-    toggleSoundRef.current.volume = 0.5
-
-    const playSound = () => {
-      if (audioRef.current && isSoundOn) {
-        audioRef.current.play().catch((error) => console.error("Error playing sound:", error))
-      }
-    }
-
-    if (isSoundOn) {
-      playSound()
+    // Only load audio when sound is enabled
+    if (isSoundOn && !audioRef.current) {
+      audioRef.current = new Audio(
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Computer%20Chirp%202-D1CqZh4bVXk2eytmorcFbO.wav",
+      )
+      audioRef.current.volume = 0.5
+      audioRef.current.play().catch((error) => console.error("Error playing sound:", error))
     }
 
     return () => {
@@ -140,10 +132,16 @@ export default function Home() {
   }, [isSoundOn])
 
   const toggleSound = () => {
-    if (toggleSoundRef.current) {
-      toggleSoundRef.current.currentTime = 0
-      toggleSoundRef.current.play().catch((error) => console.error("Error playing toggle sound:", error))
+    // Lazy load toggle sound on first interaction
+    if (!toggleSoundRef.current) {
+      toggleSoundRef.current = new Audio(
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Computer%20Chirp%202-D1CqZh4bVXk20OAwebK2eytmorcFbO.wav",
+      )
+      toggleSoundRef.current.volume = 0.5
     }
+
+    toggleSoundRef.current.currentTime = 0
+    toggleSoundRef.current.play().catch((error) => console.error("Error playing toggle sound:", error))
     setIsSoundOn(!isSoundOn)
   }
 
