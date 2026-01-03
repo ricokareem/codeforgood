@@ -1,22 +1,22 @@
-import { render } from "@testing-library/react"
-import Hero from "@/components/hero"
-import { TestI18nProvider } from "../../test-utils/i18n-test-utils"
+import { describe, it, expect, mock } from "bun:test";
+import { render, screen } from "@testing-library/react";
+import Hero from "@/components/hero";
+import { TestI18nProvider } from "../../test-utils/i18n-test-utils";
 
-// Mock the framer-motion
-jest.mock("framer-motion", () => ({
+// Mock framer-motion - filter out motion-specific props
+mock.module("framer-motion", () => ({
   motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    div: ({ children, whileHover, whileTap, initial, animate, transition, variants, ...props }: any) => (
+      <div {...props}>{children}</div>
+    ),
   },
   useInView: () => true,
-}))
+}));
 
-// Mock next/image
-jest.mock("next/image", () => ({
-  __esModule: true,
-  default: (props: any) => {
-    return <img {...props} />
-  },
-}))
+// Mock next/image - filter out Next.js-specific props
+mock.module("next/image", () => ({
+  default: ({ fill, unoptimized, priority, ...props }: any) => <img {...props} />,
+}));
 
 // Mock translations
 const translations = {
@@ -44,33 +44,60 @@ const translations = {
         "Líder técnico que defiende prácticas de ingeniería sostenibles a través de la empatía y la colaboración. Sobresalgo en fomentar entornos de equipo donde la comunicación abierta impulsa la innovación y la inclusividad permite el mejor trabajo de todos.",
     },
   },
-}
+};
 
 describe("Hero Component", () => {
   it("renders correctly in English", () => {
-    const { container } = render(
+    render(
       <TestI18nProvider language="en" resources={translations}>
         <Hero />
       </TestI18nProvider>,
-    )
-    expect(container).toMatchSnapshot()
-  })
+    );
+
+    // Verify static content
+    expect(screen.getByText("RICO COLLINS")).toBeDefined();
+
+    // Verify translated content
+    expect(
+      screen.getByText("EXPERIENCED FULL STACK & MOBILE ENGINEER"),
+    ).toBeDefined();
+    expect(screen.getByText(/Technical leader who champions/)).toBeDefined();
+
+    // Verify contact info
+    expect(screen.getByText("hello.world@codeforgood.com")).toBeDefined();
+    expect(screen.getByText("www.linkedin.com/in/ricocollins")).toBeDefined();
+    expect(
+      screen.getByText("Los Angeles, California, United States"),
+    ).toBeDefined();
+  });
 
   it("renders correctly in German", () => {
-    const { container } = render(
+    render(
       <TestI18nProvider language="de" resources={translations}>
         <Hero />
       </TestI18nProvider>,
-    )
-    expect(container).toMatchSnapshot()
-  })
+    );
+
+    expect(screen.getByText("RICO COLLINS")).toBeDefined();
+    expect(
+      screen.getByText("ERFAHRENER FULL-STACK- UND MOBILE-INGENIEUR"),
+    ).toBeDefined();
+    expect(
+      screen.getByText(/Technischer Leiter, der nachhaltige/),
+    ).toBeDefined();
+  });
 
   it("renders correctly in Spanish", () => {
-    const { container } = render(
+    render(
       <TestI18nProvider language="es" resources={translations}>
         <Hero />
       </TestI18nProvider>,
-    )
-    expect(container).toMatchSnapshot()
-  })
-})
+    );
+
+    expect(screen.getByText("RICO COLLINS")).toBeDefined();
+    expect(
+      screen.getByText("INGENIERO EXPERIMENTADO EN FULL STACK Y MÓVIL"),
+    ).toBeDefined();
+    expect(screen.getByText(/Líder técnico que defiende/)).toBeDefined();
+  });
+});
