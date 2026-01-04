@@ -22,6 +22,16 @@ interface ExperienceCarouselProps {
   playHoverSound: () => void;
 }
 
+interface CarouselNavigationProps {
+  experiences: Experience[];
+  currentIndex: number;
+  onPrevious: () => void;
+  onNext: () => void;
+  onDotClick: (index: number) => void;
+  canGoPrevious: boolean;
+  canGoNext: boolean;
+}
+
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
@@ -47,6 +57,97 @@ const cardVariants = {
   }),
 };
 
+function CarouselNavigation({
+  experiences,
+  currentIndex,
+  onPrevious,
+  onNext,
+  onDotClick,
+  canGoPrevious,
+  canGoNext,
+}: CarouselNavigationProps) {
+  return (
+    <div className="flex flex-col items-center gap-3 mt-4">
+      {/* Navigation row - centered with arrows and dots */}
+      <div className="flex items-center justify-center gap-4">
+        {/* Previous button */}
+        <motion.button
+          onClick={onPrevious}
+          disabled={!canGoPrevious}
+          className="w-9 h-9 min-w-[44px] min-h-[44px] rounded-full bg-muted flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed touch-feedback"
+          whileTap={{ scale: 0.95 }}
+          aria-label="Previous experience"
+        >
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </motion.button>
+
+        {/* Pagination dots */}
+        <div className="flex items-center gap-2">
+          {experiences.map((exp, index) => (
+            <motion.button
+              key={index}
+              onClick={() => onDotClick(index)}
+              className="w-2 h-2 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center touch-feedback"
+              whileTap={{ scale: 0.8 }}
+              aria-label={`Go to experience ${index + 1}`}
+              aria-current={index === currentIndex ? "true" : "false"}
+            >
+              <span
+                className="w-2 h-2 rounded-full transition-all duration-200"
+                style={{
+                  backgroundColor:
+                    index === currentIndex ? exp.color : "hsl(var(--muted))",
+                  transform: index === currentIndex ? "scale(1.4)" : "scale(1)",
+                }}
+              />
+            </motion.button>
+          ))}
+        </div>
+
+        {/* Next button */}
+        <motion.button
+          onClick={onNext}
+          disabled={!canGoNext}
+          className="w-9 h-9 min-w-[44px] min-h-[44px] rounded-full bg-muted flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed touch-feedback"
+          whileTap={{ scale: 0.95 }}
+          aria-label="Next experience"
+        >
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </motion.button>
+      </div>
+
+      {/* Swipe hint */}
+      <p className="text-center text-xs text-muted-foreground">
+        Swipe or tap to navigate
+      </p>
+    </div>
+  );
+}
+
 export default function ExperienceCarousel({
   experiences,
   onHover,
@@ -67,7 +168,16 @@ export default function ExperienceCarousel({
     }
   };
 
-  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+  const goToIndex = (index: number) => {
+    const dir = index > currentIndex ? 1 : -1;
+    setPage([index, dir]);
+    playHoverSound();
+  };
+
+  const handleDragEnd = (
+    _: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => {
     const swipe = swipePower(info.offset.x, info.velocity.x);
 
     if (swipe < -swipeConfidenceThreshold) {
@@ -84,7 +194,7 @@ export default function ExperienceCarousel({
   return (
     <div className="relative" ref={containerRef}>
       {/* Carousel container */}
-      <div className="overflow-hidden relative min-h-[280px]">
+      <div className="overflow-hidden relative min-h-[400px]">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
             key={currentIndex}
@@ -107,7 +217,9 @@ export default function ExperienceCarousel({
             <div
               className={`professional-card p-6 rounded-xl h-full transition-all duration-300 touch-feedback`}
               style={{
-                borderColor: isHighlightedFromSkill ? currentExp.color : undefined,
+                borderColor: isHighlightedFromSkill
+                  ? currentExp.color
+                  : undefined,
                 backgroundColor: isHighlightedFromSkill
                   ? `${currentExp.color}15`
                   : undefined,
@@ -170,60 +282,16 @@ export default function ExperienceCarousel({
         </AnimatePresence>
       </div>
 
-      {/* Navigation arrows */}
-      <div className="flex justify-between items-center mt-4 px-2">
-        <motion.button
-          onClick={() => paginate(-1)}
-          disabled={currentIndex === 0}
-          className="w-10 h-10 rounded-full bg-muted flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed touch-feedback"
-          whileTap={{ scale: 0.95 }}
-          aria-label="Previous experience"
-        >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </motion.button>
-
-        {/* Pagination dots */}
-        <div className="flex items-center gap-2">
-          {experiences.map((exp, index) => (
-            <motion.button
-              key={index}
-              onClick={() => {
-                const dir = index > currentIndex ? 1 : -1;
-                setPage([index, dir]);
-                playHoverSound();
-              }}
-              className="w-2.5 h-2.5 rounded-full transition-all duration-200 touch-feedback"
-              style={{
-                backgroundColor:
-                  index === currentIndex ? exp.color : "hsl(var(--muted))",
-                transform: index === currentIndex ? "scale(1.3)" : "scale(1)",
-              }}
-              whileTap={{ scale: 0.8 }}
-              aria-label={`Go to experience ${index + 1}`}
-              aria-current={index === currentIndex ? "true" : "false"}
-            />
-          ))}
-        </div>
-
-        <motion.button
-          onClick={() => paginate(1)}
-          disabled={currentIndex === experiences.length - 1}
-          className="w-10 h-10 rounded-full bg-muted flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed touch-feedback"
-          whileTap={{ scale: 0.95 }}
-          aria-label="Next experience"
-        >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </motion.button>
-      </div>
-
-      {/* Swipe hint - shows briefly on first visit */}
-      <p className="text-center text-xs text-muted-foreground mt-3">
-        Swipe or tap dots to navigate
-      </p>
+      {/* Extracted Navigation Component */}
+      <CarouselNavigation
+        experiences={experiences}
+        currentIndex={currentIndex}
+        onPrevious={() => paginate(-1)}
+        onNext={() => paginate(1)}
+        onDotClick={goToIndex}
+        canGoPrevious={currentIndex > 0}
+        canGoNext={currentIndex < experiences.length - 1}
+      />
     </div>
   );
 }
