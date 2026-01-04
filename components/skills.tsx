@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { useRef, useEffect, useState } from "react";
+import { useMobile } from "@/hooks/use-mobile";
+import SkillCloud from "./skill-cloud";
 
 type Skill = {
   name: string;
@@ -28,12 +30,13 @@ export default function Skills({
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [audioLoaded, setAudioLoaded] = useState(false);
   const [skillsLabel, setSkillsLabel] = useState("");
+  const isMobile = useMobile();
 
   useEffect(() => {
     audioRef.current = new Audio(
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Spacey%20Cricket%20Click-DlSLodgcdvrAjUskn7lVAFDf0DUxqC.wav"
     );
-    audioRef.current.volume = 0.3; // Lower volume for hover sounds
+    audioRef.current.volume = 0.3;
 
     audioRef.current.addEventListener("canplaythrough", () => {
       setAudioLoaded(true);
@@ -59,7 +62,6 @@ export default function Skills({
       audioRef.current.currentTime = 0;
       audioRef.current
         .play()
-        .then(() => console.log("Hover audio played successfully"))
         .catch((e) => console.error("Audio play failed:", e));
     }
   };
@@ -115,39 +117,53 @@ export default function Skills({
       <h2 className="md:text-5xl mb-12">
         <span className="text-4xl figure-heading">{skillsLabel}</span>
       </h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            className="group relative cursor-pointer"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
-            onMouseEnter={() => handleSkillHover(skill.name)}
-            onMouseLeave={onSkillHoverEnd}
-          >
-            <div
-              className="professional-card p-3 rounded-lg relative transition-all duration-200"
-              style={{
-                backgroundColor: highlightedSkills.includes(skill.name)
-                  ? highlightColor
-                  : undefined,
-              }}
+
+      {isMobile ? (
+        // Mobile: Skill cloud view
+        <SkillCloud
+          skills={skills}
+          highlightedSkills={highlightedSkills}
+          highlightColor={highlightColor}
+          onSkillHover={onSkillHover}
+          onSkillHoverEnd={onSkillHoverEnd}
+          playHoverSound={playHoverSound}
+        />
+      ) : (
+        // Desktop: Grid view
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              className="group relative cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              onMouseEnter={() => handleSkillHover(skill.name)}
+              onMouseLeave={onSkillHoverEnd}
             >
-              <span
-                className="text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis transition-colors duration-200"
+              <div
+                className="professional-card p-3 rounded-lg relative transition-all duration-200"
                 style={{
-                  color: highlightedSkills.includes(skill.name)
-                    ? "white"
+                  backgroundColor: highlightedSkills.includes(skill.name)
+                    ? highlightColor
                     : undefined,
                 }}
               >
-                {skill.name}
-              </span>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+                <span
+                  className="text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis transition-colors duration-200"
+                  style={{
+                    color: highlightedSkills.includes(skill.name)
+                      ? "white"
+                      : undefined,
+                  }}
+                >
+                  {skill.name}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

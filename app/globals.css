@@ -163,3 +163,100 @@ body {
   background: none !important;
   transform: none !important;
 }
+
+/* ==========================================
+   NATIVE APP MOBILE ENHANCEMENTS
+   ========================================== */
+
+/* Touch feedback - removes blue highlight, adds tactile response */
+.touch-feedback {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.touch-feedback:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease-out;
+}
+
+/* iOS momentum scrolling */
+.scroll-momentum {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Safe areas for iPhone notch and home indicator */
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+.safe-left {
+  padding-left: env(safe-area-inset-left, 0);
+}
+
+.safe-right {
+  padding-right: env(safe-area-inset-right, 0);
+}
+
+/* Prevent text selection on interactive elements */
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Smooth transitions for mobile */
+@media (max-width: 768px) {
+  /* Disable hover effects on touch devices */
+  .professional-card:hover {
+    transform: none;
+  }
+
+  /* Smoother scrolling */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Reduce motion for battery/performance */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Improve touch targets */
+@media (pointer: coarse) {
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent pull-to-refresh on overscroll */
+body {
+  overscroll-behavior-y: contain;
+}
+
+/* Hide scrollbar on mobile for cleaner look */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

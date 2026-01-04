@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import Modal from "./modal";
 import { useTranslation } from "react-i18next";
+import { useMobile } from "@/hooks/use-mobile";
+import ExperienceCarousel from "./experience-carousel";
 
 export default function Experience({
   onHover,
@@ -34,6 +36,7 @@ export default function Experience({
   const [audioLoaded, setAudioLoaded] = useState(false);
   const [experienceLabel, setExperienceLabel] = useState("");
   const [moreLabel, setMoreLabel] = useState("");
+  const isMobile = useMobile();
 
   useEffect(() => {
     setExperienceLabel(t("experience"));
@@ -242,73 +245,95 @@ export default function Experience({
     }
   };
 
+  // Handler for carousel to trigger hover state
+  const handleCarouselHover = (skills: string[], color: string) => {
+    if (!selectedExperience) {
+      onHover(skills, color);
+    }
+  };
+
   return (
     <section id="experience" ref={ref} className="py-20">
       <div className="container mx-auto px-6">
         <h2 className="md:text-5xl mb-12">
           <span className="text-4xl figure-heading">{experienceLabel}</span>
         </h2>
-        <div className="space-y-6">
-          <AnimatePresence>
-            {experiences.map((exp, index) => {
-              const isHighlightedFromSkill =
-                highlightedFromSkill &&
-                exp.skills.includes(highlightedFromSkill);
 
-              return (
-                <motion.div
-                  key={index}
-                  className={`professional-card p-6 rounded-xl cursor-pointer transition-all duration-300 ${
-                    activeExperience === exp ? "ring-2 ring-blue-500" : ""
-                  }`}
-                  style={{
-                    borderColor: isHighlightedFromSkill ? exp.color : undefined,
-                    backgroundColor: isHighlightedFromSkill
-                      ? `${exp.color}15`
-                      : undefined,
-                    transform: isHighlightedFromSkill
-                      ? "translateY(-2px)"
-                      : undefined,
-                    boxShadow: isHighlightedFromSkill
-                      ? `0 8px 25px ${exp.color}25`
-                      : undefined,
-                  }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={
-                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                  }
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  onClick={() => handleExperienceClick(exp)}
-                  onMouseEnter={() => handleExperienceHover(exp)}
-                  onMouseLeave={handleExperienceHoverEnd}
-                  onFocus={() => handleExperienceHover(exp)}
-                  onBlur={handleExperienceHoverEnd}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      handleExperienceClick(exp);
+        {isMobile ? (
+          // Mobile: Carousel view
+          <ExperienceCarousel
+            experiences={experiences}
+            onHover={handleCarouselHover}
+            onHoverEnd={handleExperienceHoverEnd}
+            onClick={handleExperienceClick}
+            highlightedFromSkill={highlightedFromSkill}
+            moreLabel={moreLabel}
+            playHoverSound={playHoverSound}
+          />
+        ) : (
+          // Desktop: Stacked cards view
+          <div className="space-y-6">
+            <AnimatePresence>
+              {experiences.map((exp, index) => {
+                const isHighlightedFromSkill =
+                  highlightedFromSkill &&
+                  exp.skills.includes(highlightedFromSkill);
+
+                return (
+                  <motion.div
+                    key={index}
+                    className={`professional-card p-6 rounded-xl cursor-pointer transition-all duration-300 ${
+                      activeExperience === exp ? "ring-2 ring-blue-500" : ""
+                    }`}
+                    style={{
+                      borderColor: isHighlightedFromSkill ? exp.color : undefined,
+                      backgroundColor: isHighlightedFromSkill
+                        ? `${exp.color}15`
+                        : undefined,
+                      transform: isHighlightedFromSkill
+                        ? "translateY(-2px)"
+                        : undefined,
+                      boxShadow: isHighlightedFromSkill
+                        ? `0 8px 25px ${exp.color}25`
+                        : undefined,
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
                     }
-                  }}
-                >
-                  <h3 className="text-xl font-semibold mb-2 figure-subheading">
-                    {exp.title}
-                  </h3>
-                  <p className="figure-subheading mb-3 font-medium">
-                    {exp.company} | {exp.period}
-                  </p>
-                  <p className="figure-text">
-                    {exp.description[0].slice(0, 150)}...
-                    <span className="text-blue-500 hover:text-blue-600 ml-1 font-medium">
-                      {moreLabel}
-                    </span>
-                  </p>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </div>
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    onClick={() => handleExperienceClick(exp)}
+                    onMouseEnter={() => handleExperienceHover(exp)}
+                    onMouseLeave={handleExperienceHoverEnd}
+                    onFocus={() => handleExperienceHover(exp)}
+                    onBlur={handleExperienceHoverEnd}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        handleExperienceClick(exp);
+                      }
+                    }}
+                  >
+                    <h3 className="text-xl font-semibold mb-2 figure-subheading">
+                      {exp.title}
+                    </h3>
+                    <p className="figure-subheading mb-3 font-medium">
+                      {exp.company} | {exp.period}
+                    </p>
+                    <p className="figure-text">
+                      {exp.description[0].slice(0, 150)}...
+                      <span className="text-blue-500 hover:text-blue-600 ml-1 font-medium">
+                        {moreLabel}
+                      </span>
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </div>
+        )}
       </div>
       {selectedExperience && (
         <Modal experience={selectedExperience} onClose={handleModalClose} />
