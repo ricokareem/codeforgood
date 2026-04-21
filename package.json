@@ -2,6 +2,7 @@
   "name": "codeforgood",
   "version": "0.1.0",
   "private": true,
+  "trustedDependencies": [],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

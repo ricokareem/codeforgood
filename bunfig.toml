@@ -1,2 +1,27 @@
+# ============================================================
+# BUN CONFIGURATION
+# ============================================================
+# Documentation: https://bun.sh/docs/runtime/bunfig
+
+# ============================================================
+# SUPPLY CHAIN ATTACK PROTECTION
+# ============================================================
+#
+# Protects against:
+# - Flash attacks (malicious packages caught within hours)
+# - Postinstall script malware (steals .env files, installs backdoors)
+
+[install]
+# Only install packages released at least 3 days ago
+# Protects against "flash" malicious releases (like Axios attack)
+min-release-age = 259200  # 3 days (72 hours) in seconds
+
+# Block all postinstall/preinstall lifecycle scripts by default
+# Only allow scripts from packages in package.json "trustedDependencies"
+disable-lifecycle-scripts = true
+
+# ============================================================
+# TESTING CONFIGURATION
+# ============================================================
 [test]
 preload = ["./test-utils/bun-setup.ts"]
