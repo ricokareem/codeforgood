@@ -1,68 +1,32 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import { useTypedInView } from "@/hooks/use-typed-in-view";
+import { AUDIO_URLS } from "@/lib/audio";
 
 export default function Projects({ isSoundOn }: { isSoundOn: boolean }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref as unknown as React.RefObject<Element>, { once: true, amount: 0.2 });
+  const { ref, isInView } = useTypedInView({ once: true, amount: 0.2 });
   const { t } = useTranslation("translation");
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [projectsLabel, setProjectsLabel] = useState("");
-  const [viewProjectLabel, setViewProjectLabel] = useState("");
-  const [projects, setProjects] = useState<Array<{
-    title: string;
-    description: string;
-    image: string;
-    link: string;
-    altText: string;
-  }>>([]);
 
   useEffect(() => {
-    audioRef.current = new Audio(
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Spacey%20Cricket%20Click-DlSLodgcdvrAjUskn7lVAFDf0DUxqC.wav"
-    );
-    audioRef.current.volume = 0.5;
+    if (!isSoundOn) return;
+
+    if (!audioRef.current) {
+      audioRef.current = new Audio(AUDIO_URLS.hoverClick);
+      audioRef.current.volume = 0.5;
+    }
 
     return () => {
       if (audioRef.current) {
         audioRef.current.remove();
+        audioRef.current = null;
       }
     };
-  }, []);
-
-  useEffect(() => {
-    setProjectsLabel(t("projects"));
-    setViewProjectLabel(t("viewProject"));
-    setProjects([
-      {
-        title: t("project1.title"),
-        description: t("project1.description"),
-        image:
-          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fender-play-2-5ij4cFMYlbyfhxTs370U7yNkmwQ57I.gif",
-        link: "https://www.fender.com/play",
-        altText: t("project1.altText"),
-      },
-      {
-        title: t("project2.title"),
-        description: t("project2.description"),
-        image:
-          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/slingshot-laboratory-a3MSO5bP5mYS6qWby0toQCdgC4xuEE.gif",
-        link: "https://www.slingshot.space/solutions/applications#laboratory",
-        altText: t("project2.altText"),
-      },
-      {
-        title: t("project3.title"),
-        description: t("project3.description"),
-        image:
-          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/conan-classic-3-U8w9fl0h7o70wQh7v0Y64ZEnv8cV1s.gif",
-        link: "https://conanclassic.com",
-        altText: t("project3.altText"),
-      },
-    ]);
-  }, [t]);
+  }, [isSoundOn]);
 
   const playHoverSound = () => {
     if (audioRef.current && isSoundOn) {
@@ -73,6 +37,33 @@ export default function Projects({ isSoundOn }: { isSoundOn: boolean }) {
     }
   };
 
+  const projects = [
+    {
+      title: t("project1.title"),
+      description: t("project1.description"),
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fender-play-2-5ij4cFMYlbyfhxTs370U7yNkmwQ57I.gif",
+      link: "https://www.fender.com/play",
+      altText: t("project1.altText"),
+    },
+    {
+      title: t("project2.title"),
+      description: t("project2.description"),
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/slingshot-laboratory-a3MSO5bP5mYS6qWby0toQCdgC4xuEE.gif",
+      link: "https://www.slingshot.space/solutions/applications#laboratory",
+      altText: t("project2.altText"),
+    },
+    {
+      title: t("project3.title"),
+      description: t("project3.description"),
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/conan-classic-3-U8w9fl0h7o70wQh7v0Y64ZEnv8cV1s.gif",
+      link: "https://conanclassic.com",
+      altText: t("project3.altText"),
+    },
+  ];
+
   return (
     <section
       id="projects"
@@ -81,7 +72,7 @@ export default function Projects({ isSoundOn }: { isSoundOn: boolean }) {
     >
       <div className="container mx-auto px-6">
         <h2 className="md:text-5xl mb-12">
-          <span className="text-4xl figure-heading">{projectsLabel}</span>
+          <span className="text-4xl figure-heading">{t("projects")}</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
@@ -114,7 +105,7 @@ export default function Projects({ isSoundOn }: { isSoundOn: boolean }) {
                   rel="noopener noreferrer"
                   className="figure-button inline-block text-center"
                 >
-                  {viewProjectLabel}
+                  {t("viewProject")}
                 </a>
               </div>
             </motion.div>

@@ -1,53 +1,31 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useTypedInView } from "@/hooks/use-typed-in-view";
+import { AUDIO_URLS } from "@/lib/audio";
 
 export default function Community({ isSoundOn }: { isSoundOn: boolean }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref as unknown as React.RefObject<Element>, { once: true, amount: 0.2 });
+  const { ref, isInView } = useTypedInView({ once: true, amount: 0.2 });
   const { t } = useTranslation("translation");
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [communityTitle, setCommunityTitle] = useState("");
-  const [communityItems, setCommunityItems] = useState<Array<{
-    title: string;
-    description: string;
-    link?: string;
-  }>>([]);
 
   useEffect(() => {
-    audioRef.current = new Audio(
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Spacey%20Cricket%20Click-DlSLodgcdvrAjUskn7lVAFDf0DUxqC.wav"
-    );
-    audioRef.current.volume = 0.5;
+    if (!isSoundOn) return;
+
+    if (!audioRef.current) {
+      audioRef.current = new Audio(AUDIO_URLS.hoverClick);
+      audioRef.current.volume = 0.5;
+    }
 
     return () => {
       if (audioRef.current) {
         audioRef.current.remove();
+        audioRef.current = null;
       }
     };
-  }, []);
-
-  useEffect(() => {
-    setCommunityTitle(t("community.title"));
-    setCommunityItems([
-      {
-        title: t("community.item1.title"),
-        description: t("community.item1.description"),
-      },
-      {
-        title: t("community.item2.title"),
-        description: t("community.item2.description"),
-        link: "https://www.meetup.com/Gay-Geeks-Gay-and-Lesbian-Software-Developers",
-      },
-      {
-        title: t("community.item3.title"),
-        description: t("community.item3.description"),
-        link: "https://www.smpride.com/",
-      },
-    ]);
-  }, [t]);
+  }, [isSoundOn]);
 
   const playHoverSound = () => {
     if (audioRef.current && isSoundOn) {
@@ -58,6 +36,23 @@ export default function Community({ isSoundOn }: { isSoundOn: boolean }) {
     }
   };
 
+  const communityItems = [
+    {
+      title: t("community.item1.title"),
+      description: t("community.item1.description"),
+    },
+    {
+      title: t("community.item2.title"),
+      description: t("community.item2.description"),
+      link: "https://www.meetup.com/Gay-Geeks-Gay-and-Lesbian-Software-Developers",
+    },
+    {
+      title: t("community.item3.title"),
+      description: t("community.item3.description"),
+      link: "https://www.smpride.com/",
+    },
+  ];
+
   return (
     <section
       id="community"
@@ -67,7 +62,7 @@ export default function Community({ isSoundOn }: { isSoundOn: boolean }) {
       <div className="container mx-auto px-6">
         <h2 className="md:text-5xl mb-12">
           <span className="text-4xl figure-heading">
-            {communityTitle}
+            {t("community.title")}
           </span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

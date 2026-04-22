@@ -15,7 +15,23 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Rico Rodriquez Collins - Full Stack & Mobile Engineer",
-  description: "Experienced Full Stack & Mobile Engineer portfolio",
+  description:
+    "Technical leader who champions sustainable engineering practices through empathy and collaboration. Full Stack & Mobile Engineer with expertise in React, TypeScript, Ruby on Rails, and Swift.",
+  metadataBase: new URL("https://www.codeforgood.com"),
+  openGraph: {
+    title: "Rico Rodriquez Collins - Full Stack & Mobile Engineer",
+    description:
+      "Technical leader who champions sustainable engineering practices through empathy and collaboration.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rico Rodriquez Collins - Full Stack & Mobile Engineer",
+    description:
+      "Technical leader who champions sustainable engineering practices through empathy and collaboration.",
+    creator: "@ricokareem",
+  },
 }
 
 export default function RootLayout({
@@ -29,7 +45,9 @@ export default function RootLayout({
         <body className={`${inter.variable} ${inter.className}`}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             {children}
-            <GoogleAnalytics gaId="G-K5XKE6L8VJ" />
+            {process.env.NEXT_PUBLIC_GA_ID && (
+              <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+            )}
             <SpeedInsights />
           </ThemeProvider>
         </body>

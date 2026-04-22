@@ -1,32 +1,31 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
+import { useTypedInView } from "@/hooks/use-typed-in-view";
+import { AUDIO_URLS } from "@/lib/audio";
 
 export default function Education({ isSoundOn }: { isSoundOn: boolean }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref as unknown as React.RefObject<Element>, { once: true, amount: 0.2 });
+  const { ref, isInView } = useTypedInView({ once: true, amount: 0.2 });
   const { t } = useTranslation("translation");
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [educationLabel, setEducationLabel] = useState("");
 
   useEffect(() => {
-    audioRef.current = new Audio(
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Spacey%20Cricket%20Click-DlSLodgcdvrAjUskn7lVAFDf0DUxqC.wav"
-    );
-    audioRef.current.volume = 0.5;
+    if (!isSoundOn) return;
+
+    if (!audioRef.current) {
+      audioRef.current = new Audio(AUDIO_URLS.hoverClick);
+      audioRef.current.volume = 0.5;
+    }
 
     return () => {
       if (audioRef.current) {
         audioRef.current.remove();
+        audioRef.current = null;
       }
     };
-  }, []);
-
-  useEffect(() => {
-    setEducationLabel(t("education"));
-  }, [t]);
+  }, [isSoundOn]);
 
   const playHoverSound = () => {
     if (audioRef.current && isSoundOn) {
@@ -53,7 +52,7 @@ export default function Education({ isSoundOn }: { isSoundOn: boolean }) {
     <section id="education" className="py-20 bg-background" ref={ref}>
       <div className="container mx-auto px-6">
         <h2 className="md:text-5xl mb-12">
-          <span className="text-4xl figure-heading">{educationLabel} </span>
+          <span className="text-4xl figure-heading">{t("education")} </span>
         </h2>
         <div className="space-y-6">
           {educations.map((edu, index) => (

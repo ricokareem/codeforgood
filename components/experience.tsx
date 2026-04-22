@@ -1,11 +1,15 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Modal from "./modal";
 import { useTranslation } from "react-i18next";
 import { useMobile } from "@/hooks/use-mobile";
+import { useTypedInView } from "@/hooks/use-typed-in-view";
 import ExperienceCarousel from "./experience-carousel";
+import { buildExperiences } from "@/lib/experiences";
+import { AUDIO_URLS } from "@/lib/audio";
+import type { Experience as ExperienceType } from "@/types";
 
 export default function Experience({
   onHover,
@@ -22,51 +26,48 @@ export default function Experience({
   highlightedFromSkill: string;
   isSoundOn: boolean;
 }) {
-  const ref = useRef(null);
+  const { ref, isInView } = useTypedInView({ once: true, amount: 0.2 });
   const hoverAudioRef = useRef<HTMLAudioElement | null>(null);
   const modalAudioRef = useRef<HTMLAudioElement | null>(null);
-  const isInView = useInView(ref as unknown as React.RefObject<Element>, { once: true, amount: 0.2 });
-  const [selectedExperience, setSelectedExperience] = useState<
-    (typeof experiences)[0] | null
-  >(null);
-  const [activeExperience, setActiveExperience] = useState<
-    (typeof experiences)[0] | null
-  >(null);
+  const [selectedExperience, setSelectedExperience] =
+    useState<ExperienceType | null>(null);
+  const [activeExperience, setActiveExperience] =
+    useState<ExperienceType | null>(null);
   const { t } = useTranslation("translation");
   const [audioLoaded, setAudioLoaded] = useState(false);
-  const [experienceLabel, setExperienceLabel] = useState("");
-  const [moreLabel, setMoreLabel] = useState("");
   const isMobile = useMobile();
 
-  useEffect(() => {
-    setExperienceLabel(t("experience"));
-    setMoreLabel(t("more"));
-  }, [t]);
+  const experiences = buildExperiences(t);
 
+  // Only load audio when sound is enabled
   useEffect(() => {
-    // Create audio elements
-    hoverAudioRef.current = new Audio(
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Spacey%20Cricket%20Click-DlSLodgcdvrAjUskn7lVAFDf0DUxqC.wav"
-    );
-    modalAudioRef.current = new Audio(
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Plasma%20Blaster%20by%20BigDino1995-EoERfGPL2zXzASXAe7YgkPYneH4Dyi.wav"
-    );
-    hoverAudioRef.current.volume = 0.5;
-    modalAudioRef.current.volume = 0.5;
+    if (!isSoundOn) return;
 
-    hoverAudioRef.current.addEventListener("canplaythrough", () => {
-      setAudioLoaded(true);
-    });
+    if (!hoverAudioRef.current) {
+      hoverAudioRef.current = new Audio(AUDIO_URLS.hoverClick);
+      hoverAudioRef.current.volume = 0.5;
+      hoverAudioRef.current.addEventListener("canplaythrough", () => {
+        setAudioLoaded(true);
+      });
+    }
+
+    if (!modalAudioRef.current) {
+      modalAudioRef.current = new Audio(AUDIO_URLS.modalOpen);
+      modalAudioRef.current.volume = 0.5;
+    }
 
     return () => {
       if (hoverAudioRef.current) {
         hoverAudioRef.current.remove();
+        hoverAudioRef.current = null;
       }
       if (modalAudioRef.current) {
         modalAudioRef.current.remove();
+        modalAudioRef.current = null;
       }
+      setAudioLoaded(false);
     };
-  }, []);
+  }, [isSoundOn]);
 
   const playHoverSound = () => {
     if (hoverAudioRef.current && audioLoaded && isSoundOn) {
@@ -87,139 +88,7 @@ export default function Experience({
     }
   };
 
-  const experiences = [
-    {
-      title: t("experience1.title"),
-      company: t("experience1.company"),
-      period: t("experience1.period"),
-      description: [
-        t("experience1.description1"),
-        t("experience1.description2"),
-        t("experience1.description3"),
-        t("experience1.description4"),
-      ],
-      color: "#00B2FF",
-      skills: [
-        "JavaScript",
-        "TypeScript",
-        "React",
-        "Next.js",
-        "React Native",
-        "Remix",
-        "Enzyme",
-        "React Testing Library",
-        "Prisma ORM",
-        "Redis",
-        "Elasticsearch",
-        "AWS",
-        "PostgreSQL",
-        "Accessibility",
-        "ThreeJS",
-        "React Three Fiber",
-        "ReactVR",
-        "Zustand",
-        "Tanstack Query",
-        "Swift",
-        "UIKit",
-        "SwiftUI",
-        "Combine",
-        "Core Data",
-        "Ruby on Rails",
-        "Hotwire",
-        "Turbo",
-        "Stimulus",
-        "Strada",
-        "ViewComponents",
-        "RSpec",
-        "Docker",
-        "Python",
-        "Django",
-        "Flask",
-        "Numpy",
-        "Jupyter",
-      ],
-    },
-    {
-      title: t("experience2.title"),
-      company: t("experience2.company"),
-      period: t("experience2.period"),
-      description: [
-        t("experience2.description1"),
-        t("experience2.description2"),
-        t("experience2.description3"),
-      ],
-      color: "#FF647C",
-      skills: [
-        "JavaScript",
-        "React",
-        "TypeScript",
-        "Redux",
-        "Jest",
-        "KnockoutJS",
-        "Python",
-        "Flask",
-        "Django",
-        "Ruby on Rails",
-        "Redis",
-        "PostgreSQL",
-        "Accessibility",
-        "WCAG",
-        "Apollo GraphQL",
-      ],
-    },
-    {
-      title: t("experience3.title"),
-      company: t("experience3.company"),
-      period: t("experience3.period"),
-      description: [
-        t("experience3.description1"),
-        t("experience3.description2"),
-      ],
-      color: "#FFB800",
-      skills: [
-        "JavaScript",
-        "Node.js",
-        "Ruby on Rails",
-        "RSpec",
-        "Sinatra",
-        "MongoDB",
-        "Express.js",
-        "CMS Integration",
-      ],
-    },
-    {
-      title: t("experience4.title"),
-      company: t("experience4.company"),
-      period: t("experience4.period"),
-      description: [
-        t("experience4.description1"),
-        t("experience4.description2"),
-      ],
-      color: "#4ADE80",
-      skills: ["Build Automation", "Pipelines", "Version Control (CVS, SVN)"],
-    },
-    {
-      title: t("experience5.title"),
-      company: t("experience5.company"),
-      period: t("experience5.period"),
-      description: [
-        t("experience5.description1"),
-        t("experience5.description2"),
-      ],
-      color: "#FF647C",
-      skills: [
-        "Java",
-        "JSP",
-        "Maven",
-        "Jenkins",
-        "Continuous Integration",
-        "Project Management",
-        "ITIL",
-      ],
-    },
-  ];
-
-  const handleExperienceClick = (exp: (typeof experiences)[0]) => {
+  const handleExperienceClick = (exp: ExperienceType) => {
     setSelectedExperience(exp);
     setActiveExperience(exp);
     onClick(exp.skills, exp.color);
@@ -232,7 +101,7 @@ export default function Experience({
     onModalClose();
   };
 
-  const handleExperienceHover = (exp: (typeof experiences)[0]) => {
+  const handleExperienceHover = (exp: ExperienceType) => {
     if (!selectedExperience) {
       playHoverSound();
       onHover(exp.skills, exp.color);
@@ -245,7 +114,6 @@ export default function Experience({
     }
   };
 
-  // Handler for carousel to trigger hover state
   const handleCarouselHover = (skills: string[], color: string) => {
     if (!selectedExperience) {
       onHover(skills, color);
@@ -256,22 +124,20 @@ export default function Experience({
     <section id="experience" ref={ref} className="py-20">
       <div className="container mx-auto px-6">
         <h2 className="md:text-5xl mb-12">
-          <span className="text-4xl figure-heading">{experienceLabel}</span>
+          <span className="text-4xl figure-heading">{t("experience")}</span>
         </h2>
 
         {isMobile ? (
-          // Mobile: Carousel view
           <ExperienceCarousel
             experiences={experiences}
             onHover={handleCarouselHover}
             onHoverEnd={handleExperienceHoverEnd}
             onClick={handleExperienceClick}
             highlightedFromSkill={highlightedFromSkill}
-            moreLabel={moreLabel}
+            moreLabel={t("more")}
             playHoverSound={playHoverSound}
           />
         ) : (
-          // Desktop: Stacked cards view
           <div className="space-y-6">
             <AnimatePresence>
               {experiences.map((exp, index) => {
@@ -286,7 +152,9 @@ export default function Experience({
                       activeExperience === exp ? "ring-2 ring-blue-500" : ""
                     }`}
                     style={{
-                      borderColor: isHighlightedFromSkill ? exp.color : undefined,
+                      borderColor: isHighlightedFromSkill
+                        ? exp.color
+                        : undefined,
                       backgroundColor: isHighlightedFromSkill
                         ? `${exp.color}15`
                         : undefined,
@@ -299,7 +167,9 @@ export default function Experience({
                     }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={
-                      isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                      isInView
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: 0, y: 20 }
                     }
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -325,7 +195,7 @@ export default function Experience({
                     <p className="figure-text">
                       {exp.description[0].slice(0, 150)}...
                       <span className="text-blue-500 hover:text-blue-600 ml-1 font-medium">
-                        {moreLabel}
+                        {t("more")}
                       </span>
                     </p>
                   </motion.div>

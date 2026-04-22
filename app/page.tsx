@@ -8,6 +8,8 @@ import Experience from "@/components/experience"
 import Skills from "@/components/skills"
 import { Volume2, VolumeX, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
+import { EXPERIENCE_SKILLS } from "@/lib/experiences"
+import { AUDIO_URLS } from "@/lib/audio"
 
 // Lazy load below-the-fold components
 const Projects = dynamic(() => import("@/components/projects"), { ssr: true })
@@ -26,99 +28,13 @@ export default function Home() {
   const toggleSoundRef = useRef<HTMLAudioElement | null>(null)
   const { theme, setTheme } = useTheme()
 
-  // All experiences data for skill lookup
-  const experiences = [
-    {
-      color: "#00B2FF",
-      skills: [
-        "JavaScript",
-        "TypeScript",
-        "React",
-        "Next.js",
-        "React Native",
-        "Remix",
-        "Enzyme",
-        "React Testing Library",
-        "Prisma ORM",
-        "Redis",
-        "Elasticsearch",
-        "AWS",
-        "PostgreSQL",
-        "Accessibility",
-        "ThreeJS",
-        "React Three Fiber",
-        "ReactVR",
-        "Zustand",
-        "Tanstack Query",
-        "Swift",
-        "UIKit",
-        "SwiftUI",
-        "Combine",
-        "Core Data",
-        "Ruby on Rails",
-        "Hotwire",
-        "Turbo",
-        "Stimulus",
-        "Strada",
-        "ViewComponents",
-        "RSpec",
-        "Docker",
-        "Python",
-        "Django",
-        "Flask",
-        "Numpy",
-        "Jupyter",
-      ],
-    },
-    {
-      color: "#FF647C",
-      skills: [
-        "JavaScript",
-        "React",
-        "TypeScript",
-        "Redux",
-        "Jest",
-        "KnockoutJS",
-        "Python",
-        "Flask",
-        "Django",
-        "Ruby on Rails",
-        "Redis",
-        "PostgreSQL",
-        "Accessibility",
-        "WCAG",
-        "Apollo GraphQL",
-      ],
-    },
-    {
-      color: "#FFB800",
-      skills: [
-        "JavaScript",
-        "Node.js",
-        "Ruby on Rails",
-        "RSpec",
-        "Sinatra",
-        "MongoDB",
-        "Express.js",
-        "CMS Integration",
-      ],
-    },
-    {
-      color: "#4ADE80",
-      skills: ["Build Automation", "Pipelines", "Version Control (CVS, SVN)"],
-    },
-    {
-      color: "#FF647C",
-      skills: ["Java", "JSP", "Maven", "Jenkins", "Continuous Integration", "Project Management", "ITIL"],
-    },
-  ]
+  // Skill lookup uses the shared experience data
+  const experiences = EXPERIENCE_SKILLS;
 
   useEffect(() => {
     // Only load audio when sound is enabled
     if (isSoundOn && !audioRef.current) {
-      audioRef.current = new Audio(
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Computer%20Chirp%202-D1CqZh4bVXk2eytmorcFbO.wav",
-      )
+      audioRef.current = new Audio(AUDIO_URLS.ambientChirp)
       audioRef.current.volume = 0.5
       audioRef.current.play().catch((error) => console.error("Error playing sound:", error))
     }
@@ -134,9 +50,7 @@ export default function Home() {
   const toggleSound = () => {
     // Lazy load toggle sound on first interaction
     if (!toggleSoundRef.current) {
-      toggleSoundRef.current = new Audio(
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Computer%20Chirp%202-D1CqZh4bVXk20OAwebK2eytmorcFbO.wav",
-      )
+      toggleSoundRef.current = new Audio(AUDIO_URLS.toggleClick)
       toggleSoundRef.current.volume = 0.5
     }
 

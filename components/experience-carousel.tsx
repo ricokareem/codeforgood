@@ -2,15 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, PanInfo } from "framer-motion";
-
-interface Experience {
-  title: string;
-  company: string;
-  period: string;
-  description: string[];
-  color: string;
-  skills: string[];
-}
+import type { Experience } from "@/types";
 
 interface ExperienceCarouselProps {
   experiences: Experience[];

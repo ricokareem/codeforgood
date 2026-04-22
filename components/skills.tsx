@@ -5,11 +5,8 @@ import { useTranslation } from "next-i18next";
 import { useRef, useEffect, useState } from "react";
 import { useMobile } from "@/hooks/use-mobile";
 import SkillCloud from "./skill-cloud";
-
-type Skill = {
-  name: string;
-  color: string;
-};
+import { AUDIO_URLS } from "@/lib/audio";
+import type { Skill } from "@/types";
 
 type SkillsProps = {
   highlightedSkills: string[];
@@ -29,33 +26,32 @@ export default function Skills({
   const { t } = useTranslation("translation");
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [audioLoaded, setAudioLoaded] = useState(false);
-  const [skillsLabel, setSkillsLabel] = useState("");
   const isMobile = useMobile();
 
   useEffect(() => {
-    audioRef.current = new Audio(
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Spacey%20Cricket%20Click-DlSLodgcdvrAjUskn7lVAFDf0DUxqC.wav"
-    );
-    audioRef.current.volume = 0.3;
+    if (!isSoundOn) return;
 
-    audioRef.current.addEventListener("canplaythrough", () => {
-      setAudioLoaded(true);
-    });
+    if (!audioRef.current) {
+      audioRef.current = new Audio(AUDIO_URLS.hoverClick);
+      audioRef.current.volume = 0.3;
 
-    audioRef.current.addEventListener("error", (e) => {
-      console.error("Error loading audio file:", e);
-    });
+      audioRef.current.addEventListener("canplaythrough", () => {
+        setAudioLoaded(true);
+      });
+
+      audioRef.current.addEventListener("error", (e) => {
+        console.error("Error loading audio file:", e);
+      });
+    }
 
     return () => {
       if (audioRef.current) {
         audioRef.current.remove();
+        audioRef.current = null;
       }
+      setAudioLoaded(false);
     };
-  }, []);
-
-  useEffect(() => {
-    setSkillsLabel(t("skills"));
-  }, [t]);
+  }, [isSoundOn]);
 
   const playHoverSound = () => {
     if (audioRef.current && isSoundOn && audioLoaded) {
@@ -115,11 +111,10 @@ export default function Skills({
   return (
     <section id="skills" className="py-20">
       <h2 className="md:text-5xl mb-12">
-        <span className="text-4xl figure-heading">{skillsLabel}</span>
+        <span className="text-4xl figure-heading">{t("skills")}</span>
       </h2>
 
       {isMobile ? (
-        // Mobile: Skill cloud view
         <SkillCloud
           skills={skills}
           highlightedSkills={highlightedSkills}
@@ -129,7 +124,6 @@ export default function Skills({
           playHoverSound={playHoverSound}
         />
       ) : (
-        // Desktop: Grid view
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
           {skills.map((skill, index) => (
             <motion.div

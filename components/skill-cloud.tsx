@@ -2,11 +2,7 @@
 
 import { useMemo } from "react";
 import { motion } from "framer-motion";
-
-type Skill = {
-  name: string;
-  color: string;
-};
+import type { Skill } from "@/types";
 
 interface SkillCloudProps {
   skills: Skill[];

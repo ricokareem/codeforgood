@@ -1,18 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { Experience } from "@/types";
 
 export default function Modal({
   experience,
   onClose,
 }: {
-  experience: {
-    title: string;
-    company: string;
-    period: string;
-    description: string[];
-    color: string;
-  };
+  experience: Experience;
   onClose: () => void;
 }) {
   return (
